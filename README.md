@@ -1,5 +1,5 @@
 # RPi-Display
-2.8" TFT-Display (240x320) with Touchpanel for  Raspberry Pi.
+2.8" TFT-Display (240x320) with Touchpanel for Raspberry Pi.
 
 Shop: [RPi-Display](http://www.watterott.com/en/RPi-Display)
 
@@ -26,6 +26,8 @@ There is a [Linux Framebuffer driver (FBTFT)](https://github.com/notro/fbtft/wik
 
     To make it permant (on Debian) add to the file ```/etc/modules``` the following line:
     ```fbtft_device name=mi0283qt-9a cs=0 gpios=reset:23,led:18 rotate=90 speed=16000000```
+
+    *Note: For a higher speed than 16MHz the display has to be connected directly to the Raspberry Pi or with wires not longer than 5cm.*
 
 * [Activate Touchpanel](https://github.com/notro/fbtft/wiki/Touchpanel#watterott-mi0283qt-9a):
 

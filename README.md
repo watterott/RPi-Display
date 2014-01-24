@@ -18,12 +18,12 @@ There is a [Linux Framebuffer driver (FBTFT)](https://github.com/notro/fbtft/wik
     $ sudo chmod +x /usr/bin/rpi-update
     ```
 
-    Remove or comment out the spi blacklist line (spi-bcm2708):
+    Remove or comment out the SPI blacklist line (spi-bcm2708):
     ```
     $ sudo nano /etc/modprobe.d/raspi-blacklist.conf
     ```
 
-    Install FBTFT:
+    Start kernel update:
     ```
     $ sudo REPO_URI=https://github.com/notro/rpi-firmware rpi-update
     $ sudo shutdown -r now
@@ -59,6 +59,14 @@ There is a [Linux Framebuffer driver (FBTFT)](https://github.com/notro/fbtft/wik
     ads7846_device model=7846 cs=1 gpio_pendown=25 speed=2000000 keep_vref_on=1 swap_xy=1 pressure_max=255 x_plate_ohms=60 x_min=250 x_max=3780 y_min=160 y_max=3930
     ```
 
+* Enable for Console:
+
+    ```
+    $ con2fbmap 1 1
+    ```
+
+    To make it permanent (on Debian) add to the file ```/boot/cmdline.txt``` the following kernel argument: ```fbcon=map:11 fbcon=font:VGA8x8```
+
 * Enable for X-Window-System:
 
     ```
@@ -71,19 +79,21 @@ There is a [Linux Framebuffer driver (FBTFT)](https://github.com/notro/fbtft/wik
     $ DISPLAY=:0 xinput --set-prop 'ADS7846 Touchscreen' 'Evdev Axis Inversion' 1 0
     ```
 
-   *...to stop X-Window-System run:*
+    *...to stop X-Window-System run:*
 
     ```
-   $ sudo pkill x
+    $ sudo pkill x
     ```
 
-* Enable for Console:
+* Video Test:
 
     ```
-    $ con2fbmap 1 1
+    $ sudo apt-get install mplayer
+    $ wget http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4
+    $ mplayer -vo fbdev2:/dev/fb1 -vf scale=320:-3 BigBuckBunny_320x180.mp4
     ```
 
-    To make it permanent (on Debian) add to the file ```/boot/cmdline.txt``` the following kernel argument: ```fbcon=map:11 fbcon=font:VGA8x8```
+    *Note: The video file is about 60MB big.*
 
 
 ## Display Connection

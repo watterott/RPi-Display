@@ -85,6 +85,8 @@ There is a [Linux Framebuffer driver (FBTFT)](https://github.com/notro/fbtft/wik
     $ sudo pkill x
     ```
 
+    To make it permanent (on Debian) see [autostart x](https://github.com/notro/fbtft/wiki#wiki-make-it-permanent-debian) and [xinput axis inversion](https://github.com/notro/fbtft/wiki/Touchpanel#wiki--xinput---make-it-permanent).
+
 * Video Test:
 
     ```

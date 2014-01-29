@@ -65,7 +65,7 @@ There is a [Linux Framebuffer driver (FBTFT)](https://github.com/notro/fbtft/wik
     $ con2fbmap 1 1
     ```
 
-    To make it permanent (on Debian) add to the file ```/boot/cmdline.txt``` the following kernel argument: ```fbcon=map:11 fbcon=font:VGA8x8```
+    To make it permanent (on Debian) add to the file ```/boot/cmdline.txt``` at the end of the line the following kernel argument: ```fbcon=map:11 fbcon=font:VGA8x8```
 
 * Enable for X-Window-System:
 

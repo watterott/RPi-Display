@@ -6,6 +6,15 @@ Shop: [RPi-Display](http://www.watterott.com/en/RPi-Display)
 ![RPi-Display](https://raw.github.com/watterott/RPi-Display/master/img/rpi-display.jpg)
 
 
+## SD-Card Image
+Ready to run SD-Card image (Raspbian/Debian).
+Copy the image to a SD-Card with [dd](http://en.wikipedia.org/wiki/Dd_%28Unix%29) under Linux or [Win32-Disk-Imager](http://sourceforge.net/projects/win32diskimager/) under Windows.
+Further infos can be found [here](https://github.com/notro/fbtft/wiki/FBTFT-shield-image).
+
+* [Raspbian-FBTFT-RPi-Display](http://tronnes.org/fbtft/download.html)
+* Mirror: [Raspbian-FBTFT-RPi-Display](http://www.watterott.net/fbtft/2014-01-07-wheezy-raspbian-2014-02-03-fbtft-RPi-Display.zip)
+
+
 ## Linux Driver Installation
 
 There is a [Linux Framebuffer driver (FBTFT)](https://github.com/notro/fbtft/wiki) available for the display (MI0283QT-9) and the ADS7846 touch controller has also a Linux device driver.

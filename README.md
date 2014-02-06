@@ -7,7 +7,7 @@ Shop: [RPi-Display](http://www.watterott.com/en/RPi-Display)
 
 
 ## SD-Card Image
-Ready to run SD-Card image (Raspbian/Debian).
+Ready to run SD-Card image (Raspbian/Debian) for 2.8" RPi-Display.
 Copy the image to a SD-Card with [dd](http://en.wikipedia.org/wiki/Dd_%28Unix%29) under Linux or [Win32-Disk-Imager](http://sourceforge.net/projects/win32diskimager/) under Windows.
 Further infos can be found [here](https://github.com/notro/fbtft/wiki/FBTFT-shield-image).
 
@@ -17,9 +17,9 @@ Further infos can be found [here](https://github.com/notro/fbtft/wiki/FBTFT-shie
 
 ## Linux Driver Installation
 
-There is a [Linux Framebuffer driver (FBTFT)](https://github.com/notro/fbtft/wiki) available for the display (MI0283QT-9) and the ADS7846 touch controller has also a Linux device driver.
+There is a [Linux Framebuffer driver (FBTFT)](https://github.com/notro/fbtft/wiki) available for the MI0283QT-9 display (ILI9341) and the ADS7846 touch controller has also a Linux device driver.
 
-* [Install FBTFT](https://github.com/notro/fbtft/wiki#install) Framebuffer:
+* [Install FBTFT](https://github.com/notro/fbtft/wiki#wiki-install) Framebuffer:
 
     Install rpi-update for the kernel update:
     ```
@@ -44,7 +44,7 @@ There is a [Linux Framebuffer driver (FBTFT)](https://github.com/notro/fbtft/wik
     $ sudo apt-get install xinput evtest
     ```
 
-* [Activate Framebuffer](https://github.com/notro/fbtft/wiki#enable-driver):
+* [Activate Framebuffer](https://github.com/notro/fbtft/wiki#wiki-enable-driver):
 
     ```
     $ sudo modprobe fbtft_device name=mi0283qt-9a cs=0 gpios=reset:23,led:18 rotate=90 speed=16000000
@@ -57,7 +57,7 @@ There is a [Linux Framebuffer driver (FBTFT)](https://github.com/notro/fbtft/wik
 
     *Note: For a higher speed than 16MHz the display has to be connected directly to the Raspberry Pi or with wires not longer than 5cm.*
 
-* [Activate Touchpanel](https://github.com/notro/fbtft/wiki/Touchpanel#watterott-mi0283qt-9a):
+* [Activate Touchpanel](https://github.com/notro/fbtft/wiki/Touchpanel#wiki-watterott-mi0283qt-9a):
 
     ```
     $ sudo modprobe ads7846_device model=7846 cs=1 gpio_pendown=25 speed=2000000 keep_vref_on=1 swap_xy=1 pressure_max=255 x_plate_ohms=60 x_min=250 x_max=3780 y_min=160 y_max=3930

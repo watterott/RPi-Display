@@ -1,7 +1,10 @@
 # RPi-Display
-2.8" TFT-Display (240x320) with Touchpanel for Raspberry Pi.
+2.8" TFT-Display (320x240) with Touchpanel (ADS7846/TSC2046) for Raspberry Pi.
+The Display with Raspberry Pi fit in the popular TEK-Berry enclosure from Teko.
 
-Shop: [RPi-Display](http://www.watterott.com/en/RPi-Display)
+Shop:
+[RPi-Display](http://www.watterott.com/en/RPi-Display), 
+[TEK-Berry enclosure with cutout](http://www.watterott.com/index.php?page=search&page_action=query&desc=off&sdesc=on&keywords=RPi-Display)
 
 ![RPi-Display](https://raw.github.com/watterott/RPi-Display/master/img/rpi-display.jpg)
 

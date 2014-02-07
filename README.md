@@ -6,6 +6,8 @@ Shop:
 [RPi-Display](http://www.watterott.com/en/RPi-Display), 
 [TEK-Berry enclosure with cutout](http://www.watterott.com/index.php?page=search&page_action=query&desc=off&sdesc=on&keywords=RPi-Display)
 
+[Schematics + Layout](https://github.com/watterott/RPi-Display/tree/master/pcb)
+
 ![RPi-Display](https://raw.github.com/watterott/RPi-Display/master/img/rpi-display.jpg)
 
 

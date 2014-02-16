@@ -12,6 +12,7 @@ Shop:
 
 
 ## SD-Card Image
+
 Ready to run SD-Card image (Raspbian/Debian) for 2.8" RPi-Display.
 Copy the image to a SD-Card with [dd](http://en.wikipedia.org/wiki/Dd_%28Unix%29) under Linux or [Win32-Disk-Imager](http://sourceforge.net/projects/win32diskimager/) under Windows.
 Further infos can be found [here](https://github.com/notro/fbtft/wiki/FBTFT-shield-image).
@@ -52,12 +53,12 @@ There is a [Linux Framebuffer driver (FBTFT)](https://github.com/notro/fbtft/wik
 * [Activate Framebuffer](https://github.com/notro/fbtft/wiki#wiki-enable-driver):
 
     ```
-    $ sudo modprobe fbtft_device name=mi0283qt-9a cs=0 gpios=reset:23,led:18 rotate=90 speed=16000000
+    $ sudo modprobe fbtft_device name=mi0283qt-9a cs=0 gpios=reset:23,led:18 speed=16000000 rotate=270
     ```
 
     To make it permanent (on Debian) add to the file ```/etc/modules``` the following line:
     ```
-    fbtft_device name=mi0283qt-9a cs=0 gpios=reset:23,led:18 rotate=90 speed=16000000
+    fbtft_device name=mi0283qt-9a cs=0 gpios=reset:23,led:18 speed=16000000 rotate=270
     ```
 
     *Note: For a higher speed than 16MHz the display has to be connected directly to the Raspberry Pi or with wires not longer than 5cm.*
@@ -88,13 +89,11 @@ There is a [Linux Framebuffer driver (FBTFT)](https://github.com/notro/fbtft/wik
     ```
 
     *...wait till X-Window-System starts up...*
-
     ```
     $ DISPLAY=:0 xinput --set-prop 'ADS7846 Touchscreen' 'Evdev Axis Inversion' 1 0
     ```
 
     *...to stop X-Window-System run:*
-
     ```
     $ sudo pkill x
     ```
@@ -103,13 +102,23 @@ There is a [Linux Framebuffer driver (FBTFT)](https://github.com/notro/fbtft/wik
 
 * Video Test:
 
+    *Note: The video file is about 60MB big.*
+    ```
+    $ wget http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4
+    ```
+
+    Play with **mplayer**:
     ```
     $ sudo apt-get install mplayer
-    $ wget http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4
     $ mplayer -vo fbdev2:/dev/fb1 -vf scale=320:-3 BigBuckBunny_320x180.mp4
     ```
 
-    *Note: The video file is about 60MB big.*
+    Play with **omxplayer** (*fbcp* for framebuffer mirroring required):
+    ```
+    $ fbcp &
+    $ omxplayer BigBuckBunny_320x180.mp4
+    $ killall fbcp
+    ```
 
 
 ## Display Connection
@@ -119,6 +128,7 @@ Display  Raspberry Pi
 ---------------------
 LCD-LED  GPIO18
 LCD-RST  GPIO23
+LCD-DC   GPIO24 (Jumper IO24-RS)
 LCD-CS   GPIO8  (CE0)
 ADS-CS   GPIO7  (CE1)
 ADS-IRQ  GPIO25
@@ -128,13 +138,13 @@ SCK      GPIO11 (SCK)
 ```
 
 
-## Optional Switch or LDR (Light-Dependent-Resistor)
+### Optional Switch or LDR (Light-Dependent-Resistor)
 
 There are pads for an optional tactile switch or LDR sensor on the PCB with a connection to **GPIO22** of the Raspberry Pi.
-* Switch:
+* **Switch**
   * GPIO22 = 0 -> switch pressed
   * GPIO22 = 1 -> switch not pressed
-* LDR (VT93N1):
+* **LDR** (VT93N1)
   * GPIO22 = 0 -> bright light
   * GPIO22 = 1 -> low light
 
@@ -146,3 +156,24 @@ $ echo in > /sys/class/gpio/gpio22/direction
 $ exit
 $ cat /sys/class/gpio/gpio22/value
 ```
+
+
+### SPI Mode
+
+#### 8-Bit SPI
+Performance: about 20 FPS, 6% CPU usage
+* Jumper IM0 set to 0
+* Jumper IM1 set to 1
+* Jumper IO24-RS closed
+* FBTFT GPIO Parameter: ```gpios=reset:23,dc:24,led:18```
+* FBTFT SD-Card Image kernel argument (cmdline.txt): ```fbtft.dma fbtft_device.custom fbtft_device.name=fb_ili9341 fbtft_device.speed=32000000 fbtft_device.gpios=reset:23,dc:24,led:18 fbtft_device.rotate=270 fbtft_device.debug=0 fbtft_device.verbose=0```
+
+#### 9-Bit SPI (default)
+Performance: about 10 FPS, 65% CPU usage (Note: FBTFT has currently no DMA support for 9-Bit SPI)
+* Jumper IM0 set to 1
+* Jumper IM1 set to 0
+* Jumper IO24-RS opened
+* FBTFT GPIO Parameter: ```gpios=reset:23,led:18```
+* FBTFT image kernel argument (cmdline.txt): ```fbtft_device.name=mi0283qt-9a fbtft_device.speed=32000000 fbtft_device.gpios=reset:23,led:18 fbtft_device.rotate=270 fbtft_device.debug=0 fbtft_device.verbose=0```
+
+![SPI-Mode](https://raw.github.com/watterott/RPi-Display/master/img/spi-mode.jpg)

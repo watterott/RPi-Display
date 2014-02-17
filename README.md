@@ -163,7 +163,7 @@ Performance: about 20 FPS, <10% CPU usage
 * Jumper IM1 set to 1
 * Jumper IO24-RS closed
 * FBTFT GPIO Parameter: ```gpios=reset:23,dc:24,led:18```
-* FBTFT SD-Card Image kernel argument (cmdline.txt): ```fbtft.dma fbtft_device.custom fbtft_device.name=fb_ili9341 fbtft_device.speed=32000000 fbtft_device.gpios=reset:23,dc:24,led:18 fbtft_device.rotate=270 fbtft_device.debug=0 fbtft_device.verbose=0```
+* FBTFT SD-Card Image kernel argument (cmdline.txt): ```fbtft.dma fbtft_device.custom fbtft_device.name=fb_ili9341 fbtft_device.speed=32000000 fbtft_device.gpios=reset:23,dc:24,led:18 fbtft_device.bgr=1 fbtft_device.rotate=270 fbtft_device.debug=0 fbtft_device.verbose=0```
 
 #### 9-Bit SPI (default)
 Performance: about 10 FPS, 65% CPU usage (Note: FBTFT has currently no DMA support for 9-Bit SPI)

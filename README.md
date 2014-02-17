@@ -123,19 +123,17 @@ There is a [Linux Framebuffer driver (FBTFT)](https://github.com/notro/fbtft/wik
 
 ## Display Connection
 
-```
-Display  Raspberry Pi
----------------------
-LCD-LED  GPIO18
-LCD-RST  GPIO23
-LCD-DC   GPIO24 (Jumper IO24-RS)
-LCD-CS   GPIO8  (CE0)
-ADS-CS   GPIO7  (CE1)
-ADS-IRQ  GPIO25
-MISO     GPIO9  (MISO)
-MOSI     GPIO10 (MOSI)
-SCK      GPIO11 (SCK)
-```
+    Display  Raspberry Pi
+    ---------------------
+    LCD-LED  GPIO18
+    LCD-RST  GPIO23
+    LCD-DC   GPIO24 (Jumper IO24-RS)
+    LCD-CS   GPIO8  (CE0)
+    ADS-CS   GPIO7  (CE1)
+    ADS-IRQ  GPIO25
+    MISO     GPIO9  (MISO)
+    MOSI     GPIO10 (MOSI)
+    SCK      GPIO11 (SCK)
 
 
 ### Optional Switch or LDR (Light-Dependent-Resistor)
@@ -149,19 +147,18 @@ There are pads for an optional tactile switch or LDR sensor on the PCB with a co
   * GPIO22 = 1 -> low light
 
 **How to read the pin state?**
-```
-$ sudo -i
-$ echo 22 > /sys/class/gpio/export
-$ echo in > /sys/class/gpio/gpio22/direction
-$ exit
-$ cat /sys/class/gpio/gpio22/value
-```
+
+    $ sudo -i
+    $ echo 22 > /sys/class/gpio/export
+    $ echo in > /sys/class/gpio/gpio22/direction
+    $ exit
+    $ cat /sys/class/gpio/gpio22/value
 
 
 ### SPI Mode
 
 #### 8-Bit SPI
-Performance: about 20 FPS, 6% CPU usage
+Performance: about 20 FPS, <10% CPU usage
 * Jumper IM0 set to 0
 * Jumper IM1 set to 1
 * Jumper IO24-RS closed

@@ -53,13 +53,28 @@ There is a [Linux Framebuffer driver (FBTFT)](https://github.com/notro/fbtft/wik
 
 * [Activate Framebuffer](https://github.com/notro/fbtft/wiki#wiki-enable-driver):
 
+    **[9-Bit SPI](https://github.com/watterott/RPi-Display#9-bit-spi)**
+
     ```
-    $ sudo modprobe fbtft_device name=mi0283qt-9a cs=0 gpios=reset:23,led:18 speed=16000000 rotate=270
+    $ sudo modprobe fbtft_device name=mi0283qt-9a cs=0 gpios=reset:23,led:18 speed=32000000 rotate=270
     ```
 
     To make it permanent (on Debian) add to the file ```/etc/modules``` the following line:
     ```
-    fbtft_device name=mi0283qt-9a cs=0 gpios=reset:23,led:18 speed=16000000 rotate=270
+    fbtft_device name=mi0283qt-9a cs=0 gpios=reset:23,led:18 speed=32000000 rotate=270
+    ```
+
+    **[8-Bit SPI](https://github.com/watterott/RPi-Display#8-bit-spi)**
+
+    ```
+    $ sudo modprobe fbtft dma
+    $ sudo modprobe fbtft_device custom name=fb_ili9341 speed=32000000 gpios=reset:23,dc:24,led:18 bgr=1 rotate=270
+    ```
+
+    To make it permanent (on Debian) add to the file ```/etc/modules``` the following line:
+    ```
+    fbtft dma
+    fbtft_device custom name=fb_ili9341 speed=32000000 gpios=reset:23,dc:24,led:18 bgr=1 rotate=270
     ```
 
     *Note: For a higher speed than 16MHz the display has to be connected directly to the Raspberry Pi or with wires not longer than 5cm.*
@@ -159,19 +174,19 @@ There are pads for an optional tactile switch or LDR sensor on the PCB with a co
 ### SPI Mode
 
 #### 8-Bit SPI
+Default on RPi-Display v2.x,
 Performance: about 20 FPS, <10% CPU usage
 * Jumper IM0 set to 0
 * Jumper IM1 set to 1
 * Jumper IO24-RS closed
-* FBTFT GPIO Parameter: ```gpios=reset:23,dc:24,led:18```
 * FBTFT SD-Card Image kernel argument (cmdline.txt): ```fbtft.dma fbtft_device.custom fbtft_device.name=fb_ili9341 fbtft_device.speed=32000000 fbtft_device.gpios=reset:23,dc:24,led:18 fbtft_device.bgr=1 fbtft_device.rotate=270 fbtft_device.debug=0 fbtft_device.verbose=0```
 
-#### 9-Bit SPI (default on v1.x)
+#### 9-Bit SPI
+Default on RPi-Display v1.x,
 Performance: about 10 FPS, 65% CPU usage (Note: FBTFT has currently no DMA support for 9-Bit SPI)
 * Jumper IM0 set to 1
 * Jumper IM1 set to 0
 * Jumper IO24-RS opened
-* FBTFT GPIO Parameter: ```gpios=reset:23,led:18```
 * FBTFT image kernel argument (cmdline.txt): ```fbtft_device.name=mi0283qt-9a fbtft_device.speed=32000000 fbtft_device.gpios=reset:23,led:18 fbtft_device.rotate=270 fbtft_device.debug=0 fbtft_device.verbose=0```
 
 ![SPI-Mode](https://raw.github.com/watterott/RPi-Display/master/img/spi-mode.jpg)

@@ -90,6 +90,8 @@ There is a [Linux Framebuffer driver (FBTFT)](https://github.com/notro/fbtft/wik
     ads7846_device model=7846 cs=1 gpio_pendown=25 speed=2000000 keep_vref_on=1 swap_xy=1 pressure_max=255 x_plate_ohms=60 x_min=250 x_max=3780 y_min=160 y_max=3930
     ```
 
+    *Optional a calibration can be done with xinput_calibrator and ts_calibrate for better accuracy.*
+
 * Enable for Console:
 
     ```
@@ -174,7 +176,7 @@ There are pads for an optional tactile switch or LDR sensor on the PCB with a co
 ### SPI Mode
 
 #### 8-Bit SPI
-Default on RPi-Display v2.x,
+Default on RPi-Display >= v1.1,
 Performance: about 20 FPS, <10% CPU usage
 * Jumper IM0 set to 0
 * Jumper IM1 set to 1
@@ -182,7 +184,7 @@ Performance: about 20 FPS, <10% CPU usage
 * FBTFT SD-Card Image kernel argument (cmdline.txt): ```fbtft.dma fbtft_device.custom fbtft_device.name=fb_ili9341 fbtft_device.speed=32000000 fbtft_device.gpios=reset:23,dc:24,led:18 fbtft_device.bgr=1 fbtft_device.rotate=270 fbtft_device.debug=0 fbtft_device.verbose=0```
 
 #### 9-Bit SPI
-Default on RPi-Display v1.x,
+Default on RPi-Display v1.0,
 Performance: about 10 FPS, 65% CPU usage (Note: FBTFT has currently no DMA support for 9-Bit SPI)
 * Jumper IM0 set to 1
 * Jumper IM1 set to 0

@@ -12526,8 +12526,8 @@ DIN A4, landscape with location and doc. field</description>
 <wire x1="35.56" y1="139.7" x2="35.56" y2="137.795" width="0.8128" layer="94"/>
 <text x="36.83" y="162.56" size="3.81" layer="250">2.8" Display with Touchpanel</text>
 <text x="180.34" y="162.56" size="3.81" layer="250">Raspberry Pi</text>
-<text x="161.29" y="31.75" size="1.27" layer="95">Released under the Creative Commons Attribution Share-Alike 3.0 License</text>
-<text x="161.29" y="29.21" size="1.27" layer="95">http://creativecommons.org/licenses/by-sa/3.0/</text>
+<text x="161.29" y="31.75" size="1.27" layer="95">Released under the Creative Commons Attribution Share-Alike License</text>
+<text x="161.29" y="29.21" size="1.27" layer="95">http://creativecommons.org/licenses/by-sa/4.0/</text>
 <text x="161.29" y="25.4" size="1.27" layer="95">Designed by Andreas Watterott (Watterott electronic)</text>
 <text x="128.27" y="100.33" size="3.81" layer="250">Touch Controller</text>
 <text x="139.7" y="59.69" size="1.778" layer="95">or TSC2046</text>

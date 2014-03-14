@@ -20,6 +20,7 @@ Login: *pi* and Password: *raspberry* (English keyboard)
 * [Raspbian-FBTFT-RPi-Display](http://tronnes.org/fbtft/download.html) ([Mirror](http://www.watterott.net/fbtft/2014-01-07-wheezy-raspbian-2014-02-03-fbtft-RPi-Display.zip))
 * [Further infos](https://github.com/notro/fbtft/wiki/FBTFT-shield-image)
 * [Video](http://www.youtube.com/watch?v=a2CStAaMbmA)
+* *Note: First generation displays (v1.0) use 9-Bit SPI and all newer ones 8-Bit SPI. Check the driver settings to match your display: [SPI-Mode](https://github.com/watterott/RPi-Display#spi-mode)*
 
 
 ## Linux Driver Installation

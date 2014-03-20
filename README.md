@@ -182,7 +182,9 @@ Performance: about 20 FPS, <10% CPU usage
 * Jumper IM0 set to 0
 * Jumper IM1 set to 1
 * Jumper IO24-RS closed
-* FBTFT SD-Card Image kernel argument (cmdline.txt): ```fbtft.dma fbtft_device.custom fbtft_device.name=fb_ili9341 fbtft_device.speed=32000000 fbtft_device.gpios=reset:23,dc:24,led:18 fbtft_device.bgr=1 fbtft_device.rotate=270 fbtft_device.debug=0 fbtft_device.verbose=0```
+* FBTFT SD-Card Image kernel argument (cmdline.txt):
+  ```fbtft.dma fbtft_device.custom fbtft_device.name=fb_ili9341 fbtft_device.speed=32000000 fbtft_device.gpios=reset:23,dc:24,led:18 fbtft_device.bgr=1 fbtft_device.rotate=270 fbtft_device.debug=0 fbtft_device.verbose=0```
+  *(Replace existing fbtft parameters with the new one and make sure everything is in one line.)*
 
 #### 9-Bit SPI
 Default on RPi-Display v1.0,
@@ -190,6 +192,8 @@ Performance: about 10 FPS, 65% CPU usage (Note: FBTFT has currently no DMA suppo
 * Jumper IM0 set to 1
 * Jumper IM1 set to 0
 * Jumper IO24-RS opened
-* FBTFT image kernel argument (cmdline.txt): ```fbtft_device.name=mi0283qt-9a fbtft_device.speed=32000000 fbtft_device.gpios=reset:23,led:18 fbtft_device.rotate=270 fbtft_device.debug=0 fbtft_device.verbose=0```
+* FBTFT image kernel argument (cmdline.txt):
+  ```fbtft_device.name=mi0283qt-9a fbtft_device.speed=32000000 fbtft_device.gpios=reset:23,led:18 fbtft_device.rotate=270 fbtft_device.debug=0 fbtft_device.verbose=0```
+  *(Replace existing fbtft parameters with the new one and make sure everything is in one line.)*
 
 ![SPI-Mode](https://raw.github.com/watterott/RPi-Display/master/img/spi-mode.jpg)

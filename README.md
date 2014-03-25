@@ -1,10 +1,10 @@
 # RPi-Display
-2.8" TFT-Display (320x240) with Touchpanel (ADS7846/TSC2046) for Raspberry Pi.
+2.8" TFT-Display (320x240) with Touchpanel for Raspberry Pi.
 The Display with Raspberry Pi fit in the popular TEK-Berry enclosure from Teko.
 
 Shop:
 [RPi-Display](http://www.watterott.com/en/RPi-Display), 
-[TEK-Berry enclosure with cutout](http://www.watterott.com/index.php?page=search&page_action=query&desc=off&sdesc=on&keywords=RPi-Display)
+[TEK-Berry enclosure with cutout](http://www.watterott.com/index.php?page=search&page_action=query&desc=off&sdesc=off&keywords=RPi-Display)
 
 [Schematics + Layout](https://github.com/watterott/RPi-Display/tree/master/pcb)
 
@@ -17,15 +17,17 @@ Ready to run SD-Card image (Raspbian/Debian) for 2.8" RPi-Display.
 Copy the image to a SD-Card with [dd](http://en.wikipedia.org/wiki/Dd_%28Unix%29) under Linux or [Win32-Disk-Imager](http://sourceforge.net/projects/win32diskimager/) under Windows.
 Login: *pi* and Password: *raspberry* (English keyboard)
 
-* [Raspbian-FBTFT-RPi-Display](http://tronnes.org/fbtft/download.html) ([Mirror](http://www.watterott.net/fbtft/2014-01-07-wheezy-raspbian-2014-02-03-fbtft-RPi-Display.zip))
-* [Further infos](https://github.com/notro/fbtft/wiki/FBTFT-shield-image)
+* [Raspbian FBTFT-RPi-Display 8-Bit SPI - 2014-03-12](http://www.watterott.net/fbtft/2014-01-07-wheezy-raspbian-2014-03-12-fbtft-rpi-display-rev2.zip)
+* [Raspbian FBTFT-RPi-Display 9-Bit SPI - 2014-03-12](http://www.watterott.net/fbtft/2014-01-07-wheezy-raspbian-2014-03-12-fbtft-rpi-display-rev1.zip)
+* [Raspbian FBTFT-RPi-Display 9-Bit SPI - 2014-02-03](http://www.watterott.net/fbtft/2014-01-07-wheezy-raspbian-2014-02-03-fbtft-rpi-display.zip)
+* [Further infos](https://github.com/notro/fbtft-spindle/wiki/FBTFT-image)
 * [Video](http://www.youtube.com/watch?v=a2CStAaMbmA)
 * *Note: First generation displays (v1.0) use 9-Bit SPI and all newer ones 8-Bit SPI. Check the driver settings to match your display: [SPI-Mode](https://github.com/watterott/RPi-Display#spi-mode)*
 
 
 ## Linux Driver Installation
 
-There is a [Linux Framebuffer driver (FBTFT)](https://github.com/notro/fbtft/wiki) available for the MI0283QT-9 display (ILI9341) and the ADS7846 touch controller has also a Linux device driver.
+There is a [Linux Framebuffer driver (FBTFT)](https://github.com/notro/fbtft/wiki) available for the MI0283QT-9 / -11 display (ILI9341) and the ADS7846 / TSC2046 touch controller has also a Linux device driver.
 
 * [Install FBTFT](https://github.com/notro/fbtft/wiki#wiki-install) Framebuffer:
 

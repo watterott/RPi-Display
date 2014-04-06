@@ -2,6 +2,8 @@
 2.8" TFT-Display (320x240) with Touchpanel for Raspberry Pi.
 The Display with Raspberry Pi fit in the popular TEK-Berry enclosure from Teko.
 
+*Thanks to Noralf Trønnes for [FBTFT](https://github.com/notro/fbtft/wiki).*
+
 Shop:
 [RPi-Display](http://www.watterott.com/en/RPi-Display), 
 [TEK-Berry enclosure with cutout](http://www.watterott.com/index.php?page=search&page_action=query&desc=off&sdesc=off&keywords=RPi-Display)
@@ -29,7 +31,7 @@ Login: *pi* and Password: *raspberry* (English keyboard)
 
 There is a [Linux Framebuffer driver (FBTFT)](https://github.com/notro/fbtft/wiki) available for the MI0283QT-9 / -11 display (ILI9341) and the ADS7846 / TSC2046 touch controller has also a Linux device driver.
 
-* [Install FBTFT](https://github.com/notro/fbtft/wiki#wiki-install) Framebuffer:
+* [Install FBTFT](https://github.com/notro/fbtft/wiki#install) Framebuffer:
 
     Install rpi-update for the kernel update:
     ```
@@ -54,7 +56,7 @@ There is a [Linux Framebuffer driver (FBTFT)](https://github.com/notro/fbtft/wik
     $ sudo apt-get install xinput evtest
     ```
 
-* [Activate Framebuffer](https://github.com/notro/fbtft/wiki#wiki-enable-driver):
+* [Activate Framebuffer](https://github.com/notro/fbtft/wiki#enable-driver):
 
     **[8-Bit SPI](https://github.com/watterott/RPi-Display#8-bit-spi)**
 
@@ -82,7 +84,7 @@ There is a [Linux Framebuffer driver (FBTFT)](https://github.com/notro/fbtft/wik
 
     *Note: For a higher speed than 16MHz the display has to be connected directly to the Raspberry Pi or with wires not longer than 5cm.*
 
-* [Activate Touchpanel](https://github.com/notro/fbtft/wiki/Touchpanel#wiki-watterott-mi0283qt-9a):
+* [Activate Touchpanel](https://github.com/notro/fbtft/wiki/Touchpanel#watterott-mi0283qt-9a):
 
     ```
     $ sudo modprobe ads7846_device model=7846 cs=1 gpio_pendown=25 speed=2000000 keep_vref_on=1 swap_xy=1 pressure_max=255 x_plate_ohms=60 x_min=250 x_max=3780 y_min=160 y_max=3930
@@ -119,7 +121,7 @@ There is a [Linux Framebuffer driver (FBTFT)](https://github.com/notro/fbtft/wik
     $ sudo pkill x
     ```
 
-    To make it permanent (on Debian) see [autostart x](https://github.com/notro/fbtft/wiki#wiki-make-it-permanent-debian) and [xinput axis inversion](https://github.com/notro/fbtft/wiki/Touchpanel#wiki--xinput---make-it-permanent).
+    To make it permanent (on Debian) see [autostart x](https://github.com/notro/fbtft/wiki#make-it-permanent-debian) and [xinput axis inversion](https://github.com/notro/fbtft/wiki/Touchpanel#-xinput---make-it-permanent).
 
 * Video Test:
 

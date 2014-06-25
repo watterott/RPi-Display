@@ -122,7 +122,6 @@ There is a [Linux Framebuffer driver (FBTFT)](https://github.com/notro/fbtft/wik
     ```
 
     To make it permanent (on Debian) see [autostart x](https://github.com/notro/fbtft/wiki#make-it-permanent-debian) and [xinput axis inversion](https://github.com/notro/fbtft/wiki/Touchpanel#-xinput---make-it-permanent).
-    If the X-Window-System does not work, have a look at [this issue](https://github.com/notro/fbtft/issues/63).
 
 * Video Test:
 

@@ -2,7 +2,7 @@
 2.8" TFT-Display (320x240) with Touchpanel for Raspberry Pi.
 The Display with Raspberry Pi fit in the popular TEK-Berry enclosure from Teko.
 
-*Thanks to Noralf Trønnes for [FBTFT](https://github.com/notro/fbtft/wiki).*
+*Thanks to Noralf Trønnes for [FBTFT - framebuffer for small displays](http://fbtft.org/).*
 
 Shop:
 [RPi-Display](http://www.watterott.com/en/RPi-Display), 
@@ -17,19 +17,20 @@ Shop:
 
 Ready to run SD-Card image (Raspbian/Debian) for 2.8" RPi-Display.
 Copy the image to a SD-Card with [dd](http://en.wikipedia.org/wiki/Dd_%28Unix%29) under Linux or [Win32-Disk-Imager](http://sourceforge.net/projects/win32diskimager/) under Windows.
-Login: *pi* and Password: *raspberry* (English keyboard)
+To start the desktop run ```startx```.
 
 * [Raspbian FBTFT-RPi-Display 8-Bit SPI - 2014-03-12](http://www.watterott.net/fbtft/2014-01-07-wheezy-raspbian-2014-03-12-fbtft-rpi-display-rev2.zip)
 * [Raspbian FBTFT-RPi-Display 9-Bit SPI - 2014-03-12](http://www.watterott.net/fbtft/2014-01-07-wheezy-raspbian-2014-03-12-fbtft-rpi-display-rev1.zip)
 * [Raspbian FBTFT-RPi-Display 9-Bit SPI - 2014-02-03](http://www.watterott.net/fbtft/2014-01-07-wheezy-raspbian-2014-02-03-fbtft-rpi-display.zip)
-* [Further infos](https://github.com/notro/fbtft-spindle/wiki/FBTFT-image)
+* [Further Infos and FAQ](https://github.com/notro/fbtft-spindle/wiki/FBTFT-image)
 * [Video](http://www.youtube.com/watch?v=a2CStAaMbmA)
-* *Note: First generation displays (v1.0) use 9-Bit SPI and all newer ones 8-Bit SPI. Check the driver settings to match your display: [SPI-Mode](https://github.com/watterott/RPi-Display#spi-mode)*
+* Login: ```pi``` and Password: ```raspberry``` (English keyboard)
+* Note: First generation displays (v1.0) use 9-Bit SPI and all newer ones 8-Bit SPI. Check the driver settings to match your display: [SPI-Mode](https://github.com/watterott/RPi-Display#spi-mode)
 
 
 ## Linux Driver Installation
 
-There is a [Linux Framebuffer driver (FBTFT)](https://github.com/notro/fbtft/wiki) available for the MI0283QT-9 / -11 display (ILI9341) and the ADS7846 / TSC2046 touch controller has also a Linux device driver.
+There is a driver ([FBTFT](https://github.com/notro/fbtft/wiki)) available for the MI0283QT-9 / -11 display (ILI9341) and the ADS7846 / TSC2046 touch controller.
 
 * [Install FBTFT](https://github.com/notro/fbtft/wiki#install) Framebuffer:
 
@@ -58,7 +59,7 @@ There is a [Linux Framebuffer driver (FBTFT)](https://github.com/notro/fbtft/wik
 
 * [Activate Framebuffer](https://github.com/notro/fbtft/wiki#enable-driver):
 
-    **[8-Bit SPI](https://github.com/watterott/RPi-Display#8-bit-spi)**
+    **[8-Bit SPI](https://github.com/watterott/RPi-Display#spi-mode)**
 
     ```
     $ sudo modprobe fbtft dma
@@ -71,7 +72,7 @@ There is a [Linux Framebuffer driver (FBTFT)](https://github.com/notro/fbtft/wik
     fbtft_device custom name=fb_ili9341 speed=32000000 gpios=reset:23,dc:24,led:18 bgr=1 rotate=270
     ```
 
-    **[9-Bit SPI](https://github.com/watterott/RPi-Display#9-bit-spi)**
+    **[9-Bit SPI](https://github.com/watterott/RPi-Display#spi-mode)**
 
     ```
     $ sudo modprobe fbtft_device name=mi0283qt-9a cs=0 gpios=reset:23,led:18 speed=32000000 rotate=270
@@ -145,7 +146,9 @@ There is a [Linux Framebuffer driver (FBTFT)](https://github.com/notro/fbtft/wik
     ```
 
 
-## Display Connection
+## FAQ
+
+### How is the display and touch controller connected to the RPi?
 
     Display  Raspberry Pi
     ---------------------
@@ -160,9 +163,9 @@ There is a [Linux Framebuffer driver (FBTFT)](https://github.com/notro/fbtft/wik
     SCK      GPIO11 (SCK)
 
 
-### Optional Switch or LDR (Light-Dependent-Resistor)
+### What is the optional switch or LDR?
 
-There are pads for an optional tactile switch or LDR sensor on the PCB with a connection to **GPIO22** of the Raspberry Pi.
+There are pads for an optional tactile switch or LDR sensor (Light-Dependent-Resistor) on the PCB with a connection to **GPIO22** of the Raspberry Pi.
 * **Switch**
   * GPIO22 = 0 -> switch pressed
   * GPIO22 = 1 -> switch not pressed
@@ -181,24 +184,29 @@ There are pads for an optional tactile switch or LDR sensor on the PCB with a co
 
 ### SPI Mode
 
-#### 8-Bit SPI
-Default on RPi-Display >= v1.1,
-Performance: about 20 FPS, <10% CPU usage
-* Jumper IM0 set to 0
-* Jumper IM1 set to 1
-* Jumper IO24-RS closed
-* FBTFT SD-Card Image kernel argument ([cmdline.txt](https://github.com/watterott/RPi-Display/raw/master/src/cmdline_8bit.txt)):
-  ```fbtft.dma fbtft_device.custom fbtft_device.name=fb_ili9341 fbtft_device.speed=32000000 fbtft_device.gpios=reset:23,dc:24,led:18 fbtft_device.bgr=1 fbtft_device.rotate=270```
-  *(Replace existing fbtft parameters with the new one and make sure everything is in one line.)*
+* **8-Bit SPI** (RPi-Display >= v1.1, performance: about 20 FPS, <10% CPU usage)
+  * Jumper IM0 set to 0
+  * Jumper IM1 set to 1
+  * Jumper IO24-RS closed
+  * FBTFT SD-Card Image kernel argument ([cmdline.txt](https://github.com/watterott/RPi-Display/raw/master/src/cmdline_8bit.txt)):
+    ```fbtft.dma fbtft_device.custom fbtft_device.name=fb_ili9341 fbtft_device.speed=32000000 fbtft_device.gpios=reset:23,dc:24,led:18 fbtft_device.bgr=1 fbtft_device.rotate=270```
+    *(Replace existing fbtft parameters with the new one and make sure everything is in one line.)*
 
-#### 9-Bit SPI
-Default on RPi-Display v1.0,
-Performance: about 10 FPS, 65% CPU usage (Note: FBTFT has currently no DMA support for 9-Bit SPI)
-* Jumper IM0 set to 1
-* Jumper IM1 set to 0
-* Jumper IO24-RS opened
-* FBTFT SD-Card Image kernel argument ([cmdline.txt](https://github.com/watterott/RPi-Display/raw/master/src/cmdline_9bit.txt)):
-  ```fbtft_device.name=mi0283qt-9a fbtft_device.speed=32000000 fbtft_device.gpios=reset:23,led:18 fbtft_device.rotate=270```
-  *(Replace existing fbtft parameters with the new one and make sure everything is in one line.)*
+* **9-Bit SPI** (RPi-Display v1.0, performance: about 10 FPS, 65% CPU usage, note: FBTFT has currently no DMA support for 9-Bit SPI)
+  * Jumper IM0 set to 1
+  * Jumper IM1 set to 0
+  * Jumper IO24-RS opened
+  * FBTFT SD-Card Image kernel argument ([cmdline.txt](https://github.com/watterott/RPi-Display/raw/master/src/cmdline_9bit.txt)):
+    ```fbtft_device.name=mi0283qt-9a fbtft_device.speed=32000000 fbtft_device.gpios=reset:23,led:18 fbtft_device.rotate=270```
+    *(Replace existing fbtft parameters with the new one and make sure everything is in one line.)*
 
 ![SPI-Mode](https://raw.github.com/watterott/RPi-Display/master/img/spi-mode.jpg)
+
+
+### How to mirror/copy HDMI to the display?
+This can be done with ```fbcp```.
+Further infos [here](https://github.com/notro/fbtft-spindle/wiki/FBTFT-image#fbcp---framebuffer-copy).
+
+
+### How to switch the console back to HDMI?
+Run ```con2fbmap 1 0```.

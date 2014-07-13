@@ -21,135 +21,76 @@ To start the desktop run ```startx```.
 
 * [Raspbian FBTFT-RPi-Display 8-Bit SPI - 2014-03-12](http://www.watterott.net/fbtft/2014-01-07-wheezy-raspbian-2014-03-12-fbtft-rpi-display-rev2.zip)
 * [Raspbian FBTFT-RPi-Display 9-Bit SPI - 2014-03-12](http://www.watterott.net/fbtft/2014-01-07-wheezy-raspbian-2014-03-12-fbtft-rpi-display-rev1.zip)
-* [Raspbian FBTFT-RPi-Display 9-Bit SPI - 2014-02-03](http://www.watterott.net/fbtft/2014-01-07-wheezy-raspbian-2014-02-03-fbtft-rpi-display.zip)
 * [Further Infos and FAQ](https://github.com/notro/fbtft-spindle/wiki/FBTFT-image)
 * [Video](http://www.youtube.com/watch?v=a2CStAaMbmA)
 * Login: ```pi``` and Password: ```raspberry``` (English keyboard)
-* Note: First generation displays (v1.0) use 9-Bit SPI and all newer ones 8-Bit SPI. Check the driver settings to match your display: [SPI-Mode](https://github.com/watterott/RPi-Display#spi-mode)
-
-
-## Linux Driver Installation
-
-There is a driver ([FBTFT](https://github.com/notro/fbtft/wiki)) available for the MI0283QT-9 / -11 display (ILI9341) and the ADS7846 / TSC2046 touch controller.
-
-* [Install FBTFT](https://github.com/notro/fbtft/wiki#install) Framebuffer:
-
-    Install rpi-update for the kernel update:
-    ```
-    $ sudo wget https://raw.github.com/Hexxeh/rpi-update/master/rpi-update -O /usr/bin/rpi-update
-    $ sudo chmod +x /usr/bin/rpi-update
-    ```
-
-    Remove or comment out the SPI blacklist line (spi-bcm2708):
-    ```
-    $ sudo nano /etc/modprobe.d/raspi-blacklist.conf
-    ```
-
-    Start kernel update:
-    ```
-    $ sudo REPO_URI=https://github.com/notro/rpi-firmware rpi-update
-    $ sudo shutdown -r now
-    ```
-
-* Install Touchscreen Tools:
-
-    ```
-    $ sudo apt-get install xinput evtest
-    ```
-
-* [Activate Framebuffer](https://github.com/notro/fbtft/wiki#enable-driver):
-
-    **[8-Bit SPI](https://github.com/watterott/RPi-Display#spi-mode)**
-
-    ```
-    $ sudo modprobe fbtft dma
-    $ sudo modprobe fbtft_device custom name=fb_ili9341 speed=32000000 gpios=reset:23,dc:24,led:18 bgr=1 rotate=270
-    ```
-
-    To make it permanent (on Debian) add to the file ```/etc/modules``` the following line:
-    ```
-    fbtft dma
-    fbtft_device custom name=fb_ili9341 speed=32000000 gpios=reset:23,dc:24,led:18 bgr=1 rotate=270
-    ```
-
-    **[9-Bit SPI](https://github.com/watterott/RPi-Display#spi-mode)**
-
-    ```
-    $ sudo modprobe fbtft_device name=mi0283qt-9a cs=0 gpios=reset:23,led:18 speed=32000000 rotate=270
-    ```
-
-    To make it permanent (on Debian) add to the file ```/etc/modules``` the following line:
-    ```
-    fbtft_device name=mi0283qt-9a cs=0 gpios=reset:23,led:18 speed=32000000 rotate=270
-    ```
-
-    *Note: For a higher speed than 16MHz the display has to be connected directly to the Raspberry Pi or with wires not longer than 5cm.*
-
-* [Activate Touchpanel](https://github.com/notro/fbtft/wiki/Touchpanel#watterott-mi0283qt-9a):
-
-    ```
-    $ sudo modprobe ads7846_device model=7846 cs=1 gpio_pendown=25 speed=2000000 keep_vref_on=1 swap_xy=1 pressure_max=255 x_plate_ohms=60 x_min=250 x_max=3780 y_min=160 y_max=3930
-    ```
-
-    To make it permanent (on Debian) add to the file ```/etc/modules``` the following line:
-    ```
-    ads7846_device model=7846 cs=1 gpio_pendown=25 speed=2000000 keep_vref_on=1 swap_xy=1 pressure_max=255 x_plate_ohms=60 x_min=250 x_max=3780 y_min=160 y_max=3930
-    ```
-
-    *Optional a calibration can be done with xinput_calibrator and ts_calibrate for better accuracy.*
-
-* Enable for Console:
-
-    ```
-    $ con2fbmap 1 1
-    ```
-
-    To make it permanent (on Debian) add to the file ```/boot/cmdline.txt``` at the end of the line the following kernel argument: ```fbcon=map:10 fbcon=font:VGA8x8```
-
-* Enable for X-Window-System:
-
-    ```
-    $ FRAMEBUFFER=/dev/fb1 startx & 
-    ```
-
-    *...wait till X-Window-System starts up...*
-    ```
-    $ DISPLAY=:0 xinput --set-prop 'ADS7846 Touchscreen' 'Evdev Axis Inversion' 1 0
-    ```
-
-    *...to stop X-Window-System run:*
-    ```
-    $ sudo pkill x
-    ```
-
-    To make it permanent (on Debian) see [autostart x](https://github.com/notro/fbtft/wiki#make-it-permanent-debian) and [xinput axis inversion](https://github.com/notro/fbtft/wiki/Touchpanel#-xinput---make-it-permanent).
-    If the X-Window-System does not work, have a look at [this issue](https://github.com/notro/fbtft/issues/63).
-
-* Video Test:
-
-    *Note: The video file is about 60MB big.*
-    ```
-    $ wget http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4
-    ```
-
-    Play with **mplayer**:
-    ```
-    $ sudo apt-get install mplayer
-    $ mplayer -vo fbdev2:/dev/fb1 -vf scale=320:-3 BigBuckBunny_320x180.mp4
-    ```
-
-    Play with **omxplayer** (*fbcp* for framebuffer mirroring required):
-    ```
-    $ fbcp &
-    $ omxplayer BigBuckBunny_320x180.mp4
-    $ killall fbcp
-    ```
+* Note: First generation displays use 9-Bit SPI and all newer ones 8-Bit SPI. Check the driver settings to match your display: [SPI-Mode](https://github.com/watterott/RPi-Display#spi-mode)
 
 
 ## FAQ
 
-### How is the display and touch controller connected to the RPi?
+### How to install FBTFT on an existing Raspbian system?
+A small guide can be found [here](https://github.com/watterott/RPi-Display/blob/master/docu/FBTFT-Install.md).
 
+
+### How to configure the standard [FBTFT image](https://github.com/notro/fbtft/wiki#image-download) for the RPi-Display?
+This can be done by using the [small guide](https://github.com/watterott/RPi-Display/blob/master/docu/FBTFT-Install.md) and skipping the first two installation steps.
+The display can be also activated via kernel arguments: [8Bit-SPI cmdline.txt](https://github.com/watterott/RPi-Display/raw/master/docu/cmdline_8bit.txt), [9Bit-SPI cmdline.txt](https://github.com/watterott/RPi-Display/raw/master/docu/cmdline_9bit.txt).
+
+
+### How to mirror/copy HDMI to the display?
+This can be done with ```fbcp```.
+Further infos can be found [here](https://github.com/notro/fbtft-spindle/wiki/FBTFT-image#fbcp---framebuffer-copy).
+
+* Install fbcp:
+    ```
+    $ sudo apt-get install cmake
+    $ git clone https://github.com/tasanakorn/rpi-fbcp
+    $ cd rpi-fbcp/
+    $ mkdir build
+    $ cd build/
+    $ cmake ..
+    $ make
+    $ sudo install fbcp /usr/local/bin/fbcp
+    ```
+
+* Run fbcp:
+    ```
+    $ fbcp &
+    ```
+
+* Stop fbcp:
+    ```
+    $ killall fbcp
+    ```
+
+
+### How to switch the console back to HDMI?
+Run ```con2fbmap 1 0``` and to switch back ```con2fbmap 1 1```.
+
+
+### How to install and run SqueezePlay on the display?
+* Install SqueezePlay:
+    ```
+    $ wget http://squeezeslave.googlecode.com/files/squeezeplay_7.8.0~337_armhf.deb
+    $ sudo dpkg -i squeezeplay_7.8.0~337_armhf.deb
+    $ sudo chmod u+s /opt/squeezeplay/bin/jive_alsa
+    ```
+
+* Run SqueezePlay on HDMI and the display:
+    ```
+    $ fbcp &
+    $ sudo /opt/squeezeplay/bin/squeezeplay.sh &
+    $ killall fbcp
+    ```
+
+* Run SqueezePlay only on the display:
+    ```
+    $ sudo SDL_FBDEV=/dev/fb1 /opt/squeezeplay/bin/squeezeplay.sh &
+    ```
+
+
+### How is the display and touch controller connected to the RPi?
     Display  Raspberry Pi
     ---------------------
     LCD-LED  GPIO18
@@ -164,31 +105,33 @@ There is a driver ([FBTFT](https://github.com/notro/fbtft/wiki)) available for t
 
 
 ### What is the optional switch or LDR?
-
 There are pads for an optional tactile switch or LDR sensor (Light-Dependent-Resistor) on the PCB with a connection to **GPIO22** of the Raspberry Pi.
+
 * **Switch**
   * GPIO22 = 0 -> switch pressed
   * GPIO22 = 1 -> switch not pressed
+
 * **LDR** (VT93N1)
   * GPIO22 = 0 -> bright light
   * GPIO22 = 1 -> low light
 
-**How to read the pin state?**
+* **How to read the pin state?**
 
+    ```
     $ sudo -i
     $ echo 22 > /sys/class/gpio/export
     $ echo in > /sys/class/gpio/gpio22/direction
     $ exit
     $ cat /sys/class/gpio/gpio22/value
+    ```
 
 
 ### SPI Mode
-
 * **8-Bit SPI** (RPi-Display >= v1.1, performance: about 20 FPS, <10% CPU usage)
   * Jumper IM0 set to 0
   * Jumper IM1 set to 1
   * Jumper IO24-RS closed
-  * FBTFT SD-Card Image kernel argument ([cmdline.txt](https://github.com/watterott/RPi-Display/raw/master/src/cmdline_8bit.txt)):
+  * FBTFT SD-Card Image kernel argument ([cmdline.txt](https://github.com/watterott/RPi-Display/raw/master/docu/cmdline_8bit.txt)):
     ```fbtft.dma fbtft_device.custom fbtft_device.name=fb_ili9341 fbtft_device.speed=32000000 fbtft_device.gpios=reset:23,dc:24,led:18 fbtft_device.bgr=1 fbtft_device.rotate=270```
     *(Replace existing fbtft parameters with the new one and make sure everything is in one line.)*
 
@@ -196,17 +139,8 @@ There are pads for an optional tactile switch or LDR sensor (Light-Dependent-Res
   * Jumper IM0 set to 1
   * Jumper IM1 set to 0
   * Jumper IO24-RS opened
-  * FBTFT SD-Card Image kernel argument ([cmdline.txt](https://github.com/watterott/RPi-Display/raw/master/src/cmdline_9bit.txt)):
+  * FBTFT SD-Card Image kernel argument ([cmdline.txt](https://github.com/watterott/RPi-Display/raw/master/docu/cmdline_9bit.txt)):
     ```fbtft_device.name=mi0283qt-9a fbtft_device.speed=32000000 fbtft_device.gpios=reset:23,led:18 fbtft_device.rotate=270```
     *(Replace existing fbtft parameters with the new one and make sure everything is in one line.)*
 
 ![SPI-Mode](https://raw.github.com/watterott/RPi-Display/master/img/spi-mode.jpg)
-
-
-### How to mirror/copy HDMI to the display?
-This can be done with ```fbcp```.
-Further infos [here](https://github.com/notro/fbtft-spindle/wiki/FBTFT-image#fbcp---framebuffer-copy).
-
-
-### How to switch the console back to HDMI?
-Run ```con2fbmap 1 0```.

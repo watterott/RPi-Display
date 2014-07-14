@@ -29,7 +29,7 @@ $ sudo shutdown -r now
 ## Install Touchscreen Tools
 
 ```
-$ sudo apt-get install xinput evtest libts-bin
+$ sudo apt-get install xinput
 ```
 
 
@@ -61,17 +61,17 @@ fbtft_device name=mi0283qt-9a cs=0 gpios=reset:23,led:18 speed=32000000 rotate=2
 ## [Activate Touchpanel](https://github.com/notro/fbtft/wiki/Touchpanel)
 
 ```
-$ sudo modprobe ads7846_device model=7846 cs=1 gpio_pendown=25 speed=2000000 keep_vref_on=1 swap_xy=1 pressure_max=255 x_plate_ohms=60
+$ sudo modprobe ads7846_device model=7846 cs=1 gpio_pendown=25 speed=2000000 keep_vref_on=1 swap_xy=1 pressure_max=255 x_plate_ohms=60 x_min=200 x_max=3900 y_min=200 y_max=3900
 ```
 To make it permanent (on Debian) add to the file ```/etc/modules``` the following line:
 ```
-ads7846_device model=7846 cs=1 gpio_pendown=25 speed=2000000 keep_vref_on=1 swap_xy=1 pressure_max=255 x_plate_ohms=60
+ads7846_device model=7846 cs=1 gpio_pendown=25 speed=2000000 keep_vref_on=1 swap_xy=1 pressure_max=255 x_plate_ohms=60 x_min=200 x_max=3900 y_min=200 y_max=3900
 ```
 
 
 ## Calibrate Touchpanel
 
-For better accuracy an optional touchpanel calibration be done with:
+For better accuracy a touchpanel calibration can be done with:
 
 **[xinput_calibrator](https://github.com/tias/xinput_calibrator)**
 ```
@@ -81,7 +81,8 @@ $ DISPLAY=:0 xinput --set-prop 'ADS7846 Touchscreen' 'Evdev Axis Inversion' 1 0
 
 **ts_calibrate**
 ```
-$ sudo TSLIB_FBDEVICE=/dev/fb1 TSLIB_TSDEVICE=/dev/input/event3 ts_calibrate
+$ sudo apt-get install libts-bin
+$ sudo TSLIB_FBDEVICE=/dev/fb1 TSLIB_TSDEVICE=/dev/input/event0 ts_calibrate
 ```
 
 

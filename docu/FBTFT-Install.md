@@ -7,6 +7,7 @@
     $ sudo wget https://raw.github.com/Hexxeh/rpi-update/master/rpi-update -O /usr/bin/rpi-update
     $ sudo chmod +x /usr/bin/rpi-update
     ```
+    *If you get certificate errors, then run ```wget``` with ```--no-check-certificate```.*
 
     Remove or comment out the SPI blacklist line (spi-bcm2708):
     ```
@@ -16,8 +17,12 @@
     Start kernel update:
     ```
     $ sudo REPO_URI=https://github.com/notro/rpi-firmware rpi-update
-    $ sudo shutdown -r now
     ```
+    *On compatibility errors run rpi-update as follows: ```sudo -E RPI_UPDATE_UNSUPPORTED=0 REPO_URI=https://github.com/notro/rpi-firmware rpi-update```*
+
+    Reboot system:
+    ```
+    $ sudo shutdown -r now
 
 * Install Touchscreen Tools:
 

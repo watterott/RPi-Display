@@ -5,7 +5,7 @@ The Display with Raspberry Pi fit in the popular TEK-Berry enclosure from Teko.
 *Thanks to Noralf Trønnes for [FBTFT - framebuffer for small displays](http://fbtft.org/).*
 
 Shop:
-[RPi-Display](http://www.watterott.com/en/RPi-Display), 
+[RPi-Display](http://www.watterott.com/en/RPi-Display) ([Amazon](http://www.amazon.de/RPi-Display-2-8-Touch-Display-Raspberry-320x240/dp/B00I7BGX5A)),
 [TEK-Berry enclosure with cutout](http://www.watterott.com/index.php?page=search&page_action=query&desc=off&sdesc=off&keywords=RPi-Display)
 
 [Schematics + Layout](https://github.com/watterott/RPi-Display/tree/master/pcb)
@@ -67,6 +67,10 @@ Further infos can be found [here](https://github.com/notro/fbtft-spindle/wiki/FB
 
 ### How to switch the console back to HDMI?
 Run ```con2fbmap 1 0``` and to switch back ```con2fbmap 1 1```.
+
+
+### Does the display work with [Raspbmc](http://www.raspbmc.com)?
+Yes, the FBTFT framebuffer can be installed on Raspbmc and the HDMI output can be mirrored to the display using fbcp.
 
 
 ### How to install and run SqueezePlay on the display?

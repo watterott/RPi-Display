@@ -85,7 +85,6 @@ Yes, the FBTFT framebuffer can be installed on Raspbmc and the HDMI output can b
     ```
     $ fbcp &
     $ sudo /opt/squeezeplay/bin/squeezeplay.sh &
-    $ killall fbcp
     ```
 
 * Run SqueezePlay only on the display:

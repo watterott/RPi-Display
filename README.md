@@ -107,6 +107,12 @@ Yes, the FBTFT framebuffer can be installed on Raspbmc and the HDMI output can b
     SCK      GPIO11 (SCK)
 
 
+### How to switch the backlight on/off?
+Further infos can be found [here](https://github.com/notro/fbtft-spindle/wiki/FBTFT-image#backlight).
+* backlight off: ```echo 1 | sudo tee /sys/class/backlight/*/bl_power```
+* backlight on:  ```echo 0 | sudo tee /sys/class/backlight/*/bl_power```
+
+
 ### What is the optional switch or LDR?
 There are pads for an optional tactile switch or LDR sensor (Light-Dependent-Resistor) on the PCB with a connection to **GPIO22** of the Raspberry Pi.
 

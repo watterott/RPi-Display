@@ -5,8 +5,9 @@ The Display with Raspberry Pi fit in the popular TEK-Berry enclosure from Teko.
 *Thanks to Noralf Trønnes for [FBTFT - framebuffer for small displays](http://fbtft.org/).*
 
 Shop:
-[RPi-Display](http://www.watterott.com/en/RPi-Display) ([Amazon](http://www.amazon.de/RPi-Display-2-8-Touch-Display-Raspberry-320x240/dp/B00I7BGX5A)),
-[TEK-Berry enclosure with cutout](http://www.watterott.com/index.php?page=search&page_action=query&desc=off&sdesc=off&keywords=RPi-Display)
+[RPi-Display for Raspberry Pi Model A and B](http://www.watterott.com/en/RPi-Display) ([Amazon](http://www.amazon.de/RPi-Display-2-8-Touch-Display-Raspberry-320x240/dp/B00I7BGX5A)),
+[RPi-Display for Raspberry Pi Model B+](http://www.watterott.com/en/RPi-Display-B-Plus),
+[TEK-Berry enclosure with cutout for Raspberry Pi Model A and B](http://www.watterott.com/index.php?page=search&page_action=query&desc=off&sdesc=off&keywords=RPi-Display)
 
 [Schematics + Layout](https://github.com/watterott/RPi-Display/tree/master/pcb)
 
@@ -15,12 +16,12 @@ Shop:
 
 ## SD-Card Image
 
-Ready to run SD-Card image (Raspbian/Debian) for 2.8" RPi-Display.
+Ready to run SD-Card image (Raspbian/Debian with FBTFT) for 2.8" RPi-Display.
 Copy the image to a SD-Card with [dd](http://en.wikipedia.org/wiki/Dd_%28Unix%29) under Linux or [Win32-Disk-Imager](http://sourceforge.net/projects/win32diskimager/) under Windows.
 To start the desktop run ```startx```.
 
-* [Raspbian FBTFT-RPi-Display 8-Bit SPI - 2014-03-12](http://www.watterott.net/fbtft/2014-01-07-wheezy-raspbian-2014-03-12-fbtft-rpi-display-rev2.zip)
-* [Raspbian FBTFT-RPi-Display 9-Bit SPI - 2014-03-12](http://www.watterott.net/fbtft/2014-01-07-wheezy-raspbian-2014-03-12-fbtft-rpi-display-rev1.zip)
+* [RPi-Display 8-Bit SPI - 2014-07-25](http://www.watterott.net/fbtft/2014-06-20-wheezy-raspbian-2014-07-25-fbtft-rpi-display-rev2.zip), [old 2014-03-12](http://www.watterott.net/fbtft/2014-01-07-wheezy-raspbian-2014-03-12-fbtft-rpi-display-rev2.zip)
+* [RPi-Display 9-Bit SPI - 2014-07-25](http://www.watterott.net/fbtft/2014-06-20-wheezy-raspbian-2014-07-25-fbtft-rpi-display-rev1.zip), [old 2014-03-12](http://www.watterott.net/fbtft/2014-01-07-wheezy-raspbian-2014-03-12-fbtft-rpi-display-rev1.zip)
 * [Further Infos and FAQ](https://github.com/notro/fbtft-spindle/wiki/FBTFT-image)
 * [Video](http://www.youtube.com/watch?v=a2CStAaMbmA)
 * Login: ```pi``` and Password: ```raspberry``` (English keyboard)

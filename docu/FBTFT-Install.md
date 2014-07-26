@@ -14,13 +14,15 @@ Remove or comment out the SPI blacklist line (**spi-bcm2708**):
 $ sudo nano /etc/modprobe.d/raspi-blacklist.conf
 ```
 
-Start kernel update:
+Start the kernel update:
 ```
-$ sudo REPO_URI=https://github.com/notro/rpi-firmware rpi-update
+$ sudo REPO_URI=https://github.com/notro/rpi-firmware BRANCH=latest rpi-update
 ```
-*On compatibility errors run rpi-update as follows: ```sudo -E RPI_UPDATE_UNSUPPORTED=0 REPO_URI=https://github.com/notro/rpi-firmware rpi-update```*
+*On compatibility errors run rpi-update as follows: ```sudo -E RPI_UPDATE_UNSUPPORTED=0 REPO_URI=https://github.com/notro/rpi-firmware BRANCH=latest rpi-update```*
 
-Reboot system:
+*If you are not using Raspbian and FBTFT is not working correctly, then try the kernel with built-in FBTFT drivers: ```sudo REPO_URI=https://github.com/notro/rpi-firmware BRANCH=builtin rpi-update```*
+
+Reboot the system:
 ```
 $ sudo shutdown -r now
 ```
@@ -46,7 +48,7 @@ fbtft dma
 fbtft_device custom name=fb_ili9341 speed=32000000 gpios=reset:23,dc:24,led:18 bgr=1 rotate=270
 ```
 
-### [9-Bit SPI](https://github.com/watterott/RPi-Display#spi-mode)
+### [9-Bit SPI](https://github.com/watterott/RPi-Display#spi-mode) (only first generation displays)
 ```
 $ sudo modprobe fbtft_device name=mi0283qt-9a cs=0 gpios=reset:23,led:18 speed=32000000 rotate=270
 ```

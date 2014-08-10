@@ -1,17 +1,17 @@
 # RPi-Display
 2.8" TFT-Display (320x240) with Touchpanel for Raspberry Pi.
-The Display with Raspberry Pi fit in the popular TEK-Berry enclosure from Teko.
 
 *Thanks to Noralf Trønnes for [FBTFT - framebuffer for small displays](http://fbtft.org/).*
-
-Shop:
-[RPi-Display for Raspberry Pi Model A and B](http://www.watterott.com/en/RPi-Display) ([Amazon](http://www.amazon.de/RPi-Display-2-8-Touch-Display-Raspberry-320x240/dp/B00I7BGX5A)),
-[RPi-Display for Raspberry Pi Model B+](http://www.watterott.com/en/RPi-Display-B-Plus),
-[TEK-Berry enclosure with cutout for Raspberry Pi Model A and B](http://www.watterott.com/index.php?page=search&page_action=query&desc=off&sdesc=off&keywords=RPi-Display)
 
 [Schematics + Layout](https://github.com/watterott/RPi-Display/tree/master/pcb)
 
 ![RPi-Display](https://raw.github.com/watterott/RPi-Display/master/img/rpi-display.jpg)
+
+
+## Shop
+* [RPi-Display for Raspberry Pi Model A and B](http://www.watterott.com/en/RPi-Display) ([Amazon](http://www.amazon.de/RPi-Display-2-8-Touch-Display-Raspberry-320x240/dp/B00I7BGX5A))
+* [RPi-Display for Raspberry Pi Model B+](http://www.watterott.com/en/RPi-Display-B-Plus)
+* [TEK-Berry enclosure with cutout for Raspberry Pi Model A and B](http://www.watterott.com/index.php?page=search&page_action=query&desc=off&sdesc=off&keywords=RPi-Display)
 
 
 ## SD-Card Image

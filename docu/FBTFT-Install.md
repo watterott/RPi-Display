@@ -71,7 +71,7 @@ ads7846_device model=7846 cs=1 gpio_pendown=25 speed=2000000 keep_vref_on=1 swap
 ```
 
 
-## Calibrate Touchpanel
+## Calibrate Touchpanel (optional)
 
 For better accuracy a touchpanel calibration can be done with:
 

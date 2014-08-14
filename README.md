@@ -72,13 +72,30 @@ Further infos can be found [here](https://github.com/notro/fbtft-spindle/wiki/FB
 Run ```con2fbmap 1 0``` and to switch back ```con2fbmap 1 1```.
 
 
-### Does the display work with [Raspbmc](http://www.raspbmc.com)?
-Yes, the FBTFT framebuffer can be installed on Raspbmc and the HDMI output can be mirrored to the display using fbcp.
-
-
 ### I only see the top left part of a program window/dialog?
 Most programs are not designed for a small screen (<640x480) and so you see only a part of the window.
 It is possible to scale the screen with *fbcp*, but the best practice is to create an user interface specially for the display. This can be done for example with [Pygame](http://www.pygame.org).
+
+
+## The display does not work after an update.
+The FBTFT framebuffer driver needs a special kernel. When you make an update, exclude the kernel.
+
+* Update packages except the bootloader:
+    ```
+    $ sudo apt-mark hold raspberrypi-bootloader
+    $ sudo apt-get update
+    $ sudo apt-get upgrade
+    ```
+
+* Update the bootloader, but not the kernel and modules:
+    ```
+    $ sudo apt-get install rpi-update
+    $ sudo SKIP_KERNEL=1 rpi-update
+    ```
+
+
+### Does the display work with [Raspbmc](http://www.raspbmc.com)?
+Yes, the FBTFT framebuffer can be installed on Raspbmc and the HDMI output can be mirrored to the display using fbcp.
 
 
 ### How to install and run SqueezePlay on the display?

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.5.0">
+<eagle version="6.6.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -12455,7 +12455,7 @@ DIN A4, landscape with location and doc. field</description>
 <part name="GND9" library="supply1" deviceset="GND" device=""/>
 <part name="C2" library="rcl" deviceset="C-EU" device="C0603" value="100nF"/>
 <part name="C3" library="rcl" deviceset="C-EU" device="C0603" value="100nF"/>
-<part name="U1" library="Voltage-Reg" deviceset="TS5204" device=""/>
+<part name="U1" library="Voltage-Reg" deviceset="TS5204" device="" value="TS5204-3V3"/>
 <part name="C1" library="rcl" deviceset="C-EU" device="C0603" value="1uF"/>
 <part name="X1" library="SMD" deviceset="PASSER" device=""/>
 <part name="X2" library="SMD" deviceset="PASSER" device=""/>
@@ -12522,8 +12522,8 @@ DIN A4, landscape with location and doc. field</description>
 <sheet>
 <plain>
 <wire x1="118.364" y1="67.31" x2="120.523" y2="67.31" width="0.8128" layer="94"/>
-<wire x1="24.13" y1="141.605" x2="24.13" y2="139.7" width="0.8128" layer="94"/>
-<wire x1="35.56" y1="139.7" x2="35.56" y2="137.795" width="0.8128" layer="94"/>
+<wire x1="24.13" y1="139.573" x2="24.13" y2="137.668" width="0.8128" layer="94"/>
+<wire x1="35.56" y1="141.732" x2="35.56" y2="139.827" width="0.8128" layer="94"/>
 <text x="36.83" y="162.56" size="3.81" layer="250">2.8" Display with Touchpanel</text>
 <text x="180.34" y="162.56" size="3.81" layer="250">Raspberry Pi</text>
 <text x="161.29" y="31.75" size="1.27" layer="95">Released under the Creative Commons Attribution Share-Alike License</text>
@@ -12531,8 +12531,8 @@ DIN A4, landscape with location and doc. field</description>
 <text x="161.29" y="25.4" size="1.27" layer="95">Designed by Andreas Watterott (Watterott electronic)</text>
 <text x="128.27" y="100.33" size="3.81" layer="250">Touch Controller</text>
 <text x="139.7" y="59.69" size="1.778" layer="95">or TSC2046</text>
-<text x="59.69" y="154.94" size="1.27" layer="250" font="vector">9bit  0   1   0   1</text>
-<text x="59.69" y="152.4" size="1.27" layer="250" font="vector">8bit  0   1   1   0</text>
+<text x="59.69" y="154.94" size="1.27" layer="250" font="vector">9bit  x   1   0   1</text>
+<text x="59.69" y="152.4" size="1.27" layer="250" font="vector">8bit  x   1   1   0</text>
 <text x="59.69" y="157.48" size="1.27" layer="250" font="vector">SPI  IM3 IM2 IM1 IM0</text>
 <text x="196.85" y="105.41" size="3.81" layer="250">I2C Connector</text>
 <text x="196.85" y="72.39" size="3.81" layer="250">FTDI Connector</text>
@@ -12541,6 +12541,7 @@ DIN A4, landscape with location and doc. field</description>
 <text x="135.89" y="148.59" size="1.778" layer="95">it's also possible
 to connect a
 VT93N1 Sensor</text>
+<wire x1="43.434" y1="120.65" x2="45.339" y2="120.65" width="0.8128" layer="94"/>
 </plain>
 <instances>
 <instance part="RPI" gate="G$1" x="195.58" y="138.43"/>

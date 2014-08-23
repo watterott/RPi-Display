@@ -1,18 +1,17 @@
 # RPi-Display
 2.8" TFT-Display (320x240) with Touchpanel for Raspberry Pi.
 
-*Thanks to Noralf Trønnes for [FBTFT - framebuffer for small displays](http://fbtft.org/).*
-
-[Schematics + Layout](https://github.com/watterott/RPi-Display/tree/master/pcb)
+*Thanks to Noralf Trønnes for [FBTFT - Framebuffer for small TFT Displays](http://fbtft.org/).*
 
 ![RPi-Display](https://raw.github.com/watterott/RPi-Display/master/img/rpi-display.jpg)
 
 
 ## Shop
 
-* [RPi-Display for Raspberry Pi Model A and B](http://www.watterott.com/en/RPi-Display) ([Amazon](http://www.amazon.de/RPi-Display-2-8-Touch-Display-Raspberry-320x240/dp/B00I7BGX5A))
 * [RPi-Display for Raspberry Pi Model B+](http://www.watterott.com/en/RPi-Display-B-Plus)
-* [TEK-Berry enclosure with cutout for Raspberry Pi Model A and B](http://www.watterott.com/index.php?page=search&page_action=query&desc=off&sdesc=off&keywords=RPi-Display)
+* [RPi-Display for Raspberry Pi Model A and B](http://www.watterott.com/en/RPi-Display) ([Amazon](http://www.amazon.de/RPi-Display-2-8-Touch-Display-Raspberry-320x240/dp/B00I7BGX5A))
+* [TEK-Berry+ Enclosure](http://www.teko.it/en/novita/) with LCD Cutout for Raspberry Pi Model B+ coming soon
+* [TEK-Berry Enclosure](http://www.watterott.com/index.php?page=search&page_action=query&desc=off&sdesc=off&keywords=RPi-Display) with LCD Cutout for Raspberry Pi Model A and B
 
 
 ## SD-Card Image
@@ -141,6 +140,11 @@ Yes, the FBTFT framebuffer can be installed on Raspbmc and the HDMI output can b
 Further infos can be found [here](https://github.com/notro/fbtft-spindle/wiki/FBTFT-image#backlight).
 * backlight off: ```echo 1 | sudo tee /sys/class/backlight/*/bl_power```
 * backlight on:  ```echo 0 | sudo tee /sys/class/backlight/*/bl_power```
+
+
+### Where can I find the schematics of the RPi-Display?
+The schematics and layout files can be found [here](https://github.com/watterott/RPi-Display/tree/master/pcb).
+The .brd and .sch files are in the [CadSoft Eagle 6](www.cadsoft.de/download-eagle/) format.
 
 
 ### What is the optional switch on the RPi-Display for Raspberry Pi Model A and B?

@@ -156,6 +156,14 @@ There are pads for an optional tactile switch or **VT93N1** LDR sensor (Light-De
     ```
 
 * **How to read the pin state?**
+
+    [WiringPi](http://wiringpi.com):
+    ```
+    $ gpio -g mode 22 in
+    # 0 = SW pressed or LDR bright light, 1 = SW not pressed or LDR low light
+    $ gpio -g read 22
+    ```
+    Shell:
     ```
     $ sudo -i
     $ echo 22 > /sys/class/gpio/export
@@ -176,12 +184,34 @@ There are pads for an optional tactile switch or **VT93N1** LDR sensor (Light-De
 
 * **How to read the pin state?**
     ```
-    $ sudo -i
-    $ echo 17 > /sys/class/gpio/export
-    $ echo in > /sys/class/gpio/gpio17/direction
-    $ exit
+    gpio -g mode 17 in
+    gpio -g mode 17 up
     # 0 = SW pressed, 1 = SW not pressed
-    $ cat /sys/class/gpio/gpio17/value
+    gpio -g read 17
+    ```
+
+
+### How to flash/update the ID EEPROM?
+The EEPROM on the RPi-Display for Raspberry Pi Model B+ can be updated as follows.
+Before the update the **WP** jumper next to the EEPROM has to be closed.
+
+* Install [EEPROM utils](https://github.com/raspberrypi/hats/tree/master/eepromutils):
+    ```
+    $ git clone https://github.com/raspberrypi/hats
+    $ cd hats/eepromutils
+    $ make
+    $ chmod +x eepflash.sh
+    ```
+
+* Generate EEPROM data:
+    ```
+    $ wget https://github.com/watterott/RPi-Display/raw/master/docu/rpi-display.txt
+    $ ./eepmake rpi-display.txt rpi-display.eep
+    ```
+
+* Update EEPROM:
+    ```
+    $ sudo ./eepflash.sh -w -t=24c32 -f=rpi-display.eep
     ```
 
 

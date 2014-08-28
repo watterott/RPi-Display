@@ -8,8 +8,8 @@
 
 ## Shop
 
-* [RPi-Display for Raspberry Pi Model B+](http://www.watterott.com/en/RPi-Display-B-Plus)
-* [RPi-Display for Raspberry Pi Model A and B](http://www.watterott.com/en/RPi-Display) ([Amazon](http://www.amazon.de/RPi-Display-2-8-Touch-Display-Raspberry-320x240/dp/B00I7BGX5A))
+* [RPi-Display for Raspberry Pi Model B+](http://www.watterott.com/en/RPi-Display-B-Plus) ([Amazon](http://www.amazon.de/RPi-Display-BPlus/dp/B00N3KK2SE))
+* [RPi-Display for Raspberry Pi Model A and B](http://www.watterott.com/en/RPi-Display) ([Amazon](http://www.amazon.de/RPi-Display/dp/B00I7BGX5A))
 * [TEK-Berry+ Enclosure](http://www.teko.it/en/novita/) with LCD Cutout for Raspberry Pi Model B+ coming soon
 * [TEK-Berry Enclosure](http://www.watterott.com/index.php?page=search&page_action=query&desc=off&sdesc=off&keywords=RPi-Display) with LCD Cutout for Raspberry Pi Model A and B
 
@@ -17,7 +17,7 @@
 ## SD-Card Image
 
 Ready to run SD-Card image (Raspbian/Debian with FBTFT) for 2.8" RPi-Display.
-Copy the image to a SD-Card with [dd](http://en.wikipedia.org/wiki/Dd_%28Unix%29) under Linux or [Win32-Disk-Imager](http://sourceforge.net/projects/win32diskimager/) under Windows.
+[Copy the image to a SD-Card](http://elinux.org/RPi_Easy_SD_Card_Setup) with [dd](http://en.wikipedia.org/wiki/Dd_%28Unix%29) under Linux or [Win32-Disk-Imager](http://sourceforge.net/projects/win32diskimager/) under Windows.
 To start the desktop run ```startx```.
 
 * [RPi-Display 8-Bit SPI - 2014-07-25](http://www.watterott.net/fbtft/2014-06-20-wheezy-raspbian-2014-07-25-fbtft-rpi-display-rev2.zip), [old 2014-03-12](http://www.watterott.net/fbtft/2014-01-07-wheezy-raspbian-2014-03-12-fbtft-rpi-display-rev2.zip)

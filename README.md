@@ -40,7 +40,7 @@ This can be done by using the [small guide](https://github.com/watterott/RPi-Dis
 The display can be also activated via kernel arguments: [8Bit-SPI cmdline.txt](https://github.com/watterott/RPi-Display/raw/master/docu/cmdline_8bit.txt), [9Bit-SPI cmdline.txt](https://github.com/watterott/RPi-Display/raw/master/docu/cmdline_9bit.txt).
 
 
-### How to mirror/copy HDMI to the display?
+### How to mirror/copy the HDMI output to the display?
 This can be done with ```fbcp```.
 Further infos can be found [here](https://github.com/notro/fbtft-spindle/wiki/FBTFT-image#fbcp---framebuffer-copy).
 
@@ -69,6 +69,23 @@ Further infos can be found [here](https://github.com/notro/fbtft-spindle/wiki/FB
 
 ### How to switch the console back to HDMI?
 Run ```con2fbmap 1 0``` and to switch back ```con2fbmap 1 1```.
+
+
+### How to switch the Desktop (X-Window-System) back to HDMI?
+
+* Run X on HDMI:
+    ```
+    $ export FRAMEBUFFER=/dev/fb0
+    $ startx &
+    ```
+
+* Run X on Display:
+    ```
+    $ export FRAMEBUFFER=/dev/fb1
+    $ startx &
+    ```
+
+If the X-Window-System is on the wrong monitor, have a look at [this issue](https://github.com/notro/fbtft/issues/63).
 
 
 ### I only see the top left part of a program window/dialog?

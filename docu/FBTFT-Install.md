@@ -37,27 +37,27 @@ $ sudo apt-get install xinput
 
 ## [Activate Framebuffer](https://github.com/notro/fbtft/wiki#enable-driver)
 
-### [8-Bit SPI](https://github.com/watterott/RPi-Display#spi-mode)
-```
-$ sudo modprobe fbtft dma
-$ sudo modprobe fbtft_device custom name=fb_ili9341 speed=32000000 gpios=reset:23,dc:24,led:18 bgr=1 rotate=270
-```
-To make it permanent (on Debian) add to the file ```/etc/modules``` the following line:
-```
-fbtft dma
-fbtft_device custom name=fb_ili9341 speed=32000000 gpios=reset:23,dc:24,led:18 bgr=1 rotate=270
-```
+* ### [8-Bit SPI](https://github.com/watterott/RPi-Display#spi-mode)
+    ```
+    $ sudo modprobe fbtft dma
+    $ sudo modprobe fbtft_device name=rpi-display speed=32000000 rotate=270
+    ```
+    To make it permanent (on Debian) add to the file ```/etc/modules``` the following line:
+    ```
+    fbtft dma
+    fbtft_device name=rpi-display speed=32000000 rotate=270
+    ```
+    *Note: For a higher speed than 16MHz the display has to be connected directly to the Raspberry Pi or with wires not longer than 5cm.*
 
-### [9-Bit SPI](https://github.com/watterott/RPi-Display#spi-mode) (only first generation displays)
-```
-$ sudo modprobe fbtft_device name=mi0283qt-9a cs=0 gpios=reset:23,led:18 speed=32000000 rotate=270
-```
-To make it permanent (on Debian) add to the file ```/etc/modules``` the following line:
-```
-fbtft_device name=mi0283qt-9a cs=0 gpios=reset:23,led:18 speed=32000000 rotate=270
-```
-
-*Note: For a higher speed than 16MHz the display has to be connected directly to the Raspberry Pi or with wires not longer than 5cm.*
+* ### [9-Bit SPI](https://github.com/watterott/RPi-Display#spi-mode) (only first generation displays)
+    ```
+    $ sudo modprobe fbtft_device name=mi0283qt-9a gpios=reset:23,led:18 speed=32000000 rotate=270
+    ```
+    To make it permanent (on Debian) add to the file ```/etc/modules``` the following line:
+    ```
+    fbtft_device name=mi0283qt-9a gpios=reset:23,led:18 speed=32000000 rotate=270
+    ```
+    *Note: For a higher speed than 16MHz the display has to be connected directly to the Raspberry Pi or with wires not longer than 5cm.*
 
 
 ## [Activate Touchpanel](https://github.com/notro/fbtft/wiki/Touchpanel)

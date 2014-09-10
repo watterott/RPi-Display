@@ -37,7 +37,7 @@ A small guide can be found [here](https://github.com/watterott/RPi-Display/blob/
 
 ### How to configure the standard [FBTFT image](https://github.com/notro/fbtft/wiki#image-download) for the RPi-Display?
 This can be done by using the [small guide](https://github.com/watterott/RPi-Display/blob/master/docu/FBTFT-Install.md) and skipping the first two installation steps.
-The display can be also activated via kernel arguments: [8Bit-SPI cmdline.txt](https://github.com/watterott/RPi-Display/raw/master/docu/cmdline_8bit.txt), [9Bit-SPI cmdline.txt](https://github.com/watterott/RPi-Display/raw/master/docu/cmdline_9bit.txt).
+If the kernel has built-in FBTFT drivers, then the display can be activated via kernel arguments (cmdline.txt): [8Bit-SPI cmdline.txt](https://github.com/watterott/RPi-Display/raw/master/docu/cmdline_8bit.txt), [9Bit-SPI cmdline.txt](https://github.com/watterott/RPi-Display/raw/master/docu/cmdline_9bit.txt).
 
 
 ### How to mirror/copy the HDMI output to the display?
@@ -238,8 +238,8 @@ Before the update the **WP** jumper next to the EEPROM has to be closed.
   * Jumper IM1 set to 1
   * Jumper IO24-RS closed
   * FBTFT SD-Card Image kernel argument ([cmdline.txt](https://github.com/watterott/RPi-Display/raw/master/docu/cmdline_8bit.txt)):
-    ```fbtft.dma fbtft_device.custom fbtft_device.name=fb_ili9341 fbtft_device.speed=32000000 fbtft_device.gpios=reset:23,dc:24,led:18 fbtft_device.bgr=1 fbtft_device.rotate=270```
-    *(Replace existing fbtft parameters with the new one and make sure everything is in one line.)*
+    ```fbtft.dma fbtft_device.name=rpi-display fbtft_device.speed=32000000 fbtft_device.rotate=270```
+    *(Replace existing fbtft parameters with the new ones and make sure everything is in one line.)*
 
 * **9-Bit SPI** (performance: about 10 FPS, 65% CPU usage, note: FBTFT has currently no DMA support for 9-Bit SPI)
   * Jumper IM0 set to 1
@@ -247,6 +247,6 @@ Before the update the **WP** jumper next to the EEPROM has to be closed.
   * Jumper IO24-RS opened
   * FBTFT SD-Card Image kernel argument ([cmdline.txt](https://github.com/watterott/RPi-Display/raw/master/docu/cmdline_9bit.txt)):
     ```fbtft_device.name=mi0283qt-9a fbtft_device.speed=32000000 fbtft_device.gpios=reset:23,led:18 fbtft_device.rotate=270```
-    *(Replace existing fbtft parameters with the new one and make sure everything is in one line.)*
+    *(Replace existing fbtft parameters with the new ones and make sure everything is in one line.)*
 
 ![SPI-Mode](https://raw.github.com/watterott/RPi-Display/master/img/spi-mode.jpg)

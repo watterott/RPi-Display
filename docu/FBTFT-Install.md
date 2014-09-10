@@ -1,6 +1,6 @@
 # FBTFT Installation
 
-## [Install FBTFT](https://github.com/notro/fbtft/wiki#install) Framebuffer
+## 1. [Install FBTFT](https://github.com/notro/fbtft/wiki#install) Framebuffer
 
 Install **rpi-update** for the kernel update:
 ```
@@ -28,16 +28,20 @@ $ sudo shutdown -r now
 ```
 
 
-## Install Touchscreen Tools
+## 2. Install Touchscreen Tools
 
 ```
 $ sudo apt-get install xinput
 ```
 
 
-## [Activate Framebuffer](https://github.com/notro/fbtft/wiki#enable-driver)
+## 3. [Activate Framebuffer](https://github.com/notro/fbtft/wiki#enable-driver)
 
-* ### [8-Bit SPI](https://github.com/watterott/RPi-Display#spi-mode)
+*Note: For a higher speed than 16MHz the display has to be connected directly to the Raspberry Pi or with wires not longer than 5cm.*
+
+* ### FBTFT modules ```BRANCH=latest```
+
+    #### [8-Bit SPI](https://github.com/watterott/RPi-Display#spi-mode)
     ```
     $ sudo modprobe fbtft dma
     $ sudo modprobe fbtft_device name=rpi-display speed=32000000 rotate=270
@@ -47,9 +51,8 @@ $ sudo apt-get install xinput
     fbtft dma
     fbtft_device name=rpi-display speed=32000000 rotate=270
     ```
-    *Note: For a higher speed than 16MHz the display has to be connected directly to the Raspberry Pi or with wires not longer than 5cm.*
 
-* ### [9-Bit SPI](https://github.com/watterott/RPi-Display#spi-mode) (only first generation displays)
+    #### [9-Bit SPI](https://github.com/watterott/RPi-Display#spi-mode) (only first generation displays)
     ```
     $ sudo modprobe fbtft_device name=mi0283qt-9a gpios=reset:23,led:18 speed=32000000 rotate=270
     ```
@@ -57,10 +60,21 @@ $ sudo apt-get install xinput
     ```
     fbtft_device name=mi0283qt-9a gpios=reset:23,led:18 speed=32000000 rotate=270
     ```
-    *Note: For a higher speed than 16MHz the display has to be connected directly to the Raspberry Pi or with wires not longer than 5cm.*
+
+* ### FBTFT compiled into kernel ```BRANCH=builtin```
+
+    #### [8-Bit SPI](https://github.com/watterott/RPi-Display#spi-mode)
+    Kernel argument ([cmdline.txt](https://github.com/watterott/RPi-Display/raw/master/docu/cmdline_8bit.txt)):
+    ```fbtft.dma fbtft_device.name=rpi-display fbtft_device.speed=32000000 fbtft_device.rotate=270```
+    *(Replace existing fbtft parameters with the new ones and make sure everything is in one line.)*
+
+    #### [9-Bit SPI](https://github.com/watterott/RPi-Display#spi-mode) (only first generation displays)
+    Kernel argument ([cmdline.txt](https://github.com/watterott/RPi-Display/raw/master/docu/cmdline_9bit.txt)):
+    ```fbtft_device.name=mi0283qt-9a fbtft_device.speed=32000000 fbtft_device.gpios=reset:23,led:18 fbtft_device.rotate=270```
+    *(Replace existing fbtft parameters with the new ones and make sure everything is in one line.)*
 
 
-## [Activate Touchpanel](https://github.com/notro/fbtft/wiki/Touchpanel)
+## 4. [Activate Touchpanel](https://github.com/notro/fbtft/wiki/Touchpanel)
 
 ```
 $ sudo modprobe ads7846_device model=7846 cs=1 gpio_pendown=25 speed=2000000 keep_vref_on=1 swap_xy=1 pressure_max=255 x_plate_ohms=60 x_min=200 x_max=3900 y_min=200 y_max=3900
@@ -71,7 +85,7 @@ ads7846_device model=7846 cs=1 gpio_pendown=25 speed=2000000 keep_vref_on=1 swap
 ```
 
 
-## Calibrate Touchpanel (optional)
+## 5. Calibrate Touchpanel (optional)
 
 For better accuracy a touchpanel calibration can be done with:
 
@@ -88,7 +102,7 @@ $ sudo TSLIB_FBDEVICE=/dev/fb1 TSLIB_TSDEVICE=/dev/input/event0 ts_calibrate
 ```
 
 
-## Enable for Console
+## 6. Enable for Console
 
 ```
 $ con2fbmap 1 1
@@ -96,7 +110,7 @@ $ con2fbmap 1 1
 To make it permanent (on Debian) add to the file ```/boot/cmdline.txt``` at the end of the line the following kernel argument: ```fbcon=map:10 fbcon=font:VGA8x8```
 
 
-## Enable for X-Window-System
+## 7. Enable for X-Window-System
 
 ```
 $ FRAMEBUFFER=/dev/fb1 startx &
@@ -113,7 +127,7 @@ To make it permanent (on Debian) see [autostart x](https://github.com/notro/fbtf
 If the X-Window-System is on the wrong monitor, have a look at [this issue](https://github.com/notro/fbtft/issues/63).
 
 
-## Video Test
+## 8. Video Test
 
 *Note: The video file is about 60MB big.*
 ```

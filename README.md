@@ -92,9 +92,10 @@ Most programs are not designed for a small screen (<640x480) and so you see only
 It is possible to scale the screen with *fbcp*, but the best practice is to create an user interface specially for the display. This can be done for example with [Pygame](http://www.pygame.org).
 
 
-### The display stays black?
+### The display stays black/white?
 If the display is black and the backlight is also off then [FBTFT](https://github.com/watterott/RPi-Display/blob/master/docu/FBTFT-Install.md) is not installed correctly.
 If the backlight goes on and the display stays black or white then the wrong [SPI mode](https://github.com/watterott/RPi-Display#spi-mode) is selected.
+On other problems check your [power supply](http://www.raspberrypi.org/help/faqs/#powerReqs).
 
 
 ### The display does not work after an update.

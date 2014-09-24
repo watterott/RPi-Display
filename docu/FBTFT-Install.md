@@ -41,7 +41,7 @@ $ sudo apt-get install xinput
 
 * ### FBTFT modules ```BRANCH=latest```
 
-    #### [8-Bit SPI](https://github.com/watterott/RPi-Display#spi-mode)
+    #### [8-Bit SPI](https://github.com/watterott/RPi-Display/blob/master/docu/FAQ.md#spi-mode)
     ```
     $ sudo modprobe fbtft dma
     $ sudo modprobe fbtft_device name=rpi-display speed=32000000 rotate=270
@@ -52,7 +52,7 @@ $ sudo apt-get install xinput
     fbtft_device name=rpi-display speed=32000000 rotate=270
     ```
 
-    #### [9-Bit SPI](https://github.com/watterott/RPi-Display#spi-mode) (only first generation displays, before April 2014)
+    #### [9-Bit SPI](https://github.com/watterott/RPi-Display/blob/master/docu/FAQ.md#spi-mode) (only first generation displays, before April 2014)
     ```
     $ sudo modprobe fbtft_device name=mi0283qt-9a gpios=reset:23,led:18 speed=32000000 rotate=270
     ```
@@ -63,12 +63,12 @@ $ sudo apt-get install xinput
 
 * ### FBTFT compiled into kernel ```BRANCH=builtin```
 
-    #### [8-Bit SPI](https://github.com/watterott/RPi-Display#spi-mode)
+    #### [8-Bit SPI](https://github.com/watterott/RPi-Display/blob/master/docu/FAQ.md#spi-mode)
     Kernel argument ([/boot/cmdline.txt](https://github.com/watterott/RPi-Display/raw/master/docu/cmdline_8bit.txt)):
     ```fbtft.dma fbtft_device.name=rpi-display fbtft_device.speed=32000000 fbtft_device.rotate=270```
     *(Replace existing fbtft parameters with the new ones and make sure everything is in one line.)*
 
-    #### [9-Bit SPI](https://github.com/watterott/RPi-Display#spi-mode) (only first generation displays, before April 2014)
+    #### [9-Bit SPI](https://github.com/watterott/RPi-Display/blob/master/docu/FAQ.md#spi-mode) (only first generation displays, before April 2014)
     Kernel argument ([/boot/cmdline.txt](https://github.com/watterott/RPi-Display/raw/master/docu/cmdline_9bit.txt)):
     ```fbtft_device.name=mi0283qt-9a fbtft_device.speed=32000000 fbtft_device.gpios=reset:23,led:18 fbtft_device.rotate=270```
     *(Replace existing fbtft parameters with the new ones and make sure everything is in one line.)*

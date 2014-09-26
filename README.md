@@ -1,7 +1,5 @@
 # RPi-Display
-2.8" TFT-Display (320x240) with Touchpanel for Raspberry Pi.
-
-*Thanks to Noralf Trønnes for [FBTFT - Framebuffer for small TFT Displays](http://fbtft.org/).*
+2.8" TFT-Display (320x240) with Touchpanel for Raspberry Pi Model A/B or B+.
 
 ![RPi-Display](https://raw.github.com/watterott/RPi-Display/master/img/rpi-display.jpg)
 
@@ -16,20 +14,23 @@
 
 ## SD-Card Image
 
-Ready to run SD-Card image (Raspbian/Debian with FBTFT) for 2.8" RPi-Display.
-[Copy the image to a SD-Card](http://elinux.org/RPi_Easy_SD_Card_Setup) with [dd](http://en.wikipedia.org/wiki/Dd_%28Unix%29) under Linux or [Win32-Disk-Imager](http://sourceforge.net/projects/win32diskimager/) under Windows.
+Ready to run SD-Card image (Raspbian/Debian with FBTFT) for 2.8" RPi-Display (Model A/B and B+).
+
+Copy the image to a SD-Card with [dd](http://en.wikipedia.org/wiki/Dd_%28Unix%29) under Linux or [Win32-Disk-Imager](http://sourceforge.net/projects/win32diskimager/) under Windows.
 To start the desktop run ```sudo startx``` (first start needs sudo).
 
-* **[Raspbian RPi-Display 8-Bit SPI - 2014-07-25](http://www.watterott.net/fbtft/2014-06-20-wheezy-raspbian-2014-07-25-fbtft-rpi-display-rev2.zip)**, [old 2014-03-12](http://www.watterott.net/fbtft/2014-01-07-wheezy-raspbian-2014-03-12-fbtft-rpi-display-rev2.zip)
-* [Raspbian RPi-Display 9-Bit SPI - 2014-07-25](http://www.watterott.net/fbtft/2014-06-20-wheezy-raspbian-2014-07-25-fbtft-rpi-display-rev1.zip), [old 2014-03-12](http://www.watterott.net/fbtft/2014-01-07-wheezy-raspbian-2014-03-12-fbtft-rpi-display-rev1.zip) *(only first generation displays, before April 2014)*
+* **Download: [Raspbian RPi-Display 8-Bit SPI - 2014-07-25](http://www.watterott.net/fbtft/2014-06-20-wheezy-raspbian-2014-07-25-fbtft-rpi-display-rev2.zip)**, [old 2014-03-12](http://www.watterott.net/fbtft/2014-01-07-wheezy-raspbian-2014-03-12-fbtft-rpi-display-rev2.zip)
+* Download: [Raspbian RPi-Display 9-Bit SPI - 2014-07-25](http://www.watterott.net/fbtft/2014-06-20-wheezy-raspbian-2014-07-25-fbtft-rpi-display-rev1.zip), [old 2014-03-12](http://www.watterott.net/fbtft/2014-01-07-wheezy-raspbian-2014-03-12-fbtft-rpi-display-rev1.zip) *(only first generation displays, before April 2014)*
 * [Video showing the boot up](http://www.youtube.com/watch?v=a2CStAaMbmA)
 * **Login: ```pi```** and **Password: ```raspberry```**
 * **English Keyboard Layout** *(Y and Z are swapped on German Keyboards)*
 * SSH on port 22 activated
+* *Thanks to Noralf Trønnes for [FBTFT - Framebuffer for small TFT Displays](http://fbtft.org/).*
 
 
 ## Information
 
 * [FAQ (Frequently Asked Questions)](https://github.com/watterott/RPi-Display/blob/master/docu/FAQ.md)
-* [FBTFT Installation](https://github.com/watterott/RPi-Display/blob/master/docu/FBTFT-Install.md)
-* [FBTFT SD-Card Image Infos](https://github.com/notro/fbtft-spindle/wiki/FBTFT-image)
+* [FBTFT installation on an existing Raspbian system](https://github.com/watterott/RPi-Display/blob/master/docu/FBTFT-Install.md)
+* [FBTFT SD-Card image infos](https://github.com/notro/fbtft-spindle/wiki/FBTFT-image)
+* [How to prepare a SD-Card](http://elinux.org/RPi_Easy_SD_Card_Setup)

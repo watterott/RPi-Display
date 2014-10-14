@@ -16,11 +16,11 @@ $ sudo nano /etc/modprobe.d/raspi-blacklist.conf
 
 Start the kernel update:
 ```
-$ sudo REPO_URI=https://github.com/notro/rpi-firmware BRANCH=latest rpi-update
+$ sudo REPO_URI=https://github.com/notro/rpi-firmware rpi-update
 ```
-*On compatibility errors run rpi-update as follows: ```sudo -E RPI_UPDATE_UNSUPPORTED=0 REPO_URI=https://github.com/notro/rpi-firmware BRANCH=latest rpi-update```*
+*On compatibility errors run rpi-update as follows: ```sudo -E RPI_UPDATE_UNSUPPORTED=0 REPO_URI=https://github.com/notro/rpi-firmware rpi-update```*
 
-*If you are not using Raspbian and FBTFT is not working correctly, then try the kernel with built-in FBTFT drivers: ```sudo REPO_URI=https://github.com/notro/rpi-firmware BRANCH=builtin rpi-update```*
+*If FBTFT is not working correctly, then try the kernel without built-in FBTFT drivers: ```sudo REPO_URI=https://github.com/notro/rpi-firmware BRANCH=builtin rpi-update```*
 
 Reboot the system:
 ```
@@ -39,7 +39,7 @@ $ sudo apt-get install xinput
 
 *Note: For a higher speed than 16MHz the display has to be connected directly to the Raspberry Pi or with wires not longer than 5cm.*
 
-* ### FBTFT modules ```BRANCH=latest```
+* ### FBTFT modules
 
     #### [8-Bit SPI](https://github.com/watterott/RPi-Display/blob/master/docu/FAQ.md#spi-mode)
     ```

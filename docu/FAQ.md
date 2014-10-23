@@ -58,7 +58,8 @@ If the X-Window-System is on the wrong monitor, have a look at [this issue](http
 
 ## I only see the top left part of a program window/dialog?
 Most programs are not designed for a small screen (<640x480) and so you see only a part of the window.
-It is possible to scale the screen with *fbcp*, but the best practice is to create an user interface specially for the display. This can be done for example with [Pygame](http://www.pygame.org).
+It is possible to scale the screen with *fbcp*, but the best practice is to create an user interface specially for the display.
+This can be done for example with [Pygame](http://www.pygame.org) or [Tkinter](https://docs.python.org/2/library/tkinter.html) ([example](https://www.youtube.com/watch?v=xfxSH790rZ0)).
 
 
 ## The display stays black/white (no output)?
@@ -123,9 +124,16 @@ Yes, the FBTFT framebuffer can be installed on Raspbmc and the HDMI output can b
 
 
 ## How to switch the backlight on/off?
-Further infos can be found [here](https://github.com/notro/fbtft-spindle/wiki/FBTFT-image#backlight).
-* backlight off: ```echo 1 | sudo tee /sys/class/backlight/*/bl_power```
-* backlight on:  ```echo 0 | sudo tee /sys/class/backlight/*/bl_power```
+The display backlight can be turned on/off and can also be dimmed (using PWM).
+* backlight off: ```$ echo 1 | sudo tee /sys/class/backlight/*/bl_power```
+* backlight on:  ```$ echo 0 | sudo tee /sys/class/backlight/*/bl_power```
+* [dimming with Software-PWM](https://github.com/watterott/RPi-Display/blob/master/docu/lcdlevel.cpp) (further infos [here](https://projects.drogon.net/raspberry-pi/wiringpi/software-pwm-library/))
+* dimming with Hardware-PWM (will mess up audio)
+
+    ```
+    $ gpio -g mode 18 pwm
+    $ gpio -g pwm 18 222
+    ```
 
 
 ## Where can I find the schematics of the RPi-Display?

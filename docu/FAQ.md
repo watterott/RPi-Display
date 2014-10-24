@@ -127,9 +127,10 @@ Yes, the FBTFT framebuffer can be installed on Raspbmc and the HDMI output can b
 The display backlight can be turned on/off and can also be dimmed (using PWM).
 * backlight off: ```$ echo 1 | sudo tee /sys/class/backlight/*/bl_power```
 * backlight on:  ```$ echo 0 | sudo tee /sys/class/backlight/*/bl_power```
-* [dimming with Software-PWM](https://github.com/watterott/RPi-Display/blob/master/docu/lcdlevel.cpp) (further infos [here](https://projects.drogon.net/raspberry-pi/wiringpi/software-pwm-library/))
-* dimming with Hardware-PWM (will mess up audio)
 
+* [dimming with Software-PWM](https://github.com/watterott/RPi-Display/blob/master/docu/lcdlevel.cpp) (further infos [here](https://projects.drogon.net/raspberry-pi/wiringpi/software-pwm-library/))
+
+* dimming with Hardware-PWM (will mess up audio):
     ```
     $ gpio -g mode 18 pwm
     $ gpio -g pwm 18 222
@@ -178,10 +179,11 @@ There are pads for an optional tactile switch or **VT93N1** LDR sensor (Light-De
 
 * **How to read the pin state?**
     ```
-    gpio -g mode 17 in
-    gpio -g mode 17 up
+    # set as input and enable pull-up
+    $ gpio -g mode 17 in
+    $ gpio -g mode 17 up
     # 0 = SW pressed, 1 = SW not pressed
-    gpio -g read 17
+    $ gpio -g read 17
     ```
 
 

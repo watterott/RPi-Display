@@ -98,8 +98,9 @@ $ DISPLAY=:0 xinput --set-prop 'ADS7846 Touchscreen' 'Evdev Axis Inversion' 1 0
 **ts_calibrate**
 ```
 $ sudo apt-get install libts-bin
-$ sudo TSLIB_FBDEVICE=/dev/fb1 TSLIB_TSDEVICE=/dev/input/event0 ts_calibrate
+$ sudo TSLIB_FBDEVICE=/dev/fb1 TSLIB_TSDEVICE=/dev/input/eventX ts_calibrate
 ```
+Check for the right device name with ```ls -l /dev/input```. On the ready to run SD card image the name is ```/dev/input/touchscreen```.
 
 
 ## 6. Enable for Console

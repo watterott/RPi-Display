@@ -8,8 +8,7 @@
 
 * [RPi-Display for Raspberry Pi Model B+](http://www.watterott.com/en/RPi-Display-B-Plus) ([Amazon](http://www.amazon.de/RPi-Display-BPlus/dp/B00N3KK2SE))
 * [RPi-Display for Raspberry Pi Model A and B](http://www.watterott.com/en/RPi-Display) ([Amazon](http://www.amazon.de/RPi-Display/dp/B00I7BGX5A))
-* [TEK-Berry+ Enclosure](http://www.teko.it/en/novita/) with LCD Cutout for Raspberry Pi Model B+ coming soon
-* [TEK-Berry Enclosure](http://www.watterott.com/index.php?page=search&page_action=query&desc=off&sdesc=off&keywords=RPi-Display) with LCD Cutout for Raspberry Pi Model A and B
+* [TEK-Berry and TEK-Berry+ Enclosures with Display Cutout](http://www.watterott.com/index.php?page=search&page_action=query&desc=off&sdesc=off&keywords=RPi-Display)
 
 
 ## SD-Card Image

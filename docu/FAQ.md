@@ -86,10 +86,20 @@ The FBTFT framebuffer driver needs a special kernel. When you make an update, ex
 
 
 ## Does the display work with [Raspbmc](http://www.raspbmc.com)?
-Yes, the FBTFT framebuffer can be installed on Raspbmc and the HDMI output can be mirrored to the display using fbcp.
+Yes, the FBTFT framebuffer can be installed on [Raspbmc](http://www.raspbmc.com) and the HDMI output can be mirrored to the display using [fbcp](https://github.com/watterott/RPi-Display/blob/master/docu/FAQ.md#how-to-mirrorcopy-the-hdmi-output-to-the-display).
 
 
-## How to install and run SqueezePlay on the display?
+## How to install and run [Quake 3](https://github.com/raspberrypi/quake3) on the display?
+* Install Quake: [English Guide](http://www.raspbian.org/RaspbianQuake3), [German Guide](http://www.gtkdb.de/index_7_1792.html)
+
+* Run Quake:
+    ```
+    $ fbcp &
+    $ ~/quake3/ioquake3.arm
+    ```
+
+
+## How to install and run [SqueezePlay](http://wiki.slimdevices.com/index.php/SqueezePlay) on the display?
 * Install SqueezePlay:
     ```
     $ wget http://squeezeslave.googlecode.com/files/squeezeplay_7.8.0~337_armhf.deb

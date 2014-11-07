@@ -5,14 +5,13 @@
 
 
 ## Shop
-
-* [RPi-Display for Raspberry Pi Model B+](http://www.watterott.com/en/RPi-Display-B-Plus) ([Amazon](http://www.amazon.de/RPi-Display-BPlus/dp/B00N3KK2SE))
+* [RPi-Display B+ for Raspberry Pi Model B+](http://www.watterott.com/en/RPi-Display-B-Plus) ([Amazon](http://www.amazon.de/RPi-Display-BPlus/dp/B00N3KK2SE))
 * [RPi-Display for Raspberry Pi Model A and B](http://www.watterott.com/en/RPi-Display) ([Amazon](http://www.amazon.de/RPi-Display/dp/B00I7BGX5A))
 * [TEK-Berry and TEK-Berry+ Enclosures with Display Cutout](http://www.watterott.com/index.php?page=search&page_action=query&desc=off&sdesc=off&keywords=RPi-Display)
+* [GPIO-Adapter for RPi-Display B+](http://www.watterott.com/en/GPIO-Adapter-for-the-RPi-Display-BPlus)
 
 
 ## SD-Card Image
-
 Ready to run SD-Card image (Raspbian/Debian with FBTFT) for 2.8" RPi-Display (Model A/B and B+).
 
 Copy the image to a SD-Card with [dd](http://en.wikipedia.org/wiki/Dd_%28Unix%29) under Linux or [Win32-Disk-Imager](http://sourceforge.net/projects/win32diskimager/) under Windows.
@@ -22,14 +21,13 @@ To start the desktop run ```sudo startx``` (first start needs sudo).
 * **Login: ```pi```** and **Password: ```raspberry```**
 * **English Keyboard Layout** *(Y and Z are swapped on German Keyboards)*
 * SSH on port 22 activated
-* [Video showing the boot up](http://www.youtube.com/watch?v=a2CStAaMbmA)
-* [OctoPi](https://github.com/guysoft/OctoPi) (distribution for 3d printers) has support for the RPi-Display
+* *[OctoPi](https://github.com/guysoft/OctoPi) (distribution for 3d printers) has support for the RPi-Display*
 * *Thanks to Noralf Trønnes for [FBTFT - Framebuffer for small TFT Displays](http://fbtft.org/).*
 
 
 ## Information
-
 * [FAQ (Frequently Asked Questions)](https://github.com/watterott/RPi-Display/blob/master/docu/FAQ.md)
 * [FBTFT installation on an existing Raspbian system](https://github.com/watterott/RPi-Display/blob/master/docu/FBTFT-Install.md)
-* [FBTFT SD-Card image infos](https://github.com/notro/fbtft-spindle/wiki/FBTFT-image)
+* [FBTFT SD-Card image infos](https://github.com/notro/fbtft-spindle/wiki/FBTFT-image) ([Video showing the boot up](http://www.youtube.com/watch?v=a2CStAaMbmA))
 * [How to prepare a SD-Card](http://elinux.org/RPi_Easy_SD_Card_Setup)
+* [RPi-Display Schematics + Layout](https://github.com/watterott/RPi-Display/tree/master/pcb)

@@ -106,6 +106,7 @@ Check for the right device name with ```ls -l /dev/input```. On the ready to run
 
 ## 6. Enable for Console
 
+Run in console (not desktop terminal):
 ```
 $ con2fbmap 1 1
 ```
@@ -125,8 +126,8 @@ $ DISPLAY=:0 xinput --set-prop 'ADS7846 Touchscreen' 'Evdev Axis Inversion' 1 0
 ```
 $ sudo pkill x
 ```
+*If the desktop is on the wrong monitor, then remove/comment in ```/usr/share/X11/xorg.conf.d/99-fbturbo.conf``` the following line ```Option "fbdev" "/dev/fb0"``` ([further infos](https://github.com/notro/fbtft/issues/63)).*
 To make it permanent (on Debian) see [autostart x](https://github.com/notro/fbtft/wiki#make-it-permanent-debian) and [xinput axis inversion](https://github.com/notro/fbtft/wiki/Touchpanel#-xinput---make-it-permanent).
-If the X-Window-System is on the wrong monitor, have a look at [this issue](https://github.com/notro/fbtft/issues/63).
 
 
 ## 8. Video Test

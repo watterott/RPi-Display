@@ -1,11 +1,11 @@
 # RPi-Display
-2.8" TFT-Display (320x240) with Touchpanel for Raspberry Pi Model A/B or B+.
+2.8" TFT-Display (320x240) with Touchpanel for Raspberry Pi Model A/B or A+/B+.
 
 ![RPi-Display](https://raw.github.com/watterott/RPi-Display/master/img/rpi-display.jpg)
 
 
 ## Shop
-* [RPi-Display B+ for Raspberry Pi Model B+](http://www.watterott.com/en/RPi-Display-B-Plus) ([Amazon](http://www.amazon.de/RPi-Display-BPlus/dp/B00N3KK2SE))
+* [RPi-Display B+ for Raspberry Pi Model Model Model A+ and B+](http://www.watterott.com/en/RPi-Display-B-Plus) ([Amazon](http://www.amazon.de/RPi-Display-BPlus/dp/B00N3KK2SE))
 * [RPi-Display for Raspberry Pi Model A and B](http://www.watterott.com/en/RPi-Display) ([Amazon](http://www.amazon.de/RPi-Display/dp/B00I7BGX5A))
 * [TEK-Berry and TEK-Berry+ Enclosures with Display Cutout](http://www.watterott.com/index.php?page=search&page_action=query&desc=off&sdesc=off&keywords=RPi-Display)
 * [GPIO-Adapter for RPi-Display B+](http://www.watterott.com/en/GPIO-Adapter-for-the-RPi-Display-BPlus)

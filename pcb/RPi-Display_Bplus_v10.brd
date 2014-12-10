@@ -3199,7 +3199,7 @@ design rules under a new name.</description>
 <element name="LCD" library="we-opto" package="MI0283QT11" value="MI0283QT-11" x="69.5" y="31" smashed="yes" rot="R90">
 <attribute name="NAME" x="31.4" y="31" size="0.8128" layer="21" font="vector" ratio="10" rot="R90" align="center"/>
 </element>
-<element name="IC2" library="we-chip" package="SOT23-5" value="24LC-I/OT" x="24.13" y="10.95375" smashed="yes" rot="MR270">
+<element name="IC2" library="we-chip" package="SOT23-5" value="24LC32A" x="24.13" y="10.95375" smashed="yes" rot="MR270">
 <attribute name="NAME" x="24.13" y="13.49375" size="0.8128" layer="26" font="vector" ratio="10" rot="MR180" align="center"/>
 <attribute name="VALUE" x="24.13" y="10.95375" size="0.8128" layer="28" font="vector" ratio="10" rot="MR180" align="center"/>
 </element>

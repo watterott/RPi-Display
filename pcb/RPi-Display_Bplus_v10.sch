@@ -13232,7 +13232,7 @@ Source: &lt;a href= "http://www.hirose.co.jp/cataloge_hp/e58605370.pdf"&gt;Data 
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
 <part name="+3V6" library="supply1" deviceset="+3V3" device=""/>
 <part name="+3V9" library="supply1" deviceset="+3V3" device=""/>
-<part name="IC2" library="we-chip" deviceset="I2C_EEPROM" device="-CAT24AA0X" value="24LC-I/OT"/>
+<part name="IC2" library="we-chip" deviceset="I2C_EEPROM" device="-CAT24AA0X" value="24LC32A"/>
 <part name="R8" library="rcl" deviceset="R-EU_" device="R0603" value="3k9"/>
 <part name="R9" library="rcl" deviceset="R-EU_" device="R0603" value="3k9"/>
 <part name="+3V10" library="supply1" deviceset="+3V3" device=""/>

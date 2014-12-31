@@ -16,7 +16,8 @@
 Ready to run SD-Card image (Raspbian/Debian with FBTFT) for 2.8" RPi-Display (Model A/B and B+).
 
 Copy the image to a SD-Card with [dd](http://en.wikipedia.org/wiki/Dd_%28Unix%29) under Linux or [Win32-Disk-Imager](http://sourceforge.net/projects/win32diskimager/) under Windows.
-To start the desktop run ```sudo startx``` (first start needs sudo).
+To start the desktop run ```sudo startx``` (first start needs sudo). Then do the calibration (1. upper left, 2. upper right, 3. lower left, 4. lower right). The cursor maybe moved to the wrong position during the calibration process.
+
 * **Download: [Raspbian RPi-Display 8-Bit SPI - 2014-07-25](http://www.watterott.net/fbtft/2014-06-20-wheezy-raspbian-2014-07-25-fbtft-rpi-display-rev2.zip)**, [old 2014-03-12](http://www.watterott.net/fbtft/2014-01-07-wheezy-raspbian-2014-03-12-fbtft-rpi-display-rev2.zip)
 * Download: [Raspbian RPi-Display 9-Bit SPI - 2014-07-25](http://www.watterott.net/fbtft/2014-06-20-wheezy-raspbian-2014-07-25-fbtft-rpi-display-rev1.zip), [old 2014-03-12](http://www.watterott.net/fbtft/2014-01-07-wheezy-raspbian-2014-03-12-fbtft-rpi-display-rev1.zip) *(only first generation displays, before April 2014)*
 * **Login: ```pi```** and **Password: ```raspberry```**

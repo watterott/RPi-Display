@@ -65,6 +65,7 @@ This can be done for example with [Pygame](http://www.pygame.org) or [Tkinter](h
 ## The display stays black/white (no output)?
 If the display is black and the backlight is also off then [FBTFT](https://github.com/watterott/RPi-Display/blob/master/docu/FBTFT-Install.md) is not installed correctly.
 If the backlight goes on and the display stays black or white then maybe the wrong [SPI mode](https://github.com/watterott/RPi-Display/blob/master/docu/FAQ.md#spi-mode) is selected or check if the [FFC connector](https://github.com/watterott/RPi-Display/raw/master/docu/ffc_connector.jpg) is correctly closed.
+When using a flex cable for the connection (RPi-Display Flex Edition) then the jumpers MISO, MOSI and SCK have to be closed.
 On other problems please check your SD-Card and [power supply](http://www.raspberrypi.org/help/faqs/#powerReqs).
 
 

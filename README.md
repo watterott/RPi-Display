@@ -23,7 +23,6 @@ To start the desktop run ```sudo startx``` (first start needs sudo). Then do the
 * **Login: ```pi```** and **Password: ```raspberry```**
 * **English Keyboard Layout** *(Y and Z are swapped on German Keyboards)*
 * SSH on port 22 activated
-* *[OctoPi](https://github.com/guysoft/OctoPi) (distribution for 3d printers) has support for the RPi-Display*
 * *Thanks to Noralf Trønnes for [FBTFT - Framebuffer for small TFT Displays](http://fbtft.org/).*
 
 
@@ -33,3 +32,4 @@ To start the desktop run ```sudo startx``` (first start needs sudo). Then do the
 * [FBTFT SD-Card image infos](https://github.com/notro/fbtft-spindle/wiki/FBTFT-image) ([Video showing the boot up](http://www.youtube.com/watch?v=a2CStAaMbmA))
 * [How to prepare a SD-Card](http://elinux.org/RPi_Easy_SD_Card_Setup)
 * [RPi-Display Schematics + Layout](https://github.com/watterott/RPi-Display/tree/master/pcb)
+* [Projects using the RPi-Display](https://github.com/watterott/RPi-Display/blob/master/Projects.md)

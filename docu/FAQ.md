@@ -242,4 +242,4 @@ Note: FBTFT has currently no DMA support for 9-Bit SPI.
     ```fbtft_device.name=mi0283qt-9a fbtft_device.speed=32000000 fbtft_device.gpios=reset:23,led:18 fbtft_device.rotate=270```
     *(Replace existing fbtft parameters with the new ones and make sure everything is in one line.)*
 
-![SPI-Mode](https://raw.github.com/watterott/RPi-Display/master/img/spi-mode.jpg)
+![SPI-Mode](https://raw.github.com/watterott/RPi-Display/master/docu/spi-mode.jpg)

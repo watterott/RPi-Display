@@ -56,6 +56,29 @@ Run ```con2fbmap 1 0``` and to switch back ```con2fbmap 1 1```.
 If the X-Window-System is on the wrong monitor, have a look at [this issue](https://github.com/notro/fbtft/issues/63).
 
 
+## How to switch the backlight on/off?
+The display backlight can be turned on/off and can also be dimmed (using PWM).
+* backlight off: ```$ echo 1 | sudo tee /sys/class/backlight/*/bl_power```
+* backlight on:  ```$ echo 0 | sudo tee /sys/class/backlight/*/bl_power```
+
+* [dimming with Software-PWM](https://github.com/watterott/RPi-Display/blob/master/docu/lcdlevel.cpp) (further infos [here](https://projects.drogon.net/raspberry-pi/wiringpi/software-pwm-library/))
+
+* dimming with Hardware-PWM (will mess up audio):
+    ```
+    $ gpio -g mode 18 pwm
+    $ gpio -g pwm 18 222
+    ```
+
+
+## How to set or disable the blanking/screensaver time?
+For further infos have a look here:
+
+* [Console blanking](https://github.com/notro/fbtft-spindle/wiki/FBTFT-image#blanking)
+* [X-Window-System blanking](https://github.com/notro/fbtft-spindle/wiki/FBTFT-image#blanking-1)
+
+Please note when the displays shows the same content over several hours then the image can burn into the screen.
+
+
 ## I only see the top left part of a program window/dialog?
 Most programs are not designed for a small screen (<640x480) and so you see only a part of the window.
 It is possible to scale the screen with *fbcp*, but the best practice is to create an user interface specially for the display.
@@ -132,20 +155,6 @@ Yes, the FBTFT framebuffer can be installed on [Raspbmc](http://www.raspbmc.com)
     MISO     GPIO9  (MISO)
     MOSI     GPIO10 (MOSI)
     SCK      GPIO11 (SCK)
-
-
-## How to switch the backlight on/off?
-The display backlight can be turned on/off and can also be dimmed (using PWM).
-* backlight off: ```$ echo 1 | sudo tee /sys/class/backlight/*/bl_power```
-* backlight on:  ```$ echo 0 | sudo tee /sys/class/backlight/*/bl_power```
-
-* [dimming with Software-PWM](https://github.com/watterott/RPi-Display/blob/master/docu/lcdlevel.cpp) (further infos [here](https://projects.drogon.net/raspberry-pi/wiringpi/software-pwm-library/))
-
-* dimming with Hardware-PWM (will mess up audio):
-    ```
-    $ gpio -g mode 18 pwm
-    $ gpio -g pwm 18 222
-    ```
 
 
 ## Where can I find the schematics of the RPi-Display?

@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.0125" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -117,7 +117,7 @@
 <text x="2.2225" y="14.9225" size="1.016" layer="1" font="vector" ratio="20">TOP</text>
 <text x="4.7624" y="14.9225" size="1.016" layer="16" font="vector" ratio="20" rot="MR0">BOT</text>
 <text x="6.9849" y="14.9225" size="1.016" layer="1" font="vector" ratio="20">Rev 1.0</text>
-<text x="14.9225" y="32.385" size="1.016" layer="1" font="vector" ratio="20" rot="R270">www.watterott.com</text>
+<text x="19.05" y="27.94" size="1.016" layer="1" font="vector" ratio="20" rot="R270">www.watterott.com</text>
 <text x="35.56" y="16.1925" size="2.1844" layer="22" font="vector" ratio="10" rot="MR90">RPi 2.8" Display</text>
 <text x="43.18" y="28.575" size="1.27" layer="22" font="vector" ratio="10" rot="MR90">open</text>
 <text x="40.9575" y="28.575" size="1.27" layer="22" font="vector" ratio="10" rot="MR90">hardware</text>
@@ -131,6 +131,8 @@
 <hole x="23.495" y="3.175" drill="2"/>
 <hole x="19.685" y="31.115" drill="3"/>
 <text x="0" y="-1.27" size="1.27" layer="49" font="vector" ratio="10" align="top-left">2.0mm PCB, Silkscreen: 22 bPlace + 26 bNames</text>
+<rectangle x1="14.605" y1="29.21" x2="16.51" y2="33.02" layer="29"/>
+<rectangle x1="14.605" y1="10.16" x2="16.51" y2="13.97" layer="29"/>
 </plain>
 <libraries>
 <library name="RaspberryPi">

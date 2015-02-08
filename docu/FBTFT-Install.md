@@ -1,47 +1,38 @@
 # FBTFT Installation
 
-## 1. [Install FBTFT](https://github.com/notro/fbtft/wiki#install) Framebuffer
+## 1. [Install FBTFT](https://github.com/notro/fbtft/wiki#install) Framebuffer and Touchscreen Tools
 
-Install **rpi-update** for the kernel update:
-```
-$ sudo wget https://raw.github.com/Hexxeh/rpi-update/master/rpi-update -O /usr/bin/rpi-update
-$ sudo chmod +x /usr/bin/rpi-update
-```
-*If you get certificate errors, then run ```wget``` with ```--no-check-certificate```.*
-
-Remove or comment out the SPI blacklist line (**spi-bcm2708**):
-```
-$ sudo nano /etc/modprobe.d/raspi-blacklist.conf
-```
-
-Start the kernel update:
+Update the Kernel and reboot the System:
 ```
 $ sudo REPO_URI=https://github.com/notro/rpi-firmware rpi-update
-```
-*On compatibility errors run rpi-update as follows: ```sudo -E RPI_UPDATE_UNSUPPORTED=0 REPO_URI=https://github.com/notro/rpi-firmware rpi-update```*
-
-*If FBTFT is not working correctly, then try the kernel with built-in FBTFT drivers: ```sudo REPO_URI=https://github.com/notro/rpi-firmware BRANCH=builtin rpi-update```*
-
-Reboot the system:
-```
-$ sudo shutdown -r now
-```
-
-
-## 2. Install Touchscreen Tools
-
-```
+$ sudo reboot
 $ sudo apt-get install xinput
 ```
+*On compatibility errors run rpi-update as follows:
+```sudo -E RPI_UPDATE_UNSUPPORTED=0 REPO_URI=https://github.com/notro/rpi-firmware rpi-update```*
 
 
-## 3. [Activate Framebuffer](https://github.com/notro/fbtft/wiki#enable-driver)
+## 2. Activate FBTFT
 
 *Note: For a higher speed than 16MHz the display has to be connected directly to the Raspberry Pi or with wires not longer than 5cm.*
 
-* ### FBTFT modules
+* ### FBTFT Device Tree enabled Kernel
 
-    #### [8-Bit SPI](https://github.com/watterott/RPi-Display/blob/master/docu/FAQ.md#spi-mode)
+    Open the file ```config.txt```:
+    ```
+    $ sudo nano /boot/config.txt
+    ```
+    Add the following lines (8-Bit SPI Display):
+    ```
+    dtoverlay=rpi-display
+    device_tree_param=speed=32000000
+    device_tree_param=rotate=270
+    #rotate can be 0 90 180 270
+    ```
+
+* ### FBTFT Kernel Modules
+
+    #### [8-Bit SPI Display](https://github.com/watterott/RPi-Display/blob/master/docu/FAQ.md#spi-mode)
     ```
     $ sudo modprobe fbtft dma
     $ sudo modprobe fbtft_device name=rpi-display speed=32000000 rotate=270
@@ -52,7 +43,7 @@ $ sudo apt-get install xinput
     fbtft_device name=rpi-display speed=32000000 rotate=270
     ```
 
-    #### [9-Bit SPI](https://github.com/watterott/RPi-Display/blob/master/docu/FAQ.md#spi-mode) (only first generation displays, before April 2014)
+    #### [9-Bit SPI Display](https://github.com/watterott/RPi-Display/blob/master/docu/FAQ.md#spi-mode) (only first generation displays, before April 2014)
     ```
     $ sudo modprobe fbtft_device name=mi0283qt-9a gpios=reset:23,led:18 speed=32000000 rotate=270
     ```
@@ -61,50 +52,17 @@ $ sudo apt-get install xinput
     fbtft_device name=mi0283qt-9a gpios=reset:23,led:18 speed=32000000 rotate=270
     ```
 
-* ### FBTFT compiled into kernel ```BRANCH=builtin```
-
-    #### [8-Bit SPI](https://github.com/watterott/RPi-Display/blob/master/docu/FAQ.md#spi-mode)
-    Kernel argument ([/boot/cmdline.txt](https://github.com/watterott/RPi-Display/raw/master/docu/cmdline_8bit.txt)):
-    ```fbtft.dma fbtft_device.name=rpi-display fbtft_device.speed=32000000 fbtft_device.rotate=270```
-    *(Replace existing fbtft parameters with the new ones and make sure everything is in one line.)*
-
-    #### [9-Bit SPI](https://github.com/watterott/RPi-Display/blob/master/docu/FAQ.md#spi-mode) (only first generation displays, before April 2014)
-    Kernel argument ([/boot/cmdline.txt](https://github.com/watterott/RPi-Display/raw/master/docu/cmdline_9bit.txt)):
-    ```fbtft_device.name=mi0283qt-9a fbtft_device.speed=32000000 fbtft_device.gpios=reset:23,led:18 fbtft_device.rotate=270```
-    *(Replace existing fbtft parameters with the new ones and make sure everything is in one line.)*
+    ### Touchcontroller
+    ```
+    $ sudo modprobe ads7846_device model=7846 cs=1 gpio_pendown=25 speed=2000000 keep_vref_on=1 pressure_max=255 x_plate_ohms=60 x_min=200 x_max=3900 y_min=200 y_max=3900
+    ```
+    To make it permanent (on Debian) add to the file ```/etc/modules``` the following line:
+    ```
+    ads7846_device model=7846 cs=1 gpio_pendown=25 speed=2000000 keep_vref_on=1 pressure_max=255 x_plate_ohms=60 x_min=200 x_max=3900 y_min=200 y_max=3900
+    ```
 
 
-## 4. [Activate Touchpanel](https://github.com/notro/fbtft/wiki/Touchpanel)
-
-```
-$ sudo modprobe ads7846_device model=7846 cs=1 gpio_pendown=25 speed=2000000 keep_vref_on=1 swap_xy=1 pressure_max=255 x_plate_ohms=60 x_min=200 x_max=3900 y_min=200 y_max=3900
-```
-To make it permanent (on Debian) add to the file ```/etc/modules``` the following line:
-```
-ads7846_device model=7846 cs=1 gpio_pendown=25 speed=2000000 keep_vref_on=1 swap_xy=1 pressure_max=255 x_plate_ohms=60 x_min=200 x_max=3900 y_min=200 y_max=3900
-```
-
-
-## 5. Calibrate Touchpanel (optional)
-
-For better accuracy a touchpanel calibration can be done with:
-
-**[xinput_calibrator](https://github.com/tias/xinput_calibrator)**
-```
-$ sudo FRAMEBUFFER=/dev/fb1 xinput_calibrator &
-$ DISPLAY=:0 xinput --set-prop 'ADS7846 Touchscreen' 'Evdev Axis Inversion' 1 0
-```
-
-**ts_calibrate**
-```
-$ sudo apt-get install libts-bin
-$ sudo TSLIB_FBDEVICE=/dev/fb1 TSLIB_TSDEVICE=/dev/input/eventX ts_calibrate
-$ sudo TSLIB_FBDEVICE=/dev/fb1 TSLIB_TSDEVICE=/dev/input/eventX ts_test
-```
-Check for the right device name with ```ls -l /dev/input```. On the ready to run SD card image the name is ```/dev/input/touchscreen```.
-
-
-## 6. Enable for Console
+## 3. Enable for Console
 
 Run in console (not desktop terminal):
 ```
@@ -113,24 +71,48 @@ $ con2fbmap 1 1
 To make it permanent (on Debian) add to the file ```/boot/cmdline.txt``` at the end of the line the following kernel argument: ```fbcon=map:10 fbcon=font:VGA8x8```
 
 
-## 7. Enable for X-Window-System
+## 4. Enable for X-Window-System
 
+Change *fb0* to *fb1* (only needed once):
 ```
-$ FRAMEBUFFER=/dev/fb1 startx &
+$ sudo nano /usr/share/X11/xorg.conf.d/99-fbturbo.conf
+$ sudo reboot
 ```
-*...wait till X-Window-System starts up...*
+
+Start X-Window-System:
 ```
-$ DISPLAY=:0 xinput --set-prop 'ADS7846 Touchscreen' 'Evdev Axis Inversion' 1 0
+$ startx &
 ```
-*...to stop X-Window-System run:*
+
+...wait till X-Window-System starts up:
+* rotate=0 - no settings needed
+
+* rotate=90
+    ```
+    $ DISPLAY=:0 xinput --set-prop 'ADS7846 Touchscreen' 'Evdev Axes Swap' 1
+    $ DISPLAY=:0 xinput --set-prop 'ADS7846 Touchscreen' 'Evdev Axis Inversion' 1 0
+    ```
+
+* rotate=180
+    ```
+    $ DISPLAY=:0 xinput --set-prop 'ADS7846 Touchscreen' 'Evdev Axis Inversion' 1 1
+    ```
+
+* rotate=270
+    ```
+    $ DISPLAY=:0 xinput --set-prop 'ADS7846 Touchscreen' 'Evdev Axes Swap' 1
+    $ DISPLAY=:0 xinput --set-prop 'ADS7846 Touchscreen' 'Evdev Axis Inversion' 0 1
+    ```
+
+...to stop X-Window-System run:
 ```
 $ sudo pkill x
 ```
-*If the desktop is on the wrong monitor, then remove/comment in ```/usr/share/X11/xorg.conf.d/99-fbturbo.conf``` the following line ```Option "fbdev" "/dev/fb0"``` ([further infos](https://github.com/notro/fbtft/issues/63)).*
-To make it permanent (on Debian) see [autostart x](https://github.com/notro/fbtft/wiki#make-it-permanent-debian) and [xinput axis inversion](https://github.com/notro/fbtft/wiki/Touchpanel#-xinput---make-it-permanent).
+
+To make it permanent (on Debian) see [autostart x](https://github.com/notro/fbtft/wiki#make-it-permanent-debian) and [xinput settings](https://github.com/notro/fbtft/wiki/Touchpanel#-xinput---make-it-permanent).
 
 
-## 8. Video Test
+## 5. Video Test
 
 *Note: The video file is about 60MB big.*
 ```
@@ -149,3 +131,23 @@ $ fbcp &
 $ omxplayer BigBuckBunny_320x180.mp4
 $ killall fbcp
 ```
+
+
+## 6. Calibrate Touchpanel (optional)
+
+For better accuracy a touchpanel calibration can be done with:
+
+**[xinput_calibrator](https://github.com/tias/xinput_calibrator)**
+```
+$ sudo xinput_calibrator &
+```
+For axes swapping and inversion see [4. Enable for X-Window-System](https://github.com/watterott/RPi-Display/blob/master/docu/FBTFT-Install.md#4-enable-for-x-window-system).
+
+**ts_calibrate**
+```
+$ sudo apt-get install libts-bin
+$ sudo TSLIB_FBDEVICE=/dev/fb1 TSLIB_TSDEVICE=/dev/input/eventX ts_calibrate
+$ sudo TSLIB_FBDEVICE=/dev/fb1 TSLIB_TSDEVICE=/dev/input/eventX ts_test
+```
+Check for the right device name with ```ls -l /dev/input```.
+On the ready to run SD card image the name is ```/dev/input/touchscreen```.

@@ -41,19 +41,11 @@ Run ```con2fbmap 1 0``` and to switch back ```con2fbmap 1 1```.
 
 
 ## How to switch the Desktop (X-Window-System) back to HDMI?
-* Run X on HDMI:
-    ```
-    $ export FRAMEBUFFER=/dev/fb0
-    $ startx &
-    ```
-
-* Run X on Display:
-    ```
-    $ export FRAMEBUFFER=/dev/fb1
-    $ startx &
-    ```
-
-If the X-Window-System is on the wrong monitor, have a look at [this issue](https://github.com/notro/fbtft/issues/63).
+Open ```99-fbturbo.conf``` and change *fbX* (fb0=HDMI, fb1=Display):
+```
+$ sudo nano /usr/share/X11/xorg.conf.d/99-fbturbo.conf
+$ startx &
+```
 
 
 ## How to switch the backlight on/off?

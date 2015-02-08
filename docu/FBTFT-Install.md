@@ -22,24 +22,20 @@ $ sudo apt-get install xinput
     ```
     $ sudo nano /boot/config.txt
     ```
-    Add the following lines (8-Bit SPI Display):
+    Add the following line for the 8-Bit SPI Display (rotate can be 0, 90, 180, 270):
     ```
-    dtoverlay=rpi-display
-    device_tree_param=speed=32000000
-    device_tree_param=rotate=270
-    #rotate can be 0 90 180 270
+    dtoverlay=rpi-display,speed=32000000,rotate=270
     ```
+    The default parameters are ```speed=32000000, rotate=270```.
 
 * ### FBTFT Kernel Modules
 
     #### [8-Bit SPI Display](https://github.com/watterott/RPi-Display/blob/master/docu/FAQ.md#spi-mode)
     ```
-    $ sudo modprobe fbtft dma
     $ sudo modprobe fbtft_device name=rpi-display speed=32000000 rotate=270
     ```
     To make it permanent (on Debian) add to the file ```/etc/modules``` the following line:
     ```
-    fbtft dma
     fbtft_device name=rpi-display speed=32000000 rotate=270
     ```
 
@@ -73,10 +69,9 @@ To make it permanent (on Debian) add to the file ```/boot/cmdline.txt``` at the 
 
 ## 4. Enable for X-Window-System
 
-Change *fb0* to *fb1* (only needed once):
+Open ```99-fbturbo.conf``` and change *fb0* to *fb1* (only needed once):
 ```
 $ sudo nano /usr/share/X11/xorg.conf.d/99-fbturbo.conf
-$ sudo reboot
 ```
 
 Start X-Window-System:

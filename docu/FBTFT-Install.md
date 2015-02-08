@@ -104,7 +104,8 @@ $ startx &
 $ sudo pkill x
 ```
 
-To make it permanent (on Debian) see [autostart x](https://github.com/notro/fbtft/wiki#make-it-permanent-debian) and [xinput settings](https://github.com/notro/fbtft/wiki/Touchpanel#-xinput---make-it-permanent).
+To make it permanent (on Debian) add to the file ```/etc/X11/xinit/xinitrc``` the respective settings.
+Further infos: [xinput settings](https://github.com/notro/fbtft/wiki/Touchpanel#-xinput---make-it-permanent) and [autostart x](https://github.com/notro/fbtft/wiki#make-it-permanent-debian).
 
 
 ## 5. Video Test

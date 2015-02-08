@@ -5,8 +5,7 @@ A small guide can be found [here](https://github.com/watterott/RPi-Display/blob/
 
 
 ## How to configure the standard [FBTFT image](https://github.com/notro/fbtft/wiki#image-download) for the RPi-Display?
-This can be done by using the [small guide](https://github.com/watterott/RPi-Display/blob/master/docu/FBTFT-Install.md) and skipping the first two installation steps.
-If the kernel has built-in FBTFT drivers, then the display can be activated via kernel arguments (/boot/cmdline.txt): [8Bit-SPI cmdline.txt](https://github.com/watterott/RPi-Display/raw/master/docu/cmdline_8bit.txt), [9Bit-SPI cmdline.txt](https://github.com/watterott/RPi-Display/raw/master/docu/cmdline_9bit.txt).
+Have a look in the [installation guide](https://github.com/watterott/RPi-Display/blob/master/docu/FBTFT-Install.md) for the respective settings.
 
 
 ## How to mirror/copy the HDMI output to the display?
@@ -151,7 +150,7 @@ Yes, the FBTFT framebuffer can be installed on [Raspbmc](http://www.raspbmc.com)
 
 ## Where can I find the schematics of the RPi-Display?
 The schematics and layout files can be found [here](https://github.com/watterott/RPi-Display/tree/master/pcb).
-The .brd and .sch files are in the [CadSoft Eagle 6](www.cadsoft.de/download-eagle/) format.
+The .brd and .sch files are in the [CadSoft Eagle](www.cadsoft.de/download-eagle/) format.
 
 
 ## What is the optional switch on the RPi-Display for Raspberry Pi Model A and B?
@@ -181,7 +180,7 @@ There are pads for an optional tactile switch or **VT93N1** LDR sensor (Light-De
     ```
 
 
-## How are the tactile switches connected on the RPi-Display for Raspberry Pi Model B+?
+## How are the tactile switches connected on the RPi-Display B+?
 * **Connection**
     ```
     SW1 -> GPIO17

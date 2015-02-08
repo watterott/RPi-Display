@@ -1,20 +1,20 @@
 # RPi-Display
-2.8" TFT-Display (320x240) with Touchpanel for Raspberry Pi Model A/B or A+/B+.
+2.8" TFT-Display (320x240) with Touchpanel for all Raspberry Pi Models.
 
 [![RPi-Display B+](https://raw.github.com/watterott/RPi-Display/master/pcb/RPi-Display_Bplus_v10.jpg)](http://www.watterott.com/en/RPi-Display-B-Plus)
 [![RPi-Display](https://raw.github.com/watterott/RPi-Display/master/pcb/RPi-Display_v10.jpg)](http://www.watterott.com/en/RPi-Display)
 
 
 ## Shop
-* [RPi-Display B+ for Raspberry Pi Model Model Model A+ and B+](http://www.watterott.com/en/RPi-Display-B-Plus) ([Amazon](http://www.amazon.de/RPi-Display-BPlus/dp/B00N3KK2SE))
-* [RPi-Display B+ Flex Edition for Raspberry Pi Model Model Model A+ and B+](https://www.watterott.com/en/RPi-Display-Flex-Edition)
-* [RPi-Display for Raspberry Pi Model A and B](http://www.watterott.com/en/RPi-Display) ([Amazon](http://www.amazon.de/RPi-Display/dp/B00I7BGX5A))
+* [RPi-Display B+ for Raspberry Pi v1 A+/B+ and v2](http://www.watterott.com/en/RPi-Display-B-Plus) ([Amazon](http://www.amazon.de/RPi-Display-BPlus/dp/B00N3KK2SE))
+* [RPi-Display B+ Flex Edition for Raspberry Pi v1 A+/B+ and v2](https://www.watterott.com/en/RPi-Display-Flex-Edition)
+* [RPi-Display for Raspberry Pi v1 A/B](http://www.watterott.com/en/RPi-Display) ([Amazon](http://www.amazon.de/RPi-Display/dp/B00I7BGX5A))
 * [TEK-Berry and TEK-Berry+ Enclosures with Display Cutout](http://www.watterott.com/index.php?page=search&page_action=query&desc=off&sdesc=off&keywords=RPi-Display)
 * [GPIO-Adapter for RPi-Display B+](http://www.watterott.com/en/GPIO-Adapter-for-the-RPi-Display-BPlus)
 
 
 ## SD-Card Image
-Ready to run SD-Card image (Raspbian/Debian with FBTFT) for 2.8" RPi-Display (Model A/B and B+).
+Ready to run SD-Card image (Raspbian/Debian with FBTFT) for 2.8" RPi-Display.
 
 Copy the image to a SD-Card with [dd](http://en.wikipedia.org/wiki/Dd_%28Unix%29) under Linux or [Win32-Disk-Imager](http://sourceforge.net/projects/win32diskimager/) under Windows.
 To start the desktop run ```sudo startx``` (first start needs sudo). Then do the calibration (1. upper left, 2. upper right, 3. lower left, 4. lower right). The cursor maybe moved to the wrong position during the calibration process.

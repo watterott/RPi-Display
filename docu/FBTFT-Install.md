@@ -56,7 +56,10 @@ $ sudo apt-get install xinput
     ```
     ads7846_device model=7846 cs=1 gpio_pendown=25 speed=2000000 keep_vref_on=1 pressure_max=255 x_plate_ohms=60 x_min=200 x_max=3900 y_min=200 y_max=3900
     ```
-
+    To make the touchcontroller accessible as char device /dev/input/touchscreen create the new file  ```/etc/udev/rules.d/78-ads7846.rules``` and add the following line:
+    ```
+    SUBSYSTEM=="input", KERNEL=="event[0-9]*", ATTRS{name}=="ADS7846 Touchscreen", SYMLINK+="input/touchscreen"
+    ```
 
 ## 3. Enable for Console
 
@@ -142,8 +145,6 @@ For axes swapping and inversion see [4. Enable for X-Window-System](https://gith
 **ts_calibrate**
 ```
 $ sudo apt-get install libts-bin
-$ sudo TSLIB_FBDEVICE=/dev/fb1 TSLIB_TSDEVICE=/dev/input/eventX ts_calibrate
-$ sudo TSLIB_FBDEVICE=/dev/fb1 TSLIB_TSDEVICE=/dev/input/eventX ts_test
+$ sudo TSLIB_FBDEVICE=/dev/fb1 TSLIB_TSDEVICE=/dev/input/touchscreen ts_calibrate
+$ sudo TSLIB_FBDEVICE=/dev/fb1 TSLIB_TSDEVICE=/dev/input/touchscreen ts_test
 ```
-Check for the right device name with ```ls -l /dev/input```.
-On the ready to run SD card image the name is ```/dev/input/touchscreen```.

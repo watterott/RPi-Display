@@ -145,6 +145,6 @@ For axes swapping and inversion see [4. Enable for X-Window-System](https://gith
 **ts_calibrate**
 ```
 $ sudo apt-get install libts-bin
-$ sudo TSLIB_FBDEVICE=/dev/fb1 TSLIB_TSDEVICE=/dev/input/eventX ts_calibrate
-$ sudo TSLIB_FBDEVICE=/dev/fb1 TSLIB_TSDEVICE=/dev/input/eventX ts_test
+$ sudo TSLIB_FBDEVICE=/dev/fb1 TSLIB_TSDEVICE=/dev/input/touchscreen ts_calibrate
+$ sudo TSLIB_FBDEVICE=/dev/fb1 TSLIB_TSDEVICE=/dev/input/touchscreen ts_test
 ```

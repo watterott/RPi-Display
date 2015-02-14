@@ -28,11 +28,6 @@ $ sudo apt-get install xinput
     ```
     The default parameters are ```speed=32000000, rotate=270```.
 
-    Reboot the System:
-    ```
-    $ sudo reboot
-    ```
-
 * ### FBTFT Kernel Modules
 
     #### [8-Bit SPI Display](https://github.com/watterott/RPi-Display/blob/master/docu/FAQ.md#spi-mode)
@@ -61,10 +56,7 @@ $ sudo apt-get install xinput
     ```
     ads7846_device model=7846 cs=1 gpio_pendown=25 speed=2000000 keep_vref_on=1 pressure_max=255 x_plate_ohms=60 x_min=200 x_max=3900 y_min=200 y_max=3900
     ```
-    To make the touchcontroller accessible as char device ```/dev/input/touchscreen``` create a new file  ```/etc/udev/rules.d/78-ads7846.rules``` and add the following line:
-    ```
-    SUBSYSTEM=="input", KERNEL=="event[0-9]*", ATTRS{name}=="ADS7846 Touchscreen", SYMLINK+="input/touchscreen"
-    ```
+
 
 ## 3. Enable for Console
 
@@ -141,21 +133,17 @@ $ killall fbcp
 
 For better accuracy a touchpanel calibration can be done with:
 
-* ### [xinput_calibrator](https://github.com/tias/xinput_calibrator)
+**[xinput_calibrator](https://github.com/tias/xinput_calibrator)**
+```
+$ sudo xinput_calibrator &
+```
+For axes swapping and inversion see [4. Enable for X-Window-System](https://github.com/watterott/RPi-Display/blob/master/docu/FBTFT-Install.md#4-enable-for-x-window-system).
 
-    ```
-    $ sudo xinput_calibrator &
-    ```
-    For axes swapping and inversion see [Enable for X-Window-System](https://github.com/watterott/RPi-Display/blob/master/docu/FBTFT-Install.md#4-enable-for-x-window-system).
-
-* ### ts_calibrate
-
-    ```
-    $ sudo apt-get install libts-bin
-    $ sudo TSLIB_FBDEVICE=/dev/fb1 TSLIB_TSDEVICE=/dev/input/touchscreen ts_calibrate
-    $ sudo TSLIB_FBDEVICE=/dev/fb1 TSLIB_TSDEVICE=/dev/input/touchscreen ts_test
-    ```
-
-
-## 7. Further Infos
-Further infos here: [FBTFT on Raspian](https://github.com/notro/fbtft/wiki/FBTFT-on-Raspian).
+**ts_calibrate**
+```
+$ sudo apt-get install libts-bin
+$ sudo TSLIB_FBDEVICE=/dev/fb1 TSLIB_TSDEVICE=/dev/input/eventX ts_calibrate
+$ sudo TSLIB_FBDEVICE=/dev/fb1 TSLIB_TSDEVICE=/dev/input/eventX ts_test
+```
+Check for the right device name with ```ls -l /dev/input```.
+On the ready to run SD card image the name is ```/dev/input/touchscreen```.

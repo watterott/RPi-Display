@@ -216,10 +216,11 @@ Before the update the **WP** jumper next to the EEPROM has to be closed.
     $ ./eepmake rpi-display.txt rpi-display.eep
     ```
 
-* Update EEPROM:
+* Update/Flash EEPROM:
     ```
     $ sudo ./eepflash.sh -w -t=24c32 -f=rpi-display.eep
     ```
+    Add to ```/boot/config.txt``` the following line before flashing: ```dtparam=i2c0``` (before any dtoverlay statement).
 
 
 ## SPI Mode

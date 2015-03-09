@@ -2,11 +2,17 @@
 
 ## 1. [Install FBTFT](https://github.com/notro/fbtft/wiki#install) Framebuffer and Touchscreen Tools
 
-Update the Kernel and reboot the System:
+The official Raspberry Pi Kernel inlcudes FBTFT, so you don't need to install anything and you can skip this step.
+To update your system run:
+```
+$ sudo apt-get update
+$ sudo apt-get upgrade
+```
+
+On other systems update the Kernel and reboot:
 ```
 $ sudo REPO_URI=https://github.com/notro/rpi-firmware rpi-update
 $ sudo reboot
-$ sudo apt-get install xinput
 ```
 *On compatibility errors run rpi-update as follows:
 ```sudo -E RPI_UPDATE_UNSUPPORTED=0 REPO_URI=https://github.com/notro/rpi-firmware rpi-update```*
@@ -16,7 +22,7 @@ $ sudo apt-get install xinput
 
 *Note: For a higher speed than 16MHz the display has to be connected directly to the Raspberry Pi or with wires not longer than 5cm.*
 
-* ### FBTFT Device Tree enabled Kernel
+* ### FBTFT Device Tree enabled Kernel (default)
 
     Open the file ```config.txt```:
     ```
@@ -76,6 +82,11 @@ To make it permanent (on Debian) add to the file ```/boot/cmdline.txt``` at the 
 
 
 ## 4. Enable for X-Window-System
+
+Check if xinput is installed:
+```
+$ sudo apt-get install xinput
+```
 
 Open ```99-fbturbo.conf``` and change *fb0* to *fb1* (only needed once):
 ```

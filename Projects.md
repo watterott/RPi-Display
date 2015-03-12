@@ -7,3 +7,4 @@
 * WebRadio + UPnP Streaming-Client: http://www.partikelstrom.de/?page_id=1110
 * GameBoy Pi A+: http://www.forum-raspberrypi.de/Thread-gameboy-pi-a
 * Assetto Corsa Display: http://www.raspberrypi.org/forums/viewtopic.php?f=75&t=81950
+* PiMenu - a simple menu system for your own solutions: https://github.com/splitbrain/pimenu/

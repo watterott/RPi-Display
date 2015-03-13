@@ -7,6 +7,7 @@ To update your system run:
 ```
 $ sudo apt-get update
 $ sudo apt-get upgrade
+$ sudo rpi-update
 ```
 
 On other systems update the Kernel and reboot:

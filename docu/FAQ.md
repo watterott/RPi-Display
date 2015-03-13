@@ -4,10 +4,6 @@
 A small guide can be found [here](https://github.com/watterott/RPi-Display/blob/master/docu/FBTFT-Install.md).
 
 
-## How to configure the standard [FBTFT image](https://github.com/notro/fbtft/wiki#image-download) for the RPi-Display?
-Have a look in the [installation guide](https://github.com/watterott/RPi-Display/blob/master/docu/FBTFT-Install.md) for the respective settings.
-
-
 ## How to mirror/copy the HDMI output to the display?
 This can be done with ```fbcp```.
 Further infos can be found [here](https://github.com/notro/fbtft-spindle/wiki/FBTFT-image#fbcp---framebuffer-copy).
@@ -81,23 +77,6 @@ If the display is black and the backlight is also off then [FBTFT](https://githu
 If the backlight goes on and the display stays black or white then maybe the wrong [SPI mode](https://github.com/watterott/RPi-Display/blob/master/docu/FAQ.md#spi-mode) is selected or check if the [FFC connector](https://github.com/watterott/RPi-Display/raw/master/docu/ffc_connector.jpg) is correctly closed.
 When using a flex cable for the connection (RPi-Display Flex Edition) then the jumpers MISO, MOSI and SCK have to be closed.
 On other problems please check your SD-Card and [power supply](http://www.raspberrypi.org/help/faqs/#powerReqs).
-
-
-## The display does not work after an update.
-The FBTFT framebuffer driver needs a special kernel. When you make an update, exclude the kernel.
-
-* Update packages except the bootloader:
-    ```
-    $ sudo apt-mark hold raspberrypi-bootloader
-    $ sudo apt-get update
-    $ sudo apt-get upgrade
-    ```
-
-* Update the bootloader, but not the kernel and modules:
-    ```
-    $ sudo apt-get install rpi-update
-    $ sudo SKIP_KERNEL=1 rpi-update
-    ```
 
 
 ## Does the display work with [Raspbmc](http://www.raspbmc.com)?
@@ -213,7 +192,7 @@ Before the update the **WP** jumper next to the EEPROM has to be closed.
 * Generate EEPROM data:
     ```
     $ wget https://github.com/watterott/RPi-Display/raw/master/docu/rpi-display.txt
-    $ ./eepmake rpi-display.txt rpi-display.eep
+    $ ./eepmake rpi-display.txt rpi-display.eep /boot/overlays/rpi-display-overlay.dtb
     ```
 
 * Update/Flash EEPROM:

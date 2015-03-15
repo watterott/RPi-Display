@@ -30,6 +30,14 @@ Further infos can be found [here](https://github.com/notro/fbtft-spindle/wiki/FB
     $ killall fbcp
     ```
 
+* To force HDMI output to a resolution of 320x240, add the following lines to ```/boot/config.txt```.
+    ```
+    hdmi_force_hotplug=1
+    hdmi_cvt=320 240 60 1 0 0 0
+    hdmi_group=2
+    hdmi_mode=87
+    ```
+
 
 ## How to switch the console back to HDMI?
 Run ```con2fbmap 1 0``` and to switch back ```con2fbmap 1 1```.

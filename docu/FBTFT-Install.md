@@ -6,7 +6,12 @@ Download the installation script ```rpi-display.sh``` and run it as root. The la
 $ wget -N https://github.com/watterott/RPi-Display/raw/master/rpi-display.sh
 $ sudo /bin/bash rpi-display.sh 270
 ```
-
+To start the desktop run:
+```
+$ startx -- -layout TFT
+$ startx -- -layout HDMI
+```
+*If ```-layout``` is not set, then the TFT display will be used as default.*
 
 ## Manual Installation
 
@@ -19,7 +24,7 @@ $ sudo /bin/bash rpi-display.sh 270
     ```
     $ sudo apt-get update
     $ sudo apt-get upgrade
-    $ sudo rpi-update
+    $ sudo REPO_URI=https://github.com/notro/rpi-firmware rpi-update
     $ sudo reboot
     ```
 

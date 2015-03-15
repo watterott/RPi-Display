@@ -25,13 +25,12 @@
 Ready to run SD-Card image (Raspbian/Debian with FBTFT) for 2.8" RPi-Display.
 
 Copy the image to a SD-Card with [dd](http://en.wikipedia.org/wiki/Dd_%28Unix%29) under Linux or [Win32-Disk-Imager](http://sourceforge.net/projects/win32diskimager/) under Windows.
-To start the desktop run ```sudo startx``` (first start needs sudo). Then do the calibration (1. upper left, 2. upper right, 3. lower left, 4. lower right). The cursor maybe moved to the wrong position during the calibration process.
+To start the desktop run ```startx```. Then do the calibration (1. upper left, 2. upper right, 3. lower left, 4. lower right). The cursor maybe moved to the wrong position during the calibration process.
 
-* **Download: [Raspbian RPi-Display 8-Bit SPI - 2014-07-25](http://www.watterott.net/fbtft/2014-06-20-wheezy-raspbian-2014-07-25-fbtft-rpi-display-rev2.zip)**, [old 2014-03-12](http://www.watterott.net/fbtft/2014-01-07-wheezy-raspbian-2014-03-12-fbtft-rpi-display-rev2.zip)
-* Download: [Raspbian RPi-Display 9-Bit SPI - 2014-07-25](http://www.watterott.net/fbtft/2014-06-20-wheezy-raspbian-2014-07-25-fbtft-rpi-display-rev1.zip), [old 2014-03-12](http://www.watterott.net/fbtft/2014-01-07-wheezy-raspbian-2014-03-12-fbtft-rpi-display-rev1.zip) *(only first generation displays, before April 2014)*
-* **Login: ```pi```** and **Password: ```raspberry```**
-* **English Keyboard Layout** *(Y and Z are swapped on German Keyboards)*
+* Download: [RPi-Display 8-Bit SPI - 2014-07-25](http://www.watterott.net/fbtft/2014-06-20-wheezy-raspbian-2014-07-25-fbtft-rpi-display-rev2.zip), [old 2014-03-12](http://www.watterott.net/fbtft/2014-01-07-wheezy-raspbian-2014-03-12-fbtft-rpi-display-rev2.zip)
+* Download: [RPi-Display 9-Bit SPI - 2014-07-25](http://www.watterott.net/fbtft/2014-06-20-wheezy-raspbian-2014-07-25-fbtft-rpi-display-rev1.zip), [old 2014-03-12](http://www.watterott.net/fbtft/2014-01-07-wheezy-raspbian-2014-03-12-fbtft-rpi-display-rev1.zip)
+* Login: ```pi``` and Password: ```raspberry```
+* English Keyboard Layout *(Y and Z are swapped on German Keyboards)*
 * SSH on port 22 activated
 * [Further infos](https://github.com/notro/fbtft-spindle/wiki/FBTFT-image) ([Video showing the boot up](http://www.youtube.com/watch?v=a2CStAaMbmA))
 * [How to prepare a SD-Card](http://elinux.org/RPi_Easy_SD_Card_Setup)
-* *Thanks to Noralf Trønnes for [FBTFT - Framebuffer for small TFT Displays](http://fbtft.org/).*

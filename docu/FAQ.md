@@ -4,20 +4,34 @@
 A small guide can be found [here](https://github.com/watterott/RPi-Display/blob/master/docu/FBTFT-Install.md).
 
 
+## How to switch the console to HDMI?
+Run ```con2fbmap 1 0``` and to switch back to the display ```con2fbmap 1 1```.
+
+
+## How to switch the Desktop (X-Window-System) to HDMI?
+Open ```99-fbturbo.conf``` and change *fbX* (fb0=HDMI, fb1=Display):
+```
+$ sudo nano /usr/share/X11/xorg.conf.d/99-fbturbo.conf
+$ startx &
+```
+
+
 ## How to mirror/copy the HDMI output to the display?
 This can be done with ```fbcp```.
 Further infos can be found [here](https://github.com/notro/fbtft-spindle/wiki/FBTFT-image#fbcp---framebuffer-copy).
 
 * Install fbcp:
     ```
-    $ sudo apt-get install cmake
+    $ cd /tmp
+    $ sudo apt-get install -y cmake
     $ git clone https://github.com/tasanakorn/rpi-fbcp
-    $ cd rpi-fbcp/
-    $ mkdir build
-    $ cd build/
+    $ mkdir -p rpi-fbcp/build
+    $ cd rpi-fbcp/build
     $ cmake ..
     $ make
     $ sudo install fbcp /usr/local/bin/fbcp
+    $ cd ../..
+    $ rm -r rpi-fbcp
     ```
 
 * Run fbcp:
@@ -37,18 +51,6 @@ Further infos can be found [here](https://github.com/notro/fbtft-spindle/wiki/FB
     hdmi_group=2
     hdmi_mode=87
     ```
-
-
-## How to switch the console back to HDMI?
-Run ```con2fbmap 1 0``` and to switch back ```con2fbmap 1 1```.
-
-
-## How to switch the Desktop (X-Window-System) back to HDMI?
-Open ```99-fbturbo.conf``` and change *fbX* (fb0=HDMI, fb1=Display):
-```
-$ sudo nano /usr/share/X11/xorg.conf.d/99-fbturbo.conf
-$ startx &
-```
 
 
 ## How to switch the backlight on/off?
@@ -218,16 +220,10 @@ Note: FBTFT has currently no DMA support for 9-Bit SPI.
   * Jumper IM0 set to 0
   * Jumper IM1 set to 1
   * Jumper IO24-RS closed
-  * FBTFT SD-Card Image kernel argument ([/boot/cmdline.txt](https://github.com/watterott/RPi-Display/raw/master/docu/cmdline_8bit.txt)):
-    ```fbtft.dma fbtft_device.name=rpi-display fbtft_device.speed=32000000 fbtft_device.rotate=270```
-    *(Replace existing fbtft parameters with the new ones and make sure everything is in one line.)*
 
 * **9-Bit SPI** (performance: about 10 FPS, 65% CPU usage)
   * Jumper IM0 set to 1
   * Jumper IM1 set to 0
   * Jumper IO24-RS opened
-  * FBTFT SD-Card Image kernel argument ([/boot/cmdline.txt](https://github.com/watterott/RPi-Display/raw/master/docu/cmdline_9bit.txt)):
-    ```fbtft_device.name=mi0283qt-9a fbtft_device.speed=32000000 fbtft_device.gpios=reset:23,led:18 fbtft_device.rotate=270```
-    *(Replace existing fbtft parameters with the new ones and make sure everything is in one line.)*
 
 ![SPI-Mode](https://raw.github.com/watterott/RPi-Display/master/docu/spi-mode.jpg)

@@ -1,6 +1,6 @@
 # FBTFT Framebuffer Installation
 
-## Automatic Installation
+## Automatic Installation for RPi-Display (with 8-Bit SPI)
 Download the installation script ```rpi-display.sh``` and run it as root. The last parameter sets the rotation and can be 0, 90, 180 or 270.
 ```
 $ wget -N https://github.com/watterott/RPi-Display/raw/master/rpi-display.sh
@@ -14,7 +14,7 @@ $ sudo /bin/bash rpi-display.sh 270
 
 * #### Raspbian
 
-    The official Raspberry Pi Kernel inlcudes FBTFT, so you need an up to date system.
+    The latest official Raspberry Pi Device Tree enabled Kernel includes FBTFT, so you need an up to date system.
     To update your system run:
     ```
     $ sudo apt-get update
@@ -50,26 +50,37 @@ $ sudo /bin/bash rpi-display.sh 270
 
 *Note: For a higher speed than 16MHz the display has to be connected directly to the Raspberry Pi or with wires not longer than 5cm.*
 
-* #### FBTFT Device Tree enabled Kernel (default)
+Choose your respective Kernel version.
+The default on the latest Raspbian is a Device Tree enabled Kernel.
 
-    Open the file ```config.txt```:
+* #### FBTFT Device Tree enabled Kernel
+
+    ##### RPi-Display (8-Bit SPI)
+    Open the file ```/boot/config.txt```:
     ```
     $ sudo nano /boot/config.txt
     ```
-    Add the following line for the 8-Bit SPI Display (rotate can be 0, 90, 180, 270):
+    Add the following line at the file end (rotate can be 0, 90, 180, 270):
     ```
     dtoverlay=rpi-display,speed=32000000,rotate=270
     ```
-    The default parameters are ```speed=32000000, rotate=270```.
+    *The default parameters are ```speed=32000000, rotate=270```.*
 
-    Reboot the System:
+    Reboot the system:
     ```
     $ sudo reboot
     ```
 
 * #### FBTFT Kernel Modules
 
-    ##### [8-Bit SPI Display](https://github.com/watterott/RPi-Display/blob/master/docu/FAQ.md#spi-mode)
+    To use the fbtft_device module instead of a DT overlay on a Device Tree enabled Kernel, add the following line to ```/boot/config.txt```:
+    ```
+    dtparam=spi=on
+    ```
+
+    If the SPI module (**spi-bcm2708**) is not loaded, remove or comment out the blacklist line in ```/etc/modprobe.d/raspi-blacklist.conf```.
+
+    ##### RPi-Display (8-Bit SPI)
     ```
     $ sudo modprobe fbtft_device name=rpi-display speed=32000000 rotate=270
     ```
@@ -78,8 +89,8 @@ $ sudo /bin/bash rpi-display.sh 270
     fbtft_device name=rpi-display speed=32000000 rotate=270
     ```
 
-    ##### [9-Bit SPI Display](https://github.com/watterott/RPi-Display/blob/master/docu/FAQ.md#spi-mode)
-    Note: Only first generation displays before April 2014 use 9-Bit SPI.
+    ##### RPi-Display (9-Bit SPI)
+    *Note: Only first generation RPi-Displays before April 2014 use 9-Bit SPI.*
     ```
     $ sudo modprobe fbtft_device name=mi0283qt-9a gpios=reset:23,led:18 speed=32000000 rotate=270
     ```
@@ -88,7 +99,25 @@ $ sudo /bin/bash rpi-display.sh 270
     fbtft_device name=mi0283qt-9a gpios=reset:23,led:18 speed=32000000 rotate=270
     ```
 
-    ##### Touchcontroller
+    ##### MI0283QT-Adapter v1 on RPi-ShieldBridge v1 (9-Bit SPI)
+    ```
+    $ sudo modprobe fbtft_device name=mi0283qt-9a gpios=reset:23,led:24 speed=32000000 rotate=270
+    ```
+    To make it permanent (on Debian) add to the file ```/etc/modules``` the following line:
+    ```
+    fbtft_device name=mi0283qt-9a gpios=reset:23,led:24 speed=32000000 rotate=270
+    ```
+
+    ##### MI0283QT-Adapter v2 on RPi-ShieldBridge v1 (8-Bit SPI)
+    ```
+    $ sudo modprobe fbtft_device name=mi0283qt-v2 gpios=reset:23 speed=16000000 rotate=270
+    ```
+    To make it permanent (on Debian) add to the file ```/etc/modules``` the following line:
+    ```
+    fbtft_device name=mi0283qt-v2 gpios=reset:23 speed=16000000 rotate=270
+    ```
+
+    ##### ADS7846 Touchcontroller
     ```
     $ sudo modprobe ads7846_device model=7846 cs=1 gpio_pendown=25 speed=2000000 keep_vref_on=1 pressure_max=255 x_plate_ohms=60 x_min=200 x_max=3900 y_min=200 y_max=3900
     ```
@@ -101,13 +130,40 @@ $ sudo /bin/bash rpi-display.sh 270
     SUBSYSTEM=="input", KERNEL=="event[0-9]*", ATTRS{name}=="ADS7846 Touchscreen", SYMLINK+="input/touchscreen"
     ```
 
+* #### FBTFT compiled into Kernel (BRANCH=builtin)
+
+    ##### RPi-Display (8-Bit SPI)
+    Add the following Kernel arguments to ```/boot/cmdline.txt```:
+    ```
+    fbtft_device.name=rpi-display fbtft_device.speed=32000000 fbtft_device.rotate=270
+    ```
+
+    ##### RPi-Display (9-Bit SPI)
+    *Note: Only first generation RPi-Displays before April 2014 use 9-Bit SPI.*
+    Add the following Kernel arguments to ```/boot/cmdline.txt```:
+    ```
+    fbtft_device.name=mi0283qt-9a fbtft_device.speed=32000000 fbtft_device.gpios=reset:23,led:18 fbtft_device.rotate=270
+    ```
+
+    ##### MI0283QT-Adapter v1 on RPi-ShieldBridge v1 (9-Bit SPI)
+    Add the following Kernel arguments to ```/boot/cmdline.txt```:
+    ```
+    fbtft_device.name=mi0283qt-9a fbtft_device.speed=32000000 fbtft_device.gpios=reset:23,led:24 fbtft_device.rotate=270
+    ```
+
+    ##### MI0283QT-Adapter v2 on RPi-ShieldBridge v1 (8-Bit SPI)
+    Add the following Kernel arguments to ```/boot/cmdline.txt```:
+    ```
+    fbtft_device.name=mi0283qt-v2 fbtft_device.speed=16000000 fbtft_device.gpios=reset:23 fbtft_device.rotate=270
+    ```
+
 ### 3. Enable for Console
 
 Run in console (not desktop terminal):
 ```
 $ con2fbmap 1 1
 ```
-To make it permanent (on Debian) add to the file ```/boot/cmdline.txt``` at the end of the line the following Kernel argument: ```fbcon=map:10 fbcon=font:VGA8x8```
+To make it permanent (on Debian) add to the file ```/boot/cmdline.txt``` at the end of the line the following Kernel arguments: ```fbcon=map:10 fbcon=font:VGA8x8```
 
 ### 4. Enable for X-Window-System
 
@@ -121,7 +177,7 @@ Start X-Window-System:
 $ startx &
 ```
 
-...wait till X-Window-System starts up:
+...wait till X-Window-System starts up and set the ADS7846 properties:
 * rotate=0 - no settings needed
 
 * rotate=90
@@ -141,7 +197,7 @@ $ startx &
     $ DISPLAY=:0 xinput --set-prop 'ADS7846 Touchscreen' 'Evdev Axis Inversion' 0 1
     ```
 
-...to stop X-Window-System run:
+...to stop X-Window-System:
 ```
 $ sudo pkill x
 ```
@@ -173,7 +229,7 @@ $ killall fbcp
 
 For better accuracy a touchpanel calibration can be done with:
 
-* ### [xinput_calibrator](https://github.com/tias/xinput_calibrator)
+* ### xinput_calibrator
 
     ```
     $ sudo DISPLAY=:0 xinput_calibrator --device "ADS7846 Touchscreen" --output-type xinput

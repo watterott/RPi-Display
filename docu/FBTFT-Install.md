@@ -23,7 +23,6 @@ $ startx -- -layout HDMI
     To update your system run:
     ```
     $ sudo apt-get update
-    $ sudo apt-get upgrade
     $ sudo REPO_URI=https://github.com/notro/rpi-firmware rpi-update
     $ sudo reboot
     ```

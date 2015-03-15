@@ -33,7 +33,7 @@ function check_fbtft()
     echo
     if ask "Update the system now?"; then
       apt-get -y update
-      apt-get -y upgrade
+      #apt-get -y upgrade
       REPO_URI=https://github.com/notro/rpi-firmware rpi-update
     else
       echo "Installation aborted."
@@ -45,6 +45,8 @@ function check_fbtft()
     echo "Note: No DMA support for spi_bcm2708 found."
     echo
     if ask "Update the system now?"; then
+      apt-get -y update
+      #apt-get -y upgrade
       REPO_URI=https://github.com/notro/rpi-firmware rpi-update
     fi
   fi

@@ -4,7 +4,7 @@
 Download the installation script ```rpi-display.sh``` and run it as root. The last parameter sets the rotation and can be 0, 90, 180 or 270.
 ```
 $ wget -N https://github.com/watterott/RPi-Display/raw/master/rpi-display.sh
-$ sudo bash rpi-display.sh 270
+$ sudo /bin/bash rpi-display.sh 270
 ```
 
 

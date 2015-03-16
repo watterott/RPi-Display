@@ -17,24 +17,44 @@ function ask()
 }
 
 
-# reboot the system
-function reboot_now()
+# reboot system
+function reboot_system()
 {
   echo "Rebooting now..."
   reboot
 }
 
 
+# update system
+function update_system()
+{
+  apt-get -y update
+  #apt-get -y upgrade
+
+  #only rpi-update has no DMA support for SPI
+  REPO_URI=https://github.com/notro/rpi-firmware rpi-update
+}
+
+
 # check for fbtft
 function check_fbtft()
 {
-  if ! modinfo fbtft > /dev/null; then
-    echo "Note: You need a Device Tree Kernel with FBTFT support."
+  if [ ! -d "/proc/device-tree" ]; then
+    echo "Note: No Device Tree Kernel found."
     echo
     if ask "Update the system now?"; then
-      apt-get -y update
-      #apt-get -y upgrade
-      REPO_URI=https://github.com/notro/rpi-firmware rpi-update
+      update_system
+    else
+      echo "Installation aborted."
+      exit 1
+    fi
+  fi
+
+  if ! modinfo fbtft > /dev/null; then
+    echo "Note: You need a Device Tree Kernel with FBTFT."
+    echo
+    if ask "Update the system now?"; then
+      update_system
     else
       echo "Installation aborted."
       exit 1
@@ -45,9 +65,7 @@ function check_fbtft()
     echo "Note: No DMA support for spi_bcm2708 found."
     echo
     if ask "Update the system now?"; then
-      apt-get -y update
-      #apt-get -y upgrade
-      REPO_URI=https://github.com/notro/rpi-firmware rpi-update
+      update_system
     fi
   fi
 }
@@ -320,12 +338,12 @@ if ask "Install ts_lib?"; then
   install_tslib
 fi
 
-if [ -f /usr/bin/ts_calibrate ]; then
+if [ -f "/usr/bin/ts_calibrate" ]; then
   if ask "Calibrate the touchpanel now?"; then
     calibrate_touchpanel
   fi
 fi
 
 if ask "Reboot the system now?"; then
-  reboot_now
+  reboot_system
 fi

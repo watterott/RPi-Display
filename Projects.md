@@ -8,3 +8,4 @@
 * GameBoy Pi A+: http://www.forum-raspberrypi.de/Thread-gameboy-pi-a
 * Assetto Corsa Display: http://www.raspberrypi.org/forums/viewtopic.php?f=75&t=81950
 * PiMenu (simple menu system for your own solutions): https://github.com/splitbrain/pimenu/
+* RPi Timelapse with Display: https://www.youtube.com/watch?v=MVIMRJFlEVk

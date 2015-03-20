@@ -187,6 +187,10 @@ There are pads for an optional tactile switch or **VT93N1** LDR sensor (Light-De
     ```
 
 
+## How to connect the GPIO-Adapter for RPi-Display B+?
+The FFC connectors have bottom contacts and so the FFC cable contacts have to be aligned to the bottom.
+
+
 ## How to flash/update the ID EEPROM?
 The EEPROM on the RPi-Display for Raspberry Pi Model B+ can be updated as follows.
 Before the update the **WP** jumper next to the EEPROM has to be closed.
@@ -209,7 +213,7 @@ Before the update the **WP** jumper next to the EEPROM has to be closed.
     ```
     $ sudo ./eepflash.sh -w -t=24c32 -f=rpi-display.eep
     ```
-    Add to ```/boot/config.txt``` the following line before flashing: ```dtparam=i2c0``` (before any dtoverlay statement).
+    Note: For a Device Tree Kernel add to ```/boot/config.txt``` the following line before flashing: ```dtparam=i2c0``` (before any dtoverlay statement).
 
 
 ## SPI Mode

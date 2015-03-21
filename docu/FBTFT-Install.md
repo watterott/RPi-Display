@@ -248,4 +248,5 @@ For better accuracy a touchpanel calibration can be done with:
     ```
 
 ### 7. Further Infos
-Further infos here: [FBTFT on Raspian](https://github.com/notro/fbtft/wiki/FBTFT-on-Raspian).
+* [FBTFT on Raspian](https://github.com/notro/fbtft/wiki/FBTFT-on-Raspian)
+* [FBTFT Setup on modern Raspbian](http://lallafa.de/blog/2015/03/fbtft-setup-on-modern-raspbian/)

@@ -1,7 +1,7 @@
 # RPi-Display
 2.8" TFT-Display (320x240) with Touchpanel for all Raspberry Pi Models.
 
-[![RPi-Display B+](https://raw.github.com/watterott/RPi-Display/master/pcb/RPi-Display_Bplus_v10.jpg)](http://www.watterott.com/en/RPi-Display-B-Plus)
+[![RPi-Display B+](https://raw.github.com/watterott/RPi-Display/master/pcb/RPi-Display_Bplus_v11.jpg)](http://www.watterott.com/en/RPi-Display-B-Plus)
 [![RPi-Display](https://raw.github.com/watterott/RPi-Display/master/pcb/RPi-Display_v10.jpg)](http://www.watterott.com/en/RPi-Display)
 
 

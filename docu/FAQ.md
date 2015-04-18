@@ -1,6 +1,6 @@
 # Frequently Asked Questions
 
-## How to install FBTFT on an existing Raspbian system?
+## How to install FBTFT on an existing Linux system?
 A small guide can be found [here](https://github.com/watterott/RPi-Display/blob/master/docu/FBTFT-Install.md).
 
 

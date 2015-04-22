@@ -28,10 +28,18 @@ function reboot_system()
 # update system
 function update_system()
 {
+  # run update
   apt-get -y update
   #apt-get -y upgrade
 
-  #only rpi-update has no DMA support for SPI
+  # install rpi-update
+  if [ ! -f "/usr/bin/rpi-update" ]; then
+    wget -O /usr/bin/rpi-update https://raw.githubusercontent.com/Hexxeh/rpi-update/master/rpi-update
+    chmod +x /usr/bin/rpi-update
+  fi
+
+  # run rpi-update
+  # note: official RPi Kernel has currently no DMA support for SPI
   REPO_URI=https://github.com/notro/rpi-firmware rpi-update
 }
 
@@ -79,6 +87,13 @@ function update_configtxt()
   echo "Please reboot the system after the installation."
   echo
 
+  # add "dtparam=spi=on" to uses FBTFT module
+#  cat >> /boot/config.txt <<EOF
+#
+#dtparam=spi=on
+#EOF
+
+  # add "dtoverlay=rpi-display"
   if grep -q "dtoverlay=rpi-display" "/boot/config.txt"; then
     sed -i 's/dtoverlay=rpi-display,speed=32000000,rotate=.*/dtoverlay=rpi-display,speed=32000000,rotate='$rotate'/g' "/boot/config.txt"
   else

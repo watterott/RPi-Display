@@ -22,6 +22,7 @@ function reboot_system()
 {
   echo "Rebooting now..."
   reboot
+  exit 0
 }
 
 
@@ -32,49 +33,24 @@ function update_system()
   apt-get -y update
   #apt-get -y upgrade
 
+  # install curl
+  if [ ! -f "/usr/bin/curl" ] && [ ! -f "/bin/curl" ]; then
+    apt-get install -y curl
+  fi
+
   # install rpi-update
-  if [ ! -f "/usr/bin/rpi-update" ]; then
-    wget -O /usr/bin/rpi-update https://raw.githubusercontent.com/Hexxeh/rpi-update/master/rpi-update
+  if [ ! -f "/usr/bin/rpi-update" ] && [ ! -f "/bin/rpi-update" ]; then
+    curl -L --output /usr/bin/rpi-update https://raw.githubusercontent.com/Hexxeh/rpi-update/master/rpi-update
     chmod +x /usr/bin/rpi-update
   fi
 
   # run rpi-update
   # note: official RPi Kernel has currently no DMA support for SPI
   REPO_URI=https://github.com/notro/rpi-firmware rpi-update
-}
 
-
-# check for fbtft
-function check_fbtft()
-{
-  if [ ! -d "/proc/device-tree" ]; then
-    echo "Note: No Device Tree Kernel found."
-    echo
-    if ask "Update the system now?"; then
-      update_system
-    else
-      echo "Installation aborted."
-      exit 1
-    fi
-  fi
-
-  if ! modinfo fbtft > /dev/null; then
-    echo "Note: You need a Device Tree Kernel with FBTFT."
-    echo
-    if ask "Update the system now?"; then
-      update_system
-    else
-      echo "Installation aborted."
-      exit 1
-    fi
-  fi
-
-  if ! modinfo -F parm spi_bcm2708 | grep -q -i "dma"; then
-    echo "Note: No DMA support for spi_bcm2708 found."
-    echo
-    if ask "Update the system now?"; then
-      update_system
-    fi
+  # ask for reboot
+  if ask "Reboot the system now?"; then
+    reboot_system
   fi
 }
 
@@ -87,21 +63,37 @@ function update_configtxt()
   echo "Please reboot the system after the installation."
   echo
 
-  # add "dtparam=spi=on" to uses FBTFT module
-#  cat >> /boot/config.txt <<EOF
-#
-#dtparam=spi=on
-#EOF
+  # no Device Tree -> use FBTFT module
+  if [ "${dt_found}" == "0" ]; then
+    if ! grep -q "dtparam=spi=on" "/boot/config.txt"; then
+      cat >> /boot/config.txt <<EOF
 
-  # add "dtoverlay=rpi-display"
-  if grep -q "dtoverlay=rpi-display" "/boot/config.txt"; then
-    sed -i 's/dtoverlay=rpi-display,speed=32000000,rotate=.*/dtoverlay=rpi-display,speed=32000000,rotate='$rotate'/g' "/boot/config.txt"
+dtparam=spi=on
+EOF
+    fi
+    echo "Updating /etc/modules"
+    if ! grep -q "spi-bcm2708" "/etc/modules"; then
+      cat >> /etc/modules <<EOF
+spi-bcm2708
+EOF
+    fi
+    if ! grep -q "fbtft_device" "/etc/modules"; then
+      cat >> /etc/modules <<EOF
+fbtft_device name=rpi-display speed=32000000 rotate=$rotate
+EOF
+    fi
+
+  # Device Tree -> use FBTFT DT-Overlay
   else
-    cat >> /boot/config.txt <<EOF
+    if grep -q "dtoverlay=rpi-display" "/boot/config.txt"; then
+      sed -i 's/dtoverlay=rpi-display,speed=32000000,rotate=.*/dtoverlay=rpi-display,speed=32000000,rotate='$rotate'/g' "/boot/config.txt"
+    else
+      cat >> /boot/config.txt <<EOF
 
 dtoverlay=rpi-display,speed=32000000,rotate=$rotate
 EOF
     fi
+  fi
 }
 
 
@@ -215,7 +207,18 @@ EOF
 # activate console on TFT display
 function activate_console()
 {
-  sed -i 's/rootwait/rootwait fbcon=map:10 fbcon=font:VGA8x8/g' "/boot/cmdline.txt"
+  # install fbset
+  if [ ! -f "/usr/bin/fbset" ] && [ ! -f "/bin/fbset" ]; then
+    apt-get install -y fbset
+  fi
+
+  # set parameters
+  if [ -f "/boot/cmdline.txt" ]; then
+    sed -i 's/rootwait/rootwait fbcon=map:10 fbcon=font:VGA8x8/g' "/boot/cmdline.txt"
+  else
+    echo "Run 'sudo nano /etc/rc.local' and add the line 'con2fbmap 1 1' before 'exit 0'."
+  fi
+
   sed -i 's/BLANK_TIME=.*/BLANK_TIME=0/g' "/etc/kbd/config"
 }
 
@@ -223,7 +226,11 @@ function activate_console()
 # deactivate console on TFT display
 function deactivate_console()
 {
-  sed -i 's/rootwait fbcon=map:10 fbcon=font:VGA8x8/rootwait/g' "/boot/cmdline.txt"
+  if [ -f "/boot/cmdline.txt" ]; then
+    sed -i 's/rootwait fbcon=map:10 fbcon=font:VGA8x8/rootwait/g' "/boot/cmdline.txt"
+  else
+    echo "Run 'sudo nano /etc/rc.local' and remove the line 'con2fbmap 1 1'."
+  fi
   sed -i 's/BLANK_TIME=0/BLANK_TIME=10/g' "/etc/kbd/config"
   echo
   echo "Set screen blanking time to 10 minutes."
@@ -255,7 +262,7 @@ function install_xinputcalibrator()
   echo "--- Installing xinput-calibrator ---"
 
   cd /tmp
-  wget -N http://tronnes.org/downloads/xinput-calibrator_0.7.5-1_armhf.deb
+  curl -L --output xinput-calibrator_0.7.5-1_armhf.deb http://tronnes.org/downloads/xinput-calibrator_0.7.5-1_armhf.deb
   dpkg -i -B xinput-calibrator_0.7.5-1_armhf.deb
   rm xinput-calibrator_0.7.5-1_armhf.deb
 
@@ -279,12 +286,15 @@ if [ ! -z "$CALDATA" ] ; then
 fi
 EOF
 
-  if grep -q "xinput_calibrator_pointercal" "/etc/xdg/lxsession/LXDE-pi/autostart"; then
-    echo "xinput_calibrator already in LXDE autostart"
-  else
-    cat >> /etc/xdg/lxsession/LXDE-pi/autostart <<'EOF'
+  # add touchpanel calibration to LXDE autostart
+  if [ -f "/etc/xdg/lxsession/LXDE-pi/autostart" ]; then
+    if grep -q "xinput_calibrator_pointercal" "/etc/xdg/lxsession/LXDE-pi/autostart"; then
+      echo "xinput_calibrator already in LXDE autostart"
+    else
+      cat >> /etc/xdg/lxsession/LXDE-pi/autostart <<'EOF'
 sudo /bin/sh /etc/X11/Xsession.d/xinput_calibrator_pointercal
 EOF
+    fi
   fi
 }
 
@@ -296,7 +306,7 @@ function install_tslib()
 
   apt-get install -y tslib libts-bin
   # install ts_test with quit button
-  #wget -O /usr/bin/ts_test http://tronnes.org/downloads/ts_test
+  #curl -L --output /usr/bin/ts_test http://tronnes.org/downloads/ts_test
   #chmod +x /usr/bin/ts_test
 }
 
@@ -319,13 +329,48 @@ if [ $EUID -ne 0 ]; then
 fi
 
 rotate="$1"
+dt_found="0"
+fbtft_found="0"
 
 if [ "${rotate}" != "0" ] && [ "${rotate}" != "90" ] && [ "${rotate}" != "180" ] && [ "${rotate}" != "270" ]; then
   echo "Usage: sudo bash $0 [0, 90, 180 or 270]"
   exit 1
 fi
 
-check_fbtft
+if [ -d "/proc/device-tree" ]; then
+  dt_found="1"
+fi
+
+if modinfo fbtft > /dev/null; then
+  fbtft_found="1"
+fi
+
+#if [ "${dt_found}" == "0" ]; then
+#  echo
+#  echo "Note: No Device Tree Kernel found."
+#  if ask "Update the system now?"; then
+#    update_system
+#  fi
+#fi
+
+if [ "${fbtft_found}" == "0" ]; then
+  echo
+  echo "Note: No FBTFT found."
+  if ask "Update the system now?"; then
+    update_system
+  else
+    echo "Installation aborted."
+    exit 1
+  fi
+fi
+
+if ! modinfo -F parm spi_bcm2708 | grep -q -i "dma"; then
+  echo
+  echo "Note: No DMA support for spi_bcm2708 found."
+  if ask "Update the system now?"; then
+    update_system
+  fi
+fi
 
 if ask "Enable TFT display driver and activate X windows on TFT display?"; then
   update_configtxt

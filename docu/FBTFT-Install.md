@@ -83,6 +83,7 @@ The default on the latest Raspbian is a Device Tree enabled Kernel.
     ```
 
     If the SPI module (**spi-bcm2708**) is not loaded, remove or comment out the blacklist line in ```/etc/modprobe.d/raspi-blacklist.conf```.
+    To load the module by hand run ```sudo modprobe spi-bcm2708```.
 
     ##### RPi-Display (8-Bit SPI)
     ```
@@ -123,11 +124,11 @@ The default on the latest Raspbian is a Device Tree enabled Kernel.
 
     ##### ADS7846 Touchcontroller
     ```
-    $ sudo modprobe ads7846_device model=7846 cs=1 gpio_pendown=25 speed=2000000 keep_vref_on=1 pressure_max=255 x_plate_ohms=60 x_min=200 x_max=3900 y_min=200 y_max=3900
+    $ sudo modprobe ads7846_device model=7846 cs=1 gpio_pendown=25 speed=2000000 keep_vref_on=1 x_plate_ohms=60 pressure_max=255 x_min=200 x_max=3900 y_min=200 y_max=3900
     ```
     To make it permanent (on Debian) add to the file ```/etc/modules``` the following line:
     ```
-    ads7846_device model=7846 cs=1 gpio_pendown=25 speed=2000000 keep_vref_on=1 pressure_max=255 x_plate_ohms=60 x_min=200 x_max=3900 y_min=200 y_max=3900
+    ads7846_device model=7846 cs=1 gpio_pendown=25 speed=2000000 keep_vref_on=1 x_plate_ohms=60 pressure_max=255 x_min=200 x_max=3900 y_min=200 y_max=3900
     ```
     To make the touchcontroller accessible as char device ```/dev/input/touchscreen``` create a new file  ```/etc/udev/rules.d/95-ads7846.rules``` and add the following line:
     ```

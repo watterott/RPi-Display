@@ -89,8 +89,13 @@ When using a flex cable for the connection (RPi-Display Flex Edition) then the j
 On other problems please check your SD-Card and [power supply](http://www.raspberrypi.org/help/faqs/#powerReqs).
 
 
-## Does the display work with [Raspbmc](http://www.raspbmc.com)?
+## Does the display work with Raspbmc?
 Yes, the FBTFT framebuffer can be installed on [Raspbmc](http://www.raspbmc.com) and the HDMI output can be mirrored to the display using [fbcp](https://github.com/watterott/RPi-Display/blob/master/docu/FAQ.md#how-to-mirrorcopy-the-hdmi-output-to-the-display).
+
+
+## Does the display work with Kali Linux?
+Yes, the FBTFT framebuffer can be installed on [Kali Linux](http://www.kali.org).
+Pre-built images for the Raspberry Pi can be found [here](https://www.offensive-security.com/kali-linux-vmware-arm-image-download/).
 
 
 ## How to install and run [Quake 3](https://github.com/raspberrypi/quake3) on the display?

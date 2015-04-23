@@ -129,17 +129,17 @@ Pre-built images for the Raspberry Pi can be found [here](https://www.offensive-
 
 
 ## How is the display and touch controller connected to the RPi?
-    Display  Raspberry Pi
-    ---------------------
-    LCD-LED  GPIO18
-    LCD-RST  GPIO23
-    LCD-DC   GPIO24 (Jumper IO24-RS)
-    LCD-CS   GPIO8  (CE0)
-    ADS-CS   GPIO7  (CE1)
-    ADS-IRQ  GPIO25
-    MISO     GPIO9  (MISO)
-    MOSI     GPIO10 (MOSI)
-    SCK      GPIO11 (SCK)
+    Display  Raspberry Pi   Info
+    ----------------------------
+    LCD-LED  GPIO18         Display Backlight, can be set to GPIO12 with Jumper BL
+    LCD-RST  GPIO23         Display Reset
+    LCD-DC   GPIO24         Display Command/Data Select, Jumper IO24-RS
+    LCD-CS   GPIO8  (CE0)   Display Chip Select
+    ADS-CS   GPIO7  (CE1)   Touchcontroller Chip Select
+    ADS-IRQ  GPIO25         Touchcontroller Interrupt Output
+    MISO     GPIO9  (MISO)  SPI Master-In Slave-Out
+    MOSI     GPIO10 (MOSI)  SPI Master-Out Slave-In
+    SCK      GPIO11 (SCK)   SPI Clock
 
 
 ## Where can I find the schematics of the RPi-Display?

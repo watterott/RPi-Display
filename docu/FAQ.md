@@ -9,7 +9,12 @@ Run ```con2fbmap 1 0``` and to switch back to the display ```con2fbmap 1 1```.
 
 
 ## How to switch the Desktop (X-Window-System) to HDMI?
-Open ```99-fbturbo.conf``` and change *fbX* (fb0=HDMI, fb1=Display):
+```
+$ startx -- -layout HDMI
+$ startx -- -layout TFT
+```
+If you have not used the automatic installation script then
+open ```99-fbturbo.conf``` and change *fbX* (fb0=HDMI, fb1=Display):
 ```
 $ sudo nano /usr/share/X11/xorg.conf.d/99-fbturbo.conf
 $ startx &
@@ -218,7 +223,7 @@ Before the update the **WP** jumper next to the EEPROM has to be closed.
     ```
     $ sudo ./eepflash.sh -w -t=24c32 -f=rpi-display.eep
     ```
-    Note: For a Device Tree Kernel add to ```/boot/config.txt``` the following line before flashing: ```dtparam=i2c0``` (before any dtoverlay statement).
+    Note: For a Device Tree Kernel add to ```/boot/config.txt``` the following line before flashing: ```dtparam=i2c0=on``` (before any dtoverlay statement).
 
 
 ## SPI Mode

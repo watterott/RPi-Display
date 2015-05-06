@@ -171,8 +171,8 @@ $ con2fbmap 1 1
 To make it permanent (on Debian) add to the file ```/boot/cmdline.txt``` at the end of the line the following Kernel arguments: ```fbcon=map:10 fbcon=font:VGA8x8```
 
 ### 4. Enable for X-Window-System
-
-Open ```99-fbturbo.conf``` and change *fb0* to *fb1* (only needed once):
+If you have not used the automatic installation script then
+open ```99-fbturbo.conf``` and change *fb0* to *fb1* (only needed once):
 ```
 $ sudo nano /usr/share/X11/xorg.conf.d/99-fbturbo.conf
 ```

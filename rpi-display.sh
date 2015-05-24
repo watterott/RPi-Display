@@ -245,7 +245,7 @@ function install_fbcp()
 
   cd /tmp
   apt-get install -y cmake
-  git clone https://github.com/tasanakorn/rpi-fbcp
+  git clone --depth=1 https://github.com/tasanakorn/rpi-fbcp
   mkdir -p rpi-fbcp/build
   cd rpi-fbcp/build
   cmake ..

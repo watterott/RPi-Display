@@ -27,9 +27,9 @@ Ready to run SD-Card image (Raspbian/Debian with FBTFT) for 2.8" RPi-Display.
 Copy the image to a SD-Card with [dd](http://en.wikipedia.org/wiki/Dd_%28Unix%29) under Linux or [Win32-Disk-Imager](http://sourceforge.net/projects/win32diskimager/) under Windows.
 To start the desktop run ```startx```. Then do the calibration (1. upper left, 2. upper right, 3. lower left, 4. lower right).
 
-* Download:
-  * [RPi-Display 8-Bit SPI 2015-03-16](http://www.watterott.net/fbtft/2015-02-16-raspbian-2015-03-16-fbtft-rpi-display-rev2.zip), [2014-07-25](http://www.watterott.net/fbtft/2014-06-20-raspbian-2014-07-25-fbtft-rpi-display-rev2.zip), [2014-03-12](http://www.watterott.net/fbtft/2014-01-07-raspbian-2014-03-12-fbtft-rpi-display-rev2.zip)
-  * [RPi-Display 9-Bit SPI 2014-07-25](http://www.watterott.net/fbtft/2014-06-20-raspbian-2014-07-25-fbtft-rpi-display-rev1.zip), [2014-03-12](http://www.watterott.net/fbtft/2014-01-07-raspbian-2014-03-12-fbtft-rpi-display-rev1.zip)
+* Download (for RPi-Display and RPi-Display B+):
+  * 8-Bit SPI: [2015-05-24](http://www.watterott.net/fbtft/2015-05-05-raspbian-2015-05-24-fbtft-rpi-display-rev2), [2015-03-16](http://www.watterott.net/fbtft/2015-02-16-raspbian-2015-03-16-fbtft-rpi-display-rev2.zip), [2014-07-25](http://www.watterott.net/fbtft/2014-06-20-raspbian-2014-07-25-fbtft-rpi-display-rev2.zip), [2014-03-12](http://www.watterott.net/fbtft/2014-01-07-raspbian-2014-03-12-fbtft-rpi-display-rev2.zip)
+  * 9-Bit SPI: [2014-07-25](http://www.watterott.net/fbtft/2014-06-20-raspbian-2014-07-25-fbtft-rpi-display-rev1.zip), [2014-03-12](http://www.watterott.net/fbtft/2014-01-07-raspbian-2014-03-12-fbtft-rpi-display-rev1.zip)
 * Login: ```pi``` and Password: ```raspberry```
 * English Keyboard Layout *(Y and Z are swapped on German Keyboards)*
 * SSH on port 22 activated

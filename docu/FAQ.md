@@ -29,7 +29,7 @@ Further infos can be found [here](https://github.com/notro/fbtft-spindle/wiki/FB
     ```
     $ cd /tmp
     $ sudo apt-get install -y cmake
-    $ git clone https://github.com/tasanakorn/rpi-fbcp
+    $ git clone --depth=1 https://github.com/tasanakorn/rpi-fbcp
     $ mkdir -p rpi-fbcp/build
     $ cd rpi-fbcp/build
     $ cmake ..
@@ -52,9 +52,9 @@ Further infos can be found [here](https://github.com/notro/fbtft-spindle/wiki/FB
 * To force HDMI output to a resolution of 320x240, add the following lines to ```/boot/config.txt```.
     ```
     hdmi_force_hotplug=1
-    hdmi_cvt=320 240 60 1 0 0 0
     hdmi_group=2
     hdmi_mode=87
+    hdmi_cvt=320 240 60 1 0 0 0
     ```
 
 
@@ -103,8 +103,52 @@ Yes, the FBTFT framebuffer can be installed on [Kali Linux](http://www.kali.org)
 Pre-built images for the Raspberry Pi can be found [here](https://www.offensive-security.com/kali-linux-vmware-arm-image-download/).
 
 
+## How to install and run RetroPie on the display?
+* Run the [installation script](https://github.com/watterott/RPi-Display/blob/master/docu/FBTFT-Install.md#automatic-installation-for-rpi-display-with-8-bit-spi) and install FBTFT and fbcp.
+
+* Add the following lines to ```/boot/config.txt``` to force HDMI to 320x240:
+    ```
+    $ sudo nano /boot/config.txt
+    ```
+    ```
+    hdmi_force_hotplug=1
+    hdmi_group=2
+    hdmi_mode=87
+    hdmi_cvt=320 240 60 1 0 0 0
+    ```
+
+* Install [RetroPie](http://blog.petrockblock.com/retropie/) and then reboot the system:
+    ```
+    $ cd ~
+    $ git clone --depth=1 https://github.com/petrockblog/RetroPie-Setup
+    $ cd RetroPie-Setup
+    $ chmod +x retropie_setup.sh
+    $ sudo ./retropie_setup.sh
+    $ sudo reboot
+    ```
+
+* Run RetroPie:
+    ```
+    $ fbcp &
+    $ emulationstation
+    ```
+
+
 ## How to install and run [Quake 3](https://github.com/raspberrypi/quake3) on the display?
-* Install Quake: [English Guide](http://www.raspbian.org/RaspbianQuake3), [German Guide](http://www.gtkdb.de/index_7_1792.html)
+* Run the [installation script](https://github.com/watterott/RPi-Display/blob/master/docu/FBTFT-Install.md#automatic-installation-for-rpi-display-with-8-bit-spi) and install FBTFT and fbcp.
+
+* Add the following lines to ```/boot/config.txt``` to force HDMI to 320x240:
+    ```
+    $ sudo nano /boot/config.txt
+    ```
+    ```
+    hdmi_force_hotplug=1
+    hdmi_group=2
+    hdmi_mode=87
+    hdmi_cvt=320 240 60 1 0 0 0
+    ```
+
+* Install Quake: [English Guide](http://www.raspbian.org/RaspbianQuake3), [German Guide](http://www.gtkdb.de/index_7_1792.html) and then reboot the system.
 
 * Run Quake:
     ```
@@ -207,7 +251,7 @@ Before the update the **WP** jumper next to the EEPROM has to be closed.
 
 * Install [EEPROM utils](https://github.com/raspberrypi/hats/tree/master/eepromutils):
     ```
-    $ git clone https://github.com/raspberrypi/hats
+    $ git clone --depth=1 https://github.com/raspberrypi/hats
     $ cd hats/eepromutils
     $ make
     $ chmod +x eepflash.sh

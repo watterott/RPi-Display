@@ -49,6 +49,13 @@ Further infos can be found [here](https://github.com/notro/fbtft-spindle/wiki/FB
     $ killall fbcp
     ```
 
+* Enable automatic startup of fbcp:
+    ```
+    $ sudo wget -O /etc/init.d/fbcp  https://github.com/watterott/RPi-Display/raw/master/docu/fbcp
+    $ sudo chmod +x /etc/init.d/fbcp
+    $ sudo update-rc.d fbcp defaults
+    ```
+
 * To force HDMI output to a resolution of 320x240, add the following lines to ```/boot/config.txt```.
     ```
     hdmi_force_hotplug=1
@@ -104,7 +111,14 @@ Pre-built images for the Raspberry Pi can be found [here](https://www.offensive-
 
 
 ## How to install and run RetroPie on the display?
-* Run the [installation script](https://github.com/watterott/RPi-Display/blob/master/docu/FBTFT-Install.md#automatic-installation-for-rpi-display-with-8-bit-spi) and install FBTFT and fbcp.
+You can use the [RetroPie SD card images](http://blog.petrockblock.com/retropie/retropie-downloads/) or you can install RetroPie on an existing system.
+If you use the SD card image with RetroPie, then you can skip the last two installation steps.
+
+* Run the [installation script](https://github.com/watterott/RPi-Display/blob/master/docu/FBTFT-Install.md#automatic-installation-for-rpi-display-with-8-bit-spi) and install FBTFT and fbcp:
+    ```
+    $ wget -N https://github.com/watterott/RPi-Display/raw/master/rpi-display.sh
+    $ sudo /bin/bash rpi-display.sh 270
+    ```
 
 * Add the following lines to ```/boot/config.txt``` to force HDMI to 320x240:
     ```
@@ -117,6 +131,11 @@ Pre-built images for the Raspberry Pi can be found [here](https://www.offensive-
     hdmi_cvt=320 240 60 1 0 0 0
     ```
 
+* Enable automatic startup of fbcp:
+    ```
+    $ sudo update-rc.d fbcp defaults
+    ```
+
 * Install [RetroPie](http://blog.petrockblock.com/retropie/) and then reboot the system:
     ```
     $ cd ~
@@ -127,15 +146,18 @@ Pre-built images for the Raspberry Pi can be found [here](https://www.offensive-
     $ sudo reboot
     ```
 
-* Run RetroPie:
+* Run RetroPie, if you have not enabled the automatic startup:
     ```
-    $ fbcp &
     $ emulationstation
     ```
 
 
 ## How to install and run [Quake 3](https://github.com/raspberrypi/quake3) on the display?
-* Run the [installation script](https://github.com/watterott/RPi-Display/blob/master/docu/FBTFT-Install.md#automatic-installation-for-rpi-display-with-8-bit-spi) and install FBTFT and fbcp.
+* Run the [installation script](https://github.com/watterott/RPi-Display/blob/master/docu/FBTFT-Install.md#automatic-installation-for-rpi-display-with-8-bit-spi) and install FBTFT and fbcp:
+    ```
+    $ wget -N https://github.com/watterott/RPi-Display/raw/master/rpi-display.sh
+    $ sudo /bin/bash rpi-display.sh 270
+    ```
 
 * Add the following lines to ```/boot/config.txt``` to force HDMI to 320x240:
     ```

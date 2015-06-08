@@ -221,7 +221,9 @@ function activate_console()
 
   # set parameters
   if [ -f "/boot/cmdline.txt" ]; then
-    sed -i 's/rootwait/rootwait fbcon=map:10 fbcon=font:VGA8x8/g' "/boot/cmdline.txt"
+    if ! grep -q "fbcon=map:10" "/boot/cmdline.txt"; then
+      sed -i 's/rootwait/rootwait fbcon=map:10 fbcon=font:VGA8x8/g' "/boot/cmdline.txt"
+    fi
   else
     echo "Run 'sudo nano /etc/rc.local' and add the line 'con2fbmap 1 1' before 'exit 0'."
   fi
@@ -260,6 +262,13 @@ function install_fbcp()
   install fbcp /usr/local/bin/fbcp
   cd ../..
   rm -r rpi-fbcp
+
+  curl -L --output /etc/init.d/fbcp https://github.com/watterott/RPi-Display/raw/master/docu/fbcp
+  chmod +x /etc/init.d/fbcp
+  echo "To enable automatic startup of fbcp run:"
+  echo "sudo update-rc.d fbcp defaults"
+  echo "To disable automatic startup of fbcp run:"
+  echo "sudo update-rc.d fbcp remove"
 }
 
 

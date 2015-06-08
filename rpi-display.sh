@@ -63,6 +63,13 @@ function update_configtxt()
   echo "Please reboot the system after the installation."
   echo
 
+  # check blacklist
+  if [ -f "/etc/modprobe.d/raspi-blacklist.conf" ]; then
+    if ! grep -q "#blacklist spi-bcm2708" "/etc/modprobe.d/raspi-blacklist.conf"; then
+      sed -i 's/blacklist spi-bcm2708/#blacklist spi-bcm2708/g' "/etc/modprobe.d/raspi-blacklist.conf"
+    fi
+  fi
+
   # no Device Tree -> use FBTFT module
   if [ "${dt_found}" == "0" ]; then
     if ! grep -q "dtparam=spi=on" "/boot/config.txt"; then

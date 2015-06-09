@@ -35,3 +35,13 @@ To start the desktop run ```startx```. Then do the calibration (1. upper left, 2
 * SSH on port 22 activated
 * Further infos: [FBTFT Image](https://github.com/notro/fbtft-spindle/wiki/FBTFT-image), [FBTFT on Raspian](https://github.com/notro/fbtft/wiki/FBTFT-on-Raspian) ([Video showing the boot up](http://www.youtube.com/watch?v=a2CStAaMbmA))
 * [How to prepare a SD-Card](http://elinux.org/RPi_Easy_SD_Card_Setup)
+* Installation Steps for **Retro Image**:
+  * Power-on the Raspberry Pi with Ethernet/Internet connection
+  * Login with ```pi``` and password: ```raspberry```  *(English Keyboard Layout -> Y and Z are swapped on German Keyboards)*
+  * The Raspberry Pi configuration tool will be started automatically
+  * Select ```Expand Filesystem``` and then exit the tool with ```Finish``` and perform a reboot
+  * Login again
+  * Run: ```sudo ./RetroPie-Setup/retropie_setup.sh```
+  * Select ```Binary-based Installation```
+  * Select ```Setup / Configuration``` and then ```Auto-start EmulationStation```
+  * Go back to the main menu and select ```Perform Reboot```

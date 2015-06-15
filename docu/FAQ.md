@@ -202,6 +202,8 @@ If you use the SD card image with RetroPie, then you can skip the last two insta
 ## How is the display and touch controller connected to the RPi?
     Display  Raspberry Pi   Info
     ----------------------------
+    GND      GND            Ground
+    5V       5V             5V Power Supply
     LCD-LED  GPIO18         Display Backlight, can be set to GPIO12 with Jumper BL
     LCD-RST  GPIO23         Display Reset
     LCD-DC   GPIO24         Display Command/Data Select, Jumper IO24-RS

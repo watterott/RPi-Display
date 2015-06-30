@@ -85,7 +85,7 @@ For further infos have a look here:
 * [Console blanking](https://github.com/notro/fbtft-spindle/wiki/FBTFT-image#blanking)
 * [X-Window-System blanking](https://github.com/notro/fbtft-spindle/wiki/FBTFT-image#blanking-1)
 
-Please note when the displays shows the same content over several hours then the image can burn into the screen.
+Please note when the display shows the same content over several hours then the image can burn into the screen.
 
 
 ## I only see the top left part of a program window/dialog?
@@ -217,7 +217,7 @@ If you use the SD card image with RetroPie, then you can skip the last two insta
 
 ## Where can I find the schematics of the RPi-Display?
 The schematics and layout files can be found [here](https://github.com/watterott/RPi-Display/tree/master/pcb).
-The .brd and .sch files are in the [CadSoft Eagle](www.cadsoft.de/download-eagle/) format.
+The .brd and .sch files are in the [CadSoft Eagle](http://www.cadsoft.de/download-eagle/) format.
 
 
 ## What is the optional switch on the RPi-Display for Raspberry Pi Model A and B?

@@ -42,6 +42,7 @@ To start the desktop run ```startx```. Then do the calibration (1. upper left, 2
   * Select ```Expand Filesystem``` and then exit the tool with ```Finish``` and perform a reboot
   * Login again
   * Run: ```sudo ./RetroPie-Setup/retropie_setup.sh```
-  * Select ```Binary-based Installation```
+  * Select ```Binary-based Installation``` and wait till the installation is finished
   * Select ```Setup / Configuration``` and then ```Auto-start EmulationStation```
   * Go back to the main menu and select ```Perform Reboot```
+  * After boot *EmulationStation* will be started directly

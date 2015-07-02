@@ -273,6 +273,11 @@ function install_fbcp()
   echo "sudo update-rc.d fbcp defaults"
   echo "To disable automatic startup of fbcp run:"
   echo "sudo update-rc.d fbcp remove"
+
+  # ask for automatic startup
+  if ask "Enable automatic startup of fbcp on boot?"; then
+    update-rc.d fbcp defaults
+  fi
 }
 
 

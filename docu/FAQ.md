@@ -101,8 +101,8 @@ When using a flex cable for the connection (RPi-Display Flex Edition) then the j
 On other problems please check your SD-Card and [power supply](http://www.raspberrypi.org/help/faqs/#powerReqs).
 
 
-## Does the display work with Raspbmc?
-Yes, the FBTFT framebuffer can be installed on [Raspbmc](http://www.raspbmc.com) and the HDMI output can be mirrored to the display using [fbcp](https://github.com/watterott/RPi-Display/blob/master/docu/FAQ.md#how-to-mirrorcopy-the-hdmi-output-to-the-display).
+## Does the display work with Raspbmc/OSMC?
+Yes, the FBTFT framebuffer can be installed on [Raspbmc/OSMC](https://osmc.tv/) and the HDMI output can be mirrored to the display using [fbcp](https://github.com/watterott/RPi-Display/blob/master/docu/FAQ.md#how-to-mirrorcopy-the-hdmi-output-to-the-display).
 
 
 ## Does the display work with Kali Linux?

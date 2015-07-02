@@ -6,6 +6,9 @@ Download the installation script ```rpi-display.sh``` and run it as root. The la
 $ wget -N https://github.com/watterott/RPi-Display/raw/master/rpi-display.sh
 $ sudo /bin/bash rpi-display.sh 270
 ```
+*If there are problems with ```wget```, then use ```curl``` to download the script:
+```curl -L --output rpi-display.sh https://github.com/watterott/RPi-Display/raw/master/rpi-display.sh```*
+
 To start the desktop run:
 ```
 $ startx -- -layout TFT

@@ -38,6 +38,9 @@ function update_system()
     apt-get install -y curl
   fi
 
+  # install binutils
+  apt-get install -y binutils
+
   # install rpi-update
   if [ ! -f "/usr/bin/rpi-update" ] && [ ! -f "/bin/rpi-update" ]; then
     curl -L --output /usr/bin/rpi-update https://raw.githubusercontent.com/Hexxeh/rpi-update/master/rpi-update
@@ -46,10 +49,11 @@ function update_system()
 
   # run rpi-update
   # note: official RPi Kernel has currently no DMA support for SPI
-  REPO_URI=https://github.com/notro/rpi-firmware rpi-update
+  #REPO_URI=https://github.com/notro/rpi-firmware rpi-update
+  REPO_URI=https://github.com/notro/rpi-firmware RPI_UPDATE_UNSUPPORTED=0 rpi-update
 
   # ask for reboot
-  if ask "Reboot the system now?"; then
+  if ask "A reboot is needed. Do you want to reboot the system now?"; then
     reboot_system
   fi
 }
@@ -253,7 +257,7 @@ function install_fbcp()
   echo "--- Installing fbcp ---"
 
   cd /tmp
-  apt-get install -y cmake
+  apt-get install -y git build-essential cmake
   git clone --depth=1 https://github.com/tasanakorn/rpi-fbcp
   mkdir -p rpi-fbcp/build
   cd rpi-fbcp/build

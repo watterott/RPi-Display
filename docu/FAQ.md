@@ -63,7 +63,12 @@ Further infos can be found [here](https://github.com/notro/fbtft-spindle/wiki/FB
     hdmi_mode=87
     hdmi_cvt=320 240 60 1 0 0 0
     ```
-
+    Or for a resolution of 640x480
+    ```
+    hdmi_force_hotplug=1
+    hdmi_group=2
+    hdmi_mode=4
+    ```
 
 ## How to switch the backlight on/off?
 The display backlight can be turned on/off and can also be dimmed (using PWM).

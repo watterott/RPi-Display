@@ -28,21 +28,11 @@ Copy the image to a SD-Card with [dd](http://en.wikipedia.org/wiki/Dd_%28Unix%29
 To start the desktop run ```startx```. Then do the calibration (1. upper left, 2. upper right, 3. lower left, 4. lower right).
 
 * Download (for RPi-Display and RPi-Display B+):
-  * 8-Bit SPI: [2015-05-24](http://www.watterott.net/fbtft/2015-05-05-raspbian-2015-05-24-fbtft-rpi-display.zip), [2015-05-24 Retro](http://www.watterott.net/fbtft/2015-05-05-raspbian-2015-06-09-fbtft-retro-rpi-display.zip), [2015-03-16](http://www.watterott.net/fbtft/2015-02-16-raspbian-2015-03-16-fbtft-rpi-display.zip), [2014-07-25](http://www.watterott.net/fbtft/2014-06-20-raspbian-2014-07-25-fbtft-rpi-display.zip), [2014-03-12](http://www.watterott.net/fbtft/2014-01-07-raspbian-2014-03-12-fbtft-rpi-display.zip)
+  * 8-Bit SPI: [2015-05-24](http://www.watterott.net/fbtft/2015-05-05-raspbian-2015-05-24-fbtft-rpi-display.zip), [2015-06-09 Retro](http://www.watterott.net/fbtft/2015-05-05-raspbian-2015-06-09-fbtft-retro-rpi-display.zip), [2015-03-16](http://www.watterott.net/fbtft/2015-02-16-raspbian-2015-03-16-fbtft-rpi-display.zip), [2014-07-25](http://www.watterott.net/fbtft/2014-06-20-raspbian-2014-07-25-fbtft-rpi-display.zip), [2014-03-12](http://www.watterott.net/fbtft/2014-01-07-raspbian-2014-03-12-fbtft-rpi-display.zip)
   * 9-Bit SPI: [2014-07-25](http://www.watterott.net/fbtft/2014-06-20-raspbian-2014-07-25-fbtft-rpi-display-rev1.zip), [2014-03-12](http://www.watterott.net/fbtft/2014-01-07-raspbian-2014-03-12-fbtft-rpi-display-rev1.zip)
 * Login: ```pi``` and Password: ```raspberry```
 * English Keyboard Layout *(Y and Z are swapped on German Keyboards)*
 * SSH on port 22 activated
+* [Installation Guide for **Retro Image**](https://github.com/watterott/RPi-Display/blob/master/docu/Retro-Image.md)
 * Further infos: [FBTFT Image](https://github.com/notro/fbtft-spindle/wiki/FBTFT-image), [FBTFT on Raspian](https://github.com/notro/fbtft/wiki/FBTFT-on-Raspian) ([Video showing the boot up](http://www.youtube.com/watch?v=a2CStAaMbmA))
 * [How to prepare a SD-Card](http://elinux.org/RPi_Easy_SD_Card_Setup)
-* Installation Steps for **Retro Image**:
-  * Power-on the Raspberry Pi with Ethernet/Internet connection
-  * Login with ```pi``` and password: ```raspberry```  *(English Keyboard Layout -> Y and Z are swapped on German Keyboards)*
-  * The Raspberry Pi configuration tool will be started automatically and the [keyboard layout](https://www.raspberrypi.org/documentation/configuration/raspi-config.md#change-locale) can be changed under ```Internationalisation Options``` and then ```Change Keyboard Layout```
-  * Select ```Expand Filesystem``` and then exit the tool with ```Finish``` and perform a reboot
-  * Login again
-  * Run: ```sudo ./RetroPie-Setup/retropie_setup.sh```
-  * Select ```Binary-based Installation``` and wait till the installation is finished
-  * Select ```Setup / Configuration``` and then ```Auto-start EmulationStation```
-  * Go back to the main menu and select ```Perform Reboot```
-  * After boot *EmulationStation* will be started directly

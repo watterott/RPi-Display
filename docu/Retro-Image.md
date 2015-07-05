@@ -28,3 +28,26 @@ To start the desktop run ```startx -- -layout HDMI```, because the HDMI output i
 * To disable automatic startup of *fbcp* run: ```sudo update-rc.d fbcp remove```
 * For a manual start of *fbcp* run: ```fbcp &```
 * For a manual stop of *fbcp* run: ```killall fbcp```
+
+
+## HDMI
+The HDMI output is set to a resolution of 320x240 and mirrored/scaled to the display.
+To change the HDMI resolution, you have to edit the file ```/boot/config.txt```.
+Further infos can be found [here](http://elinux.org/RPiconfig#Video_mode_options).
+
+```
+$ sudo nano /boot/config.txt
+```
+320x240
+```
+hdmi_force_hotplug=1
+hdmi_group=2
+hdmi_mode=87
+hdmi_cvt=320 240 60 1 0 0 0
+```
+640x480
+```
+hdmi_force_hotplug=1
+hdmi_group=2
+hdmi_mode=4
+```

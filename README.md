@@ -24,7 +24,7 @@
 ## SD-Card Image for Raspberry Pi
 Ready to run SD-Card image (Raspbian/Debian with FBTFT) for 2.8" RPi-Display.
 
-Copy the image to a SD-Card with [dd](http://en.wikipedia.org/wiki/Dd_%28Unix%29) under Linux or [Win32-Disk-Imager](http://sourceforge.net/projects/win32diskimager/) under Windows.
+Copy the image after extraction (ZIP archive) to a SD-Card with [dd](http://en.wikipedia.org/wiki/Dd_%28Unix%29) under Linux or [Win32-Disk-Imager](http://sourceforge.net/projects/win32diskimager/) under Windows.
 To start the desktop run ```startx```. Then do the calibration (1. upper left, 2. upper right, 3. lower left, 4. lower right).
 
 * Download (for RPi-Display and RPi-Display B+):
@@ -33,6 +33,7 @@ To start the desktop run ```startx```. Then do the calibration (1. upper left, 2
 * Login: ```pi``` and Password: ```raspberry```
 * English Keyboard Layout *(Y and Z are swapped on German Keyboards)*
 * SSH on port 22 activated
+* Note: The file system has to be expanded, run ```sudo sudo raspi-config```, select *Expand Filesystem* and then exit the tool with *Finish* and perform a reboot.
 * [Installation Guide for **Retro Image**](https://github.com/watterott/RPi-Display/blob/master/docu/Retro-Image.md)
 * Further infos: [FBTFT Image](https://github.com/notro/fbtft-spindle/wiki/FBTFT-image), [FBTFT on Raspian](https://github.com/notro/fbtft/wiki/FBTFT-on-Raspian) ([Video showing the boot up](http://www.youtube.com/watch?v=a2CStAaMbmA))
 * [How to prepare a SD-Card](http://elinux.org/RPi_Easy_SD_Card_Setup)

@@ -93,6 +93,19 @@ For further infos have a look here:
 Please note when the display shows the same content over several hours then the image can burn into the screen.
 
 
+## How to emulate a right mouse button under X-Window-System?
+Open *evdev.conf*
+```
+nano /etc/X11/xorg.conf.d/evdev.conf
+```
+and add the following lines to the *ADS7846 Touchscreen* section:
+```
+    Option "EmulateThirdButton" "1"
+    Option "EmulateThirdButtonTimeout" "1500"
+    Option "EmulateThirdButtonMoveThreshold" "30"
+```
+
+
 ## I only see the top left part of a program window/dialog?
 Most programs are not designed for a small screen (<640x480) and so you see only a part of the window.
 It is possible to scale the screen with *fbcp*, but the best practice is to create an user interface specially for the display.

@@ -143,8 +143,11 @@ function update_xorg()
 
   cat > /etc/X11/xorg.conf.d/99-ads7846-cal.conf <<EOF
 Section "InputClass"
-    Identifier "calibration"
+    Identifier "Touchscreen"
     MatchProduct "ADS7846 Touchscreen"
+    Option "EmulateThirdButton" "1"
+    Option "EmulateThirdButtonTimeout" "1500"
+    Option "EmulateThirdButtonMoveThreshold" "30"
     Option "InvertX" "$invertx"
     Option "InvertY" "$inverty"
     Option "SwapAxes" "$swapaxes"

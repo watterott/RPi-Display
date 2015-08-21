@@ -1,8 +1,8 @@
 # RPi-Display
 2.8" TFT-Display (320x240) with Touchpanel for all Raspberry Pi Models.
 
-[![RPi-Display B+](https://raw.github.com/watterott/RPi-Display/master/pcb/RPi-Display_Bplus_v11.jpg)](http://www.watterott.com/en/RPi-Display-B-Plus)
-[![RPi-Display](https://raw.github.com/watterott/RPi-Display/master/pcb/RPi-Display_v10.jpg)](http://www.watterott.com/en/RPi-Display)
+[![RPi-Display B+](https://github.com/watterott/RPi-Display/raw/master/hardware/RPi-Display_Bplus_v11.jpg)](http://www.watterott.com/en/RPi-Display-B-Plus)
+[![RPi-Display](https://github.com/watterott/RPi-Display/raw/master/hardware/RPi-Display_v10.jpg)](http://www.watterott.com/en/RPi-Display)
 
 
 ## Shop
@@ -17,8 +17,7 @@
 ## Information
 * [FAQ (Frequently Asked Questions)](https://github.com/watterott/RPi-Display/blob/master/docu/FAQ.md)
 * [FBTFT installation on an existing Raspbian system](https://github.com/watterott/RPi-Display/blob/master/docu/FBTFT-Install.md)
-* [RPi-Display Schematics + Layout](https://github.com/watterott/RPi-Display/tree/master/pcb)
-* [Projects using the RPi-Display](https://github.com/watterott/RPi-Display/blob/master/Projects.md)
+* [RPi-Display Schematics + Layout](https://github.com/watterott/RPi-Display/tree/master/hardware)
 
 
 ## SD-Card Image for Raspberry Pi
@@ -37,3 +36,15 @@ To start the desktop run ```startx```. Then do the calibration (1. upper left, 2
 * [Installation Guide for **Retro Image**](https://github.com/watterott/RPi-Display/blob/master/docu/Retro-Image.md)
 * Further infos: [FBTFT Image](https://github.com/notro/fbtft-spindle/wiki/FBTFT-image), [FBTFT on Raspian](https://github.com/notro/fbtft/wiki/FBTFT-on-Raspian) ([Video showing the boot up](http://www.youtube.com/watch?v=a2CStAaMbmA))
 * [How to prepare a SD-Card](http://elinux.org/RPi_Easy_SD_Card_Setup)
+
+
+## Projects
+* OctoPi - OctoPrint Raspberry Pi distribution (3D Printers): https://github.com/guysoft/OctoPi
+* OctoPrint Webfront: https://www.youtube.com/watch?v=ZYjPcC37fNI
+* Rasputin-1 (Mini-TV + DVBT-TV): http://ilco.broichhagen.bplaced.de/ilco3/images/Rasputin1-DVBT-Videorecorder.pdf
+* WebRadio: https://github.com/5Volt-Junkie/RPi-Tron-Radio
+* WebRadio + UPnP Streaming-Client: http://www.partikelstrom.de/?page_id=1110
+* GameBoy Pi A+: http://www.forum-raspberrypi.de/Thread-gameboy-pi-a
+* Assetto Corsa Display: http://www.raspberrypi.org/forums/viewtopic.php?f=75&t=81950
+* PiMenu (simple menu system for your own solutions): https://github.com/splitbrain/pimenu/
+* RPi Timelapse with Display: https://www.youtube.com/watch?v=MVIMRJFlEVk

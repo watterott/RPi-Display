@@ -234,7 +234,7 @@ If you use the SD card image with RetroPie, then you can skip the last two insta
 
 
 ## Where can I find the schematics of the RPi-Display?
-The schematics and layout files can be found [here](https://github.com/watterott/RPi-Display/tree/master/pcb).
+The schematics and layout files can be found [here](https://github.com/watterott/RPi-Display/tree/master/hardware).
 The .brd and .sch files are in the [CadSoft Eagle](http://www.cadsoft.de/download-eagle/) format.
 
 

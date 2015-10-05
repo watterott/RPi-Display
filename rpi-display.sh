@@ -48,9 +48,9 @@ function update_system()
   fi
 
   # run rpi-update
-  # note: official RPi Kernel has currently no DMA support for SPI
-  #REPO_URI=https://github.com/notro/rpi-firmware rpi-update
-  REPO_URI=https://github.com/notro/rpi-firmware RPI_UPDATE_UNSUPPORTED=0 rpi-update
+  # official RPi Kernel from 4.1 has DMA support for SPI
+  #REPO_URI=https://github.com/notro/rpi-firmware RPI_UPDATE_UNSUPPORTED=0 update
+  rpi-update
 
   # ask for reboot
   if ask "A reboot is needed. Do you want to reboot the system now?"; then
@@ -288,6 +288,9 @@ function install_fbcp()
 function install_xinputcalibrator()
 {
   echo "--- Installing xinput-calibrator ---"
+  echo
+  echo "Run 'sudo startx' to calibrate the touchscreen for X."
+  echo
 
   cd /tmp
   curl -L --output xinput-calibrator_0.7.5-1_armhf.deb http://tronnes.org/downloads/xinput-calibrator_0.7.5-1_armhf.deb
@@ -320,7 +323,7 @@ EOF
       echo "xinput_calibrator already in LXDE autostart"
     else
       cat >> /etc/xdg/lxsession/LXDE-pi/autostart <<'EOF'
-sudo /bin/sh /etc/X11/Xsession.d/xinput_calibrator_pointercal
+@sh /etc/X11/Xsession.d/xinput_calibrator_pointercal
 EOF
     fi
   fi
@@ -330,7 +333,11 @@ EOF
 # download and install ts_lib
 function install_tslib()
 {
-  echo "--- Installing ts_lib ---"
+  echo "--- Installing tslib ---"
+  echo
+  echo "Run the following command to calibrate the touchscreen for tslib."
+  echo "TSLIB_FBDEVICE=/dev/fb1 TSLIB_TSDEVICE=/dev/input/touchscreen sudo ts_calibrate"
+  echo
 
   apt-get install -y tslib libts-bin
   # install ts_test with quit button
@@ -373,17 +380,17 @@ if modinfo fbtft > /dev/null; then
   fbtft_found="1"
 fi
 
-#if [ "${dt_found}" == "0" ]; then
-#  echo
-#  echo "Note: No Device Tree Kernel found."
+if [ "${dt_found}" == "0" ]; then
+  echo
+  echo "Info: No Device Tree Kernel found."
 #  if ask "Update the system now?"; then
 #    update_system
 #  fi
-#fi
+fi
 
 if [ "${fbtft_found}" == "0" ]; then
   echo
-  echo "Note: No FBTFT found."
+  echo "FBTFT not found."
   if ask "Update the system now?"; then
     update_system
   else
@@ -392,13 +399,13 @@ if [ "${fbtft_found}" == "0" ]; then
   fi
 fi
 
-if ! modinfo -F parm spi_bcm2708 | grep -q -i "dma"; then
-  echo
-  echo "Note: No DMA support for spi_bcm2708 found."
-  if ask "Update the system now?"; then
-    update_system
-  fi
-fi
+#if ! modinfo -F parm spi-bcm2708 | grep -q -i "dma"; then
+#  echo
+#  echo "No DMA support for spi-bcm2708 module found."
+#  if ask "Update the system now?"; then
+#    update_system
+#  fi
+#fi
 
 if ask "Enable TFT display driver and activate X windows on TFT display?"; then
   update_configtxt
@@ -411,17 +418,15 @@ else
   deactivate_console
 fi
 
-if modinfo -F parm spi_bcm2708 | grep -q -i "dma"; then
-  if ask "Install fbcp (Framebuffer Copy)?"; then
-    install_fbcp
-  fi
+if ask "Install fbcp (Framebuffer Copy)?"; then
+  install_fbcp
 fi
 
 if ask "Install xinput-calibrator?"; then
   install_xinputcalibrator
 fi
 
-if ask "Install ts_lib?"; then
+if ask "Install tslib (touchscreen library)?"; then
   update_udev
   install_tslib
 fi

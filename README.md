@@ -27,8 +27,8 @@ Copy the image after extraction (ZIP archive) to a SD-Card with [dd](http://en.w
 To start the desktop run ```startx```. Then do the calibration (1. upper left, 2. upper right, 3. lower left, 4. lower right).
 
 * Download (for RPi-Display and RPi-Display B+):
-  * 8-Bit SPI: [2015-05-24](http://www.watterott.net/fbtft/2015-05-05-raspbian-2015-05-24-fbtft-rpi-display.zip), [2015-06-09 Retro](http://www.watterott.net/fbtft/2015-05-05-raspbian-2015-06-09-fbtft-retro-rpi-display.zip), [2015-03-16](http://www.watterott.net/fbtft/2015-02-16-raspbian-2015-03-16-fbtft-rpi-display.zip), [2014-07-25](http://www.watterott.net/fbtft/2014-06-20-raspbian-2014-07-25-fbtft-rpi-display.zip), [2014-03-12](http://www.watterott.net/fbtft/2014-01-07-raspbian-2014-03-12-fbtft-rpi-display.zip)
-  * 9-Bit SPI: [2014-07-25](http://www.watterott.net/fbtft/2014-06-20-raspbian-2014-07-25-fbtft-rpi-display-rev1.zip), [2014-03-12](http://www.watterott.net/fbtft/2014-01-07-raspbian-2014-03-12-fbtft-rpi-display-rev1.zip)
+  * 8-Bit SPI: [2015-09-24](http://www.watterott.net/fbtft/2015-09-24-raspbian-2015-10-23-fbtft-rpi-display.zip), [2015-05-05](http://www.watterott.net/fbtft/2015-05-05-raspbian-2015-05-24-fbtft-rpi-display.zip), [2015-05-05 Retro](http://www.watterott.net/fbtft/2015-05-05-raspbian-2015-06-09-fbtft-retro-rpi-display.zip), [2015-02-16](http://www.watterott.net/fbtft/2015-02-16-raspbian-2015-03-16-fbtft-rpi-display.zip), [2014-06-20](http://www.watterott.net/fbtft/2014-06-20-raspbian-2014-07-25-fbtft-rpi-display.zip)
+  * 9-Bit SPI (old): [2014-06-20](http://www.watterott.net/fbtft/2014-06-20-raspbian-2014-07-25-fbtft-rpi-display-rev1.zip)
 * Login: ```pi``` and Password: ```raspberry```
 * English Keyboard Layout *(Y and Z are swapped on German Keyboards)*
 * SSH on port 22 activated
@@ -40,11 +40,12 @@ To start the desktop run ```startx```. Then do the calibration (1. upper left, 2
 
 ## Projects
 * RPi-GUI: https://github.com/boerge42/rpi_gui
-* PiMenu (simple menu system for your own solutions): https://github.com/splitbrain/pimenu/
-* OctoPi - OctoPrint Raspberry Pi distribution (3D Printers): https://github.com/guysoft/OctoPi
+* PiMenu (simple menu system): https://github.com/splitbrain/pimenu/
+* OctoPi - OctoPrint RPi distribution (3D Printers): https://github.com/guysoft/OctoPi
 * OctoPrint Webfront: https://www.youtube.com/watch?v=ZYjPcC37fNI
 * WebRadio: https://github.com/5Volt-Junkie/RPi-Tron-Radio
 * WebRadio + UPnP Streaming-Client: http://www.partikelstrom.de/?page_id=1110
+* Max2Play (Squeezebox): http://www.instructables.com/id/Audio-Solution-with-Control-and-Visualization-on-a/
 * GameBoy Pi A+: http://www.forum-raspberrypi.de/Thread-gameboy-pi-a
 * Rasputin-1 (Mini-TV + DVBT-TV): http://ilco.broichhagen.bplaced.de/ilco3/images/Rasputin1-DVBT-Videorecorder.pdf
 * Assetto Corsa Display: http://www.raspberrypi.org/forums/viewtopic.php?f=75&t=81950

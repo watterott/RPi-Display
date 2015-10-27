@@ -51,7 +51,7 @@ Further infos can be found [here](https://github.com/notro/fbtft-spindle/wiki/FB
 
 * Enable automatic startup of fbcp:
     ```
-    $ sudo wget -O /etc/init.d/fbcp  https://github.com/watterott/RPi-Display/raw/master/docu/fbcp
+    $ sudo wget -O /etc/init.d/fbcp https://github.com/watterott/RPi-Display/raw/master/docu/fbcp
     $ sudo chmod +x /etc/init.d/fbcp
     $ sudo update-rc.d fbcp defaults
     ```
@@ -63,7 +63,7 @@ Further infos can be found [here](https://github.com/notro/fbtft-spindle/wiki/FB
     hdmi_mode=87
     hdmi_cvt=320 240 60 1 0 0 0
     ```
-    Or for a resolution of 640x480
+    Or for a resolution of 640x480 (will be scaled to 320x240 on the display)
     ```
     hdmi_force_hotplug=1
     hdmi_group=2

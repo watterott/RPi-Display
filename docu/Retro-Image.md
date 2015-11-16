@@ -45,9 +45,21 @@ hdmi_group=2
 hdmi_mode=87
 hdmi_cvt=320 240 60 1 0 0 0
 ```
-640x480
+640x480 (60Hz)
 ```
 hdmi_force_hotplug=1
 hdmi_group=2
 hdmi_mode=4
+```
+800x600 (60Hz)
+```
+hdmi_force_hotplug=1
+hdmi_group=2
+hdmi_mode=9
+```
+1024x768 (60Hz)
+```
+hdmi_force_hotplug=1
+hdmi_group=2
+hdmi_mode=16
 ```

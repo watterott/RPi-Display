@@ -284,7 +284,9 @@ There are pads for an optional tactile switch or **VT93N1** LDR sensor (Light-De
 
 
 ## How to connect the GPIO-Adapter for RPi-Display B+?
-The FFC connectors have bottom contacts and so the FFC cable contacts have to be aligned to the bottom.
+The FFC connectors have top contacts and so the FFC cable contacts have to be aligned to the top.
+
+If you want to connect the display via the FFC cable then have a look [here](https://github.com/watterott/RPi-Display/raw/master/docu/flex_edition.jpg) and the jumpers MISO, MOSI and SCK have to be also closed.
 
 
 ## How to flash/update the ID EEPROM?

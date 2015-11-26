@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.3.0">
+<eagle version="7.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -142,6 +142,7 @@
 <rectangle x1="0.3175" y1="8.89" x2="1.5875" y2="12.7" layer="29"/>
 <text x="14.76375" y="46.0375" size="0.889" layer="26" font="vector" ratio="10" rot="MR0">18</text>
 <text x="11.90625" y="46.0375" size="0.889" layer="26" font="vector" ratio="10" rot="MR0">12</text>
+<text x="17.78" y="39.37" size="0.8128" layer="21" font="vector" ratio="14" align="center">Top Contacts</text>
 </plain>
 <libraries>
 <library name="IRF-sot23">

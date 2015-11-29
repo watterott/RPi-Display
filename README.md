@@ -37,6 +37,11 @@ To start the desktop run ```sudo startx```. Then do the calibration (1. upper le
 * Further infos: [FBTFT Image](https://github.com/notro/fbtft-spindle/wiki/FBTFT-image), [FBTFT on Raspian](https://github.com/notro/fbtft/wiki/FBTFT-on-Raspian) ([Video showing the boot up](http://www.youtube.com/watch?v=a2CStAaMbmA))
 * [How to prepare a SD-Card](http://elinux.org/RPi_Easy_SD_Card_Setup)
 
+### Pygame Notes
+
+If you want to use The touchscreen with pygame, you need the latest wheezy Image [2015-05-05](http://www.watterott.net/fbtft/2015-05-05-raspbian-2015-05-24-fbtft-rpi-display.zip). In Debian Jessie, the SDL Version has changes which causes weird behaviour when using the touchscreen with pygame. See the [Adafruit Bugreport](https://forums.adafruit.com/viewtopic.php?f=47&t=76169&p=404358) and the [Debian Upstream Bugreport](https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=798160) for more information.
+A simple guide how to install all necessary bits to use the display with pygame can be found in the [PDU1800 Wiki](https://github.com/sumpfgottheit/pdu1800/wiki)
+
 
 ## Projects
 * RPi-GUI: https://github.com/boerge42/rpi_gui

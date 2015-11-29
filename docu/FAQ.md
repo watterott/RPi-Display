@@ -119,6 +119,12 @@ When using a [flex cable for the connection](https://github.com/watterott/RPi-Di
 On other problems please check your SD-Card and [power supply](http://www.raspberrypi.org/help/faqs/#powerReqs).
 
 
+## Touchscreen under Pygame
+If you want to use the touchscreen with Pygame, you need the latest Debian Wheezy image [2015-05-05](http://www.watterott.net/fbtft/2015-05-05-raspbian-2015-05-24-fbtft-rpi-display.zip).
+In Debian Jessie the SDL version has changes which causes weird behavior when using the touchscreen with Pygame. See the [Adafruit Bugreport](https://forums.adafruit.com/viewtopic.php?f=47&t=76169&p=404358) and the [Debian Upstream Bugreport](https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=798160) for more information.
+A simple guide how to install all necessary bits to use the display with Pygame can be found in the [PDU1800 Wiki](https://github.com/sumpfgottheit/pdu1800/wiki).
+
+
 ## Does the display work with Raspbmc/OSMC?
 Yes, the FBTFT framebuffer can be installed on [Raspbmc/OSMC](https://osmc.tv/) and the HDMI output can be mirrored to the display using [fbcp](https://github.com/watterott/RPi-Display/blob/master/docu/FAQ.md#how-to-mirrorcopy-the-hdmi-output-to-the-display).
 

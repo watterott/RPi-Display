@@ -11,7 +11,8 @@
 * [RPi-Display for Raspberry Pi v1 A/B](http://www.watterott.com/en/RPi-Display) ([Amazon](http://www.amazon.de/RPi-Display/dp/B00I7BGX5A))
 * [TEK-Berry and TEK-Berry+ Enclosures with Display Cutout](http://www.watterott.com/index.php?page=search&page_action=query&desc=off&sdesc=off&keywords=RPi-Display)
 * [GPIO-Adapter for RPi-Display B+](http://www.watterott.com/en/GPIO-Adapter-for-the-RPi-Display-BPlus)
-* [Displays with higher resolutions](https://github.com/watterott/HDMI-Display)
+* [HDMI Displays with higher resolutions for Raspberry Pi](https://github.com/watterott/HDMI-Display)
+* [Displays with higher resolutions for Raspberry Pi](https://github.com/watterott/RPi-DPI-HAT)
 
 
 ## Information

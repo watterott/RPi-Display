@@ -22,14 +22,13 @@
 
 
 ## SD-Card Image for Raspberry Pi
-Ready to run SD-Card image (Raspbian/Debian with FBTFT) for 2.8" RPi-Display.
+Ready to run SD-Card image (Raspbian/Debian with FBTFT) for 2.8" RPi-Display  and RPi-Display B+.
 
 Copy the image after extraction (ZIP archive) to a SD-Card with [dd](http://en.wikipedia.org/wiki/Dd_%28Unix%29) under Linux or [Win32-Disk-Imager](http://sourceforge.net/projects/win32diskimager/) under Windows.
 To start the desktop run ```sudo startx```. Then do the calibration (1. upper left, 2. upper right, 3. lower left, 4. lower right).
 
-* Download (for RPi-Display and RPi-Display B+):
-  * 8-Bit SPI: [2015-09-24](http://www.watterott.net/fbtft/2015-09-24-raspbian-fbtft-rpi-display.zip), [2015-05-05](http://www.watterott.net/fbtft/2015-05-05-raspbian-fbtft-rpi-display.zip), [2015-05-05 Retro](http://www.watterott.net/fbtft/2015-05-05-raspbian-fbtft-rpi-display-retro.zip), [2015-02-16](http://www.watterott.net/fbtft/2015-02-16-raspbian-fbtft-rpi-display.zip), [2014-06-20](http://www.watterott.net/fbtft/2014-06-20-raspbian-fbtft-rpi-display.zip)
-  * 9-Bit SPI (old): [2014-06-20](http://www.watterott.net/fbtft/2014-06-20-raspbian-fbtft-rpi-display-rev1.zip)
+* **Downloads**: [2015-11-21 Jessie Lite](http://www.watterott.net/fbtft/2015-11-21-raspbian-lite-fbtft-rpi-display.zip), [2015-09-24 Jessie](http://www.watterott.net/fbtft/2015-09-24-raspbian-fbtft-rpi-display.zip), [2015-05-05 Wheezy](http://www.watterott.net/fbtft/2015-05-05-raspbian-fbtft-rpi-display.zip), [2015-05-05 Wheezy Retro](http://www.watterott.net/fbtft/2015-05-05-raspbian-fbtft-rpi-display-retro.zip), [2015-02-16 Wheezy](http://www.watterott.net/fbtft/2015-02-16-raspbian-fbtft-rpi-display.zip), [2014-06-20 Wheezy](http://www.watterott.net/fbtft/2014-06-20-raspbian-fbtft-rpi-display.zip)
+* Old Downloads (9-Bit): [2014-06-20 Wheezy](http://www.watterott.net/fbtft/2014-06-20-raspbian-fbtft-rpi-display-rev1.zip)
 * Login: ```pi``` and Password: ```raspberry```
 * English Keyboard Layout *(Y and Z are swapped on German Keyboards)*
 * SSH on port 22 activated

@@ -229,7 +229,7 @@ function activate_console()
   # set parameters
   if [ -f "/boot/cmdline.txt" ]; then
     if ! grep -q "fbcon=map:10" "/boot/cmdline.txt"; then
-      sed -i 's/rootwait/rootwait fbcon=map:10 fbcon=font:VGA8x8/g' "/boot/cmdline.txt"
+      sed -i 's/rootwait/rootwait fbcon=map:10 fbcon=font:VGA8x8 consoleblank=0/g' "/boot/cmdline.txt"
     fi
   else
     echo "Run 'sudo nano /etc/rc.local' and add the line 'con2fbmap 1 1' before 'exit 0'."
@@ -243,7 +243,7 @@ function activate_console()
 function deactivate_console()
 {
   if [ -f "/boot/cmdline.txt" ]; then
-    sed -i 's/rootwait fbcon=map:10 fbcon=font:VGA8x8/rootwait/g' "/boot/cmdline.txt"
+    sed -i 's/rootwait fbcon=map:10 fbcon=font:VGA8x8 consoleblank=0/rootwait/g' "/boot/cmdline.txt"
   else
     echo "Run 'sudo nano /etc/rc.local' and remove the line 'con2fbmap 1 1'."
   fi

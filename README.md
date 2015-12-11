@@ -22,7 +22,7 @@
 
 
 ## SD-Card Image for Raspberry Pi
-Ready to run SD-Card image (Raspbian/Debian with FBTFT) for 2.8" RPi-Display  and RPi-Display B+.
+Ready to run SD-Card image (Raspbian/Debian with FBTFT) for 2.8" RPi-Display and RPi-Display B+.
 
 Copy the image after extraction (ZIP archive) to a SD-Card with [dd](http://en.wikipedia.org/wiki/Dd_%28Unix%29) under Linux or [Win32-Disk-Imager](http://sourceforge.net/projects/win32diskimager/) under Windows.
 To start the desktop run ```sudo startx```. Then do the calibration (1. upper left, 2. upper right, 3. lower left, 4. lower right).

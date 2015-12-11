@@ -28,8 +28,8 @@ Copy the image after extraction (ZIP archive) to a SD-Card with [dd](http://en.w
 To start the desktop run ```sudo startx```. Then do the calibration (1. upper left, 2. upper right, 3. lower left, 4. lower right).
 
 * Download (for RPi-Display and RPi-Display B+):
-  * 8-Bit SPI: [2015-09-24](http://www.watterott.net/fbtft/2015-09-24-raspbian-2015-10-23-fbtft-rpi-display.zip), [2015-05-05](http://www.watterott.net/fbtft/2015-05-05-raspbian-2015-05-24-fbtft-rpi-display.zip), [2015-05-05 Retro](http://www.watterott.net/fbtft/2015-05-05-raspbian-2015-06-09-fbtft-retro-rpi-display.zip), [2015-02-16](http://www.watterott.net/fbtft/2015-02-16-raspbian-2015-03-16-fbtft-rpi-display.zip), [2014-06-20](http://www.watterott.net/fbtft/2014-06-20-raspbian-2014-07-25-fbtft-rpi-display.zip)
-  * 9-Bit SPI (old): [2014-06-20](http://www.watterott.net/fbtft/2014-06-20-raspbian-2014-07-25-fbtft-rpi-display-rev1.zip)
+  * 8-Bit SPI: [2015-09-24](http://www.watterott.net/fbtft/2015-09-24-raspbian-fbtft-rpi-display.zip), [2015-05-05](http://www.watterott.net/fbtft/2015-05-05-raspbian-fbtft-rpi-display.zip), [2015-05-05 Retro](http://www.watterott.net/fbtft/2015-05-05-raspbian-fbtft-rpi-display-retro.zip), [2015-02-16](http://www.watterott.net/fbtft/2015-02-16-raspbian-fbtft-rpi-display.zip), [2014-06-20](http://www.watterott.net/fbtft/2014-06-20-raspbian-fbtft-rpi-display.zip)
+  * 9-Bit SPI (old): [2014-06-20](http://www.watterott.net/fbtft/2014-06-20-raspbian-fbtft-rpi-display-rev1.zip)
 * Login: ```pi``` and Password: ```raspberry```
 * English Keyboard Layout *(Y and Z are swapped on German Keyboards)*
 * SSH on port 22 activated

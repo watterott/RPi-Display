@@ -115,6 +115,7 @@ function update_xorg()
   echo
   echo "startx -- -layout TFT"
   echo "startx -- -layout HDMI"
+  echo "startx -- -layout HDMITFT"
   echo "When -layout is not set, the first is used: TFT"
   echo
 
@@ -160,16 +161,29 @@ EOF
 #
 # startx -- -layout TFT
 # startx -- -layout HDMI
+# startx -- -layout HDMITFT
 # When -layout is not set, the first is used: TFT
 
 Section "ServerLayout"
     Identifier "TFT"
+    Option "BlankTime" "10"
     Screen 0 "ScreenTFT"
 EndSection
 
 Section "ServerLayout"
     Identifier "HDMI"
+    Option "BlankTime" "10"
     Screen 0 "ScreenHDMI"
+EndSection
+
+Section "ServerLayout"
+    Identifier "HDMITFT"
+    Option "BlankTime" "10"
+    Screen 0 "ScreenHDMI"
+    Screen 0 "ScreenTFT" RightOf "ScreenHDMI"
+#    Screen 0 "ScreenTFT" LeftOf "ScreenHDMI"
+#    Screen 0 "ScreenTFT" Above "ScreenHDMI"
+#    Screen 0 "ScreenTFT" Below "ScreenHDMI"
 EndSection
 
 Section "Screen"

@@ -180,10 +180,12 @@ Section "ServerLayout"
     Identifier "HDMITFT"
     Option "BlankTime" "10"
     Screen 0 "ScreenHDMI"
-    Screen 0 "ScreenTFT" RightOf "ScreenHDMI"
-#    Screen 0 "ScreenTFT" LeftOf "ScreenHDMI"
-#    Screen 0 "ScreenTFT" Above "ScreenHDMI"
-#    Screen 0 "ScreenTFT" Below "ScreenHDMI"
+    Screen 1 "ScreenTFT" RightOf "ScreenHDMI"
+#    Screen 1 "ScreenTFT" LeftOf "ScreenHDMI"
+#    Screen 1 "ScreenTFT" Above "ScreenHDMI"
+#    Screen 1 "ScreenTFT" Below "ScreenHDMI"
+#    Screen 1 "ScreenTFT" Relative "ScreenHDMI" x y
+#    Screen 1 "ScreenTFT" Absolute x y
 EndSection
 
 Section "Screen"
@@ -215,6 +217,7 @@ EndSection
 
 Section "Device"
     Identifier "DeviceTFT"
+    Driver "fbturbo"
     Option "fbdev" "/dev/fb1"
 EndSection
 EOF

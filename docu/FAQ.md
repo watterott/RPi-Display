@@ -9,10 +9,9 @@ Run ```con2fbmap 1 0``` and to switch back to the display ```con2fbmap 1 1```.
 
 
 ## How to switch the Desktop (X-Window-System) to HDMI?
-```
-$ startx -- -layout HDMI
-$ startx -- -layout TFT
-```
+* Desktop on HDMI: ```startx -- -layout HDMI```
+* Desktop on TFT:  ```startx -- -layout TFT```
+
 If you have not used the automatic installation script then
 open ```99-fbturbo.conf``` and change *fbX* (fb0=HDMI, fb1=Display):
 ```

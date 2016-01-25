@@ -124,16 +124,20 @@ In Debian Jessie the SDL version has changes which causes weird behavior when us
 A simple guide how to install all necessary bits to use the display with Pygame can be found in the [PDU1800 Wiki](https://github.com/sumpfgottheit/pdu1800/wiki).
 
 
-## Does the display work with Raspbmc/OSMC?
+## Does the display work with **Windows 10 IoT**?
+We have not tested it yet, but there are already projects available for the ILI9341 display controller and ADS7846/TSC2046 touch controller from [Peter Oakes ](https://www.hackster.io/peteroakes/raspberry-pi-2-480-320-colour-lcd-displays-on-a-windows-10-70c661) and [Graham Chow](https://www.hackster.io/graham_chow/windows-10-ili9341-tft-lcd-spi-display-a27b1c).
+
+
+## Does the display work with **Raspbmc/OSMC**?
 Yes, the FBTFT framebuffer can be installed on [Raspbmc/OSMC](https://osmc.tv/) and the HDMI output can be mirrored to the display using [fbcp](https://github.com/watterott/RPi-Display/blob/master/docu/FAQ.md#how-to-mirrorcopy-the-hdmi-output-to-the-display).
 
 
-## Does the display work with Kali Linux?
+## Does the display work with **Kali Linux**?
 Yes, the FBTFT framebuffer can be installed on [Kali Linux](http://www.kali.org).
 Pre-built images for the Raspberry Pi can be found [here](https://www.offensive-security.com/kali-linux-vmware-arm-image-download/).
 
 
-## How to install and run RetroPie on the display?
+## How to install and run **RetroPie** on the display?
 You can use the [RetroPie SD card images](http://blog.petrockblock.com/retropie/retropie-downloads/) or you can install RetroPie on an existing system.
 If you use the SD card image with RetroPie, then you can skip the last two installation steps.
 
@@ -175,7 +179,7 @@ If you use the SD card image with RetroPie, then you can skip the last two insta
     ```
 
 
-## How to install and run [Quake 3](https://github.com/raspberrypi/quake3) on the display?
+## How to install and run Quake 3 on the display?
 * Run the [installation script](https://github.com/watterott/RPi-Display/blob/master/docu/FBTFT-Install.md#automatic-installation-for-rpi-display-with-8-bit-spi) and install FBTFT and fbcp:
     ```
     $ wget -N https://github.com/watterott/RPi-Display/raw/master/rpi-display.sh
@@ -202,8 +206,8 @@ If you use the SD card image with RetroPie, then you can skip the last two insta
     ```
 
 
-## How to install and run [SqueezePlay](http://wiki.slimdevices.com/index.php/SqueezePlay) on the display?
-* Install SqueezePlay:
+## How to install and run SqueezePlay on the display?
+* Install [SqueezePlay](http://wiki.slimdevices.com/index.php/SqueezePlay):
     ```
     $ wget http://squeezeslave.googlecode.com/files/squeezeplay_7.8.0~337_armhf.deb
     $ sudo dpkg -i squeezeplay_7.8.0~337_armhf.deb

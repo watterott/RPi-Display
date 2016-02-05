@@ -427,6 +427,11 @@ fi
 if ask "Enable TFT display driver and activate X windows on TFT display?"; then
   update_configtxt
   update_xorg
+else
+  if [ -f "/etc/X11/xorg.conf.d/50-fbtft.conf" ]; then
+    echo "Removing /etc/X11/xorg.conf.d/50-fbtft.conf"
+    rm /etc/X11/xorg.conf.d/50-fbtft.conf
+  fi
 fi
 
 if ask "Activate the console on the TFT display?"; then

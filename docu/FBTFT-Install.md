@@ -5,15 +5,23 @@ Download the installation script ```rpi-display.sh``` and run it as root. The la
 ```
 $ wget -N https://github.com/watterott/RPi-Display/raw/master/rpi-display.sh
 $ sudo /bin/bash rpi-display.sh 270
+
+Enable TFT display driver and activate X windows on TFT display? y/n y
+Activate the console on the TFT display? y/n y
+Install fbcp (Framebuffer Copy)? y/n n
+Install xinput-calibrator? y/n y
+Install tslib (touchscreen library)? y/n n
+Reboot the system now? y/n y
+Rebooting now...
 ```
 *If there are problems with ```wget```, then use ```curl``` to download the script:
 ```curl -L --output rpi-display.sh https://github.com/watterott/RPi-Display/raw/master/rpi-display.sh```*
 
-To start the desktop run one of the commands:
+To start the desktop run one of the commands. (Note: The first start needs **sudo**, because of the touchpanel calibration.)
 ```
-$ startx -- -layout TFT
-$ startx -- -layout HDMI
-$ startx -- -layout HDMITFT
+$ sudo startx -- -layout TFT
+$ sudo startx -- -layout HDMI
+$ sudo startx -- -layout HDMITFT
 ```
 *If ```-layout``` is not set, then the TFT display will be used as default.*
 

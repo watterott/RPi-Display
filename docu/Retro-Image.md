@@ -4,7 +4,7 @@ The [Retro Image](https://github.com/watterott/RPi-Display#sd-card-image-for-ras
 
 ## Installation
 * Power-on the Raspberry Pi with Ethernet/Internet connection
-* Login with ```pi``` and password: ```raspberry```  *(English Keyboard Layout -> Y and Z are swapped on German Keyboards)*
+* Login with ```pi``` and password: ```raspberry``` *(English Keyboard Layout: Y and Z are swapped on German Keyboards)*
 * The Raspberry Pi configuration tool will be started automatically and the [keyboard layout](https://www.raspberrypi.org/documentation/configuration/raspi-config.md#change-locale) can be changed under ```Internationalisation Options``` and then ```Change Keyboard Layout```
 * Select ```Expand Filesystem``` and then exit the tool with ```Finish``` and perform a reboot
 * Login again

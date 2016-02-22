@@ -28,8 +28,7 @@ Copy the image after extraction (ZIP archive) to a SD-Card with [dd](http://en.w
 To start the desktop run ```sudo startx```. Then do the calibration (1. upper left, 2. upper right, 3. lower left, 4. lower right).
 
 * **Downloads**: [2016-02-09 Jessie](http://www.watterott.net/fbtft/2016-02-09-raspbian-fbtft-rpi-display.zip), [2016-02-09 Jessie Lite](http://www.watterott.net/fbtft/2016-02-09-raspbian-lite-fbtft-rpi-display.zip), [2015-11-21 Jessie](http://www.watterott.net/fbtft/2015-11-21-raspbian-fbtft-rpi-display.zip), [2015-11-21 Jessie Lite](http://www.watterott.net/fbtft/2015-11-21-raspbian-lite-fbtft-rpi-display.zip), [2015-05-05 Wheezy](http://www.watterott.net/fbtft/2015-05-05-raspbian-fbtft-rpi-display.zip), [2015-05-05 Wheezy Retro](http://www.watterott.net/fbtft/2015-05-05-raspbian-fbtft-rpi-display-retro.zip), [2014-06-20 Wheezy (9-Bit SPI)](http://www.watterott.net/fbtft/2014-06-20-raspbian-fbtft-rpi-display-rev1.zip)
-* Login: ```pi``` and Password: ```raspberry```
-* English Keyboard Layout *(Y and Z are swapped on German Keyboards)*
+* Login: ```pi``` and Password: ```raspberry``` *(English Keyboard Layout: Y and Z are swapped on German Keyboards)*
 * SSH on port 22 activated
 * Note: The file system has to be expanded, run ```sudo sudo raspi-config```, select *Expand Filesystem* and then exit the tool with *Finish* and perform a reboot.
 * [Installation Guide for **Retro Image**](https://github.com/watterott/RPi-Display/blob/master/docu/Retro-Image.md)

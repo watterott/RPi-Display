@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.6.0">
+<eagle version="7.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -131,8 +131,8 @@
 <hole x="23.495" y="3.175" drill="2"/>
 <hole x="19.685" y="31.115" drill="3"/>
 <text x="0" y="-1.27" size="1.27" layer="49" font="vector" ratio="10" align="top-left">2.0mm PCB, Silkscreen: 22 bPlace + 26 bNames</text>
-<rectangle x1="14.605" y1="29.21" x2="16.51" y2="33.02" layer="29"/>
-<rectangle x1="14.605" y1="10.16" x2="16.51" y2="13.97" layer="29"/>
+<rectangle x1="14.9225" y1="29.21" x2="15.875" y2="33.02" layer="29"/>
+<rectangle x1="14.9225" y1="10.16" x2="15.875" y2="13.97" layer="29"/>
 </plain>
 <libraries>
 <library name="RaspberryPi">
@@ -2760,6 +2760,9 @@ design rules under a new name.</description>
 <autorouter>
 <pass name="Default">
 <param name="RoutingGrid" value="50mil"/>
+<param name="AutoGrid" value="1"/>
+<param name="Efforts" value="0"/>
+<param name="TopRouterVariant" value="1"/>
 <param name="tpViaShape" value="round"/>
 <param name="PrefDir.1" value="|"/>
 <param name="PrefDir.2" value="0"/>

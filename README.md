@@ -47,3 +47,4 @@ To start the desktop run ```sudo startx```. Then do the calibration (1. upper le
 * Rasputin-1 (Mini-TV + DVBT-TV): http://ilco.broichhagen.bplaced.de/ilco3/images/Rasputin1-DVBT-Videorecorder.pdf
 * Assetto Corsa Display: http://www.raspberrypi.org/forums/viewtopic.php?f=75&t=81950
 * RPi Timelapse with Display: https://www.youtube.com/watch?v=MVIMRJFlEVk
+* Raspberry IR-Camera: https://www.thingiverse.com/thing:1355522

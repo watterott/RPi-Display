@@ -119,7 +119,7 @@ The default on the latest Raspbian is a Device Tree enabled Kernel.
     #####MI0283QT-Adapter v1.5 (8-Bit SPI)
     *Infos about the connection: [here](https://github.com/watterott/RPi-Display/blob/master/docu/FAQ.md#how-is-the-display-and-touch-controller-connected-to-the-rpi). The display has to be set to 8-Bit SPI.*
     ```
-    $ sudo modprobe fbtft_device name=rpi-display speed=32000000 rotate=270
+    $ sudo modprobe fbtft_device name=rpi-display speed=16000000 rotate=270
     ```
     To make it permanent (on Debian) add to the file ```/etc/modules``` the following line:
     ```
@@ -133,7 +133,7 @@ The default on the latest Raspbian is a Device Tree enabled Kernel.
     ```
     To make it permanent (on Debian) add to the file ```/etc/modules``` the following line:
     ```
-    fbtft_device name=mi0283qt-9a gpios=reset:23,led:24 speed=32000000 rotate=270
+    fbtft_device name=mi0283qt-9a gpios=reset:23,led:24 speed=16000000 rotate=270
     ```
 
     ##### MI0283QT-Adapter v2 on RPi-ShieldBridge v1 (8-Bit SPI)
@@ -143,7 +143,7 @@ The default on the latest Raspbian is a Device Tree enabled Kernel.
     ```
     To make it permanent (on Debian) add to the file ```/etc/modules``` the following line:
     ```
-    fbtft_device name=mi0283qt-v2 gpios=reset:23 speed=16000000 rotate=270
+    fbtft_device name=mi0283qt-v2 gpios=reset:23 speed=4000000 rotate=270
     ```
 
     ##### ADS7846 Touchcontroller
@@ -180,7 +180,7 @@ The default on the latest Raspbian is a Device Tree enabled Kernel.
 
     Add the following Kernel arguments to ```/boot/cmdline.txt```:
     ```
-    fbtft_device.name=rpi-display fbtft_device.speed=32000000 fbtft_device.rotate=270
+    fbtft_device.name=rpi-display fbtft_device.speed=16000000 fbtft_device.rotate=270
     ```
 
     ##### MI0283QT-Adapter v1 on RPi-ShieldBridge v1 (9-Bit SPI)
@@ -188,7 +188,7 @@ The default on the latest Raspbian is a Device Tree enabled Kernel.
 
     Add the following Kernel arguments to ```/boot/cmdline.txt```:
     ```
-    fbtft_device.name=mi0283qt-9a fbtft_device.speed=32000000 fbtft_device.gpios=reset:23,led:24 fbtft_device.rotate=270
+    fbtft_device.name=mi0283qt-9a fbtft_device.speed=16000000 fbtft_device.gpios=reset:23,led:24 fbtft_device.rotate=270
     ```
 
     ##### MI0283QT-Adapter v2 on RPi-ShieldBridge v1 (8-Bit SPI)
@@ -196,7 +196,7 @@ The default on the latest Raspbian is a Device Tree enabled Kernel.
 
     Add the following Kernel arguments to ```/boot/cmdline.txt```:
     ```
-    fbtft_device.name=mi0283qt-v2 fbtft_device.speed=16000000 fbtft_device.gpios=reset:23 fbtft_device.rotate=270
+    fbtft_device.name=mi0283qt-v2 fbtft_device.speed=4000000 fbtft_device.gpios=reset:23 fbtft_device.rotate=270
     ```
 
 ### 3. Enable for Console
@@ -288,4 +288,4 @@ For better accuracy a touchpanel calibration can be done with:
 ### 7. Further Infos
 * [FBTFT on Raspian](https://github.com/notro/fbtft/wiki/FBTFT-on-Raspian)
 * [FBTFT Setup on modern Raspbian](http://lallafa.de/blog/2015/03/fbtft-setup-on-modern-raspbian/)
-* [FBTFT on Arch Linux](http://philipp-weissmann.de/touch-display-auf-raspberry-pi-mit-arch-linux.html)
+* [FBTFT on Arch Linux](http://philipp-weissmann.de/blog/touch-display-auf-raspberry-pi-mit-arch-linux/)

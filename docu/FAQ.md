@@ -6,7 +6,7 @@ Note: The standard keyboard layout is English and so ```Y``` and ```Z``` are swa
 
 
 ## How to install FBTFT on an existing Linux system?
-A small guide can be found [here](https://github.com/watterott/RPi-Display/blob/master/docu/FBTFT-Install.md).
+A small guide can be found [here](https://github.com/watterott/RPi-Display/blob/master/docu/FBTFT-Install.md#fbtft-framebuffer-installation).
 
 
 ## How to switch the console to HDMI?
@@ -150,6 +150,15 @@ If you use the SD card image with RetroPie, then you can skip the last two insta
     ```
     $ wget -N https://github.com/watterott/RPi-Display/raw/master/rpi-display.sh
     $ sudo /bin/bash rpi-display.sh 270
+    
+    Enable TFT display driver and activate X windows on TFT display? y/n Y
+    Activate the console on the TFT display? y/n N
+    Install fbcp (Framebuffer Copy)? y/n Y
+    Enable automatic startup of fbcp on boot? y/n Y
+    Install xinput-calibrator? y/n Y
+    Install tslib (touchscreen library)? y/n N
+    Reboot the system now? y/n Y
+    Rebooting now...
     ```
 
 * Add the following lines to ```/boot/config.txt``` to force HDMI to 320x240:
@@ -161,11 +170,6 @@ If you use the SD card image with RetroPie, then you can skip the last two insta
     hdmi_group=2
     hdmi_mode=87
     hdmi_cvt=320 240 60 1 0 0 0
-    ```
-
-* Enable automatic startup of fbcp:
-    ```
-    $ sudo update-rc.d fbcp defaults
     ```
 
 * Install [RetroPie](http://blog.petrockblock.com/retropie/) and then reboot the system:

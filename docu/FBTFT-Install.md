@@ -6,12 +6,12 @@ Download the installation script ```rpi-display.sh``` and run it as root. The la
 $ wget -N https://github.com/watterott/RPi-Display/raw/master/rpi-display.sh
 $ sudo /bin/bash rpi-display.sh 270
 
-Enable TFT display driver and activate X windows on TFT display? y/n y
-Activate the console on the TFT display? y/n y
-Install fbcp (Framebuffer Copy)? y/n n
-Install xinput-calibrator? y/n y
-Install tslib (touchscreen library)? y/n n
-Reboot the system now? y/n y
+Enable TFT display driver and activate X windows on TFT display? y/n Y
+Activate the console on the TFT display? y/n Y
+Install fbcp (Framebuffer Copy)? y/n N
+Install xinput-calibrator? y/n Y
+Install tslib (touchscreen library)? y/n N
+Reboot the system now? y/n Y
 Rebooting now...
 ```
 *If there are problems with ```wget```, then use ```curl``` to download the script:
@@ -97,13 +97,11 @@ The default on the latest Raspbian is a Device Tree enabled Kernel.
     If the SPI module (**spi-bcm2708**) is not loaded, remove or comment out the blacklist line in ```/etc/modprobe.d/raspi-blacklist.conf```.
     To load the module by hand run ```sudo modprobe spi-bcm2708```.
 
+    Infos about the automatic loading of modules [here](https://github.com/notro/fbtft/wiki#make-it-permanent-debian-jessie-arch-linux-systemd).
+
     ##### RPi-Display (8-Bit SPI)
     ```
     $ sudo modprobe fbtft_device name=rpi-display speed=32000000 rotate=270
-    ```
-    To make it permanent (on Debian) add to the file ```/etc/modules``` the following line:
-    ```
-    fbtft_device name=rpi-display speed=32000000 rotate=270
     ```
 
     ##### RPi-Display (9-Bit SPI)
@@ -111,19 +109,11 @@ The default on the latest Raspbian is a Device Tree enabled Kernel.
     ```
     $ sudo modprobe fbtft_device name=mi0283qt-9a gpios=reset:23,led:18 speed=32000000 rotate=270
     ```
-    To make it permanent (on Debian) add to the file ```/etc/modules``` the following line:
-    ```
-    fbtft_device name=mi0283qt-9a gpios=reset:23,led:18 speed=32000000 rotate=270
-    ```
 
     #####MI0283QT-Adapter v1.5 (8-Bit SPI)
     *Infos about the connection: [here](https://github.com/watterott/RPi-Display/blob/master/docu/FAQ.md#how-is-the-display-and-touch-controller-connected-to-the-rpi). The display has to be set to 8-Bit SPI.*
     ```
     $ sudo modprobe fbtft_device name=rpi-display speed=16000000 rotate=270
-    ```
-    To make it permanent (on Debian) add to the file ```/etc/modules``` the following line:
-    ```
-    fbtft_device name=rpi-display speed=32000000 rotate=270
     ```
 
     ##### MI0283QT-Adapter v1 on RPi-ShieldBridge v1 (9-Bit SPI)
@@ -131,28 +121,16 @@ The default on the latest Raspbian is a Device Tree enabled Kernel.
     ```
     $ sudo modprobe fbtft_device name=mi0283qt-9a gpios=reset:23,led:24 speed=32000000 rotate=270
     ```
-    To make it permanent (on Debian) add to the file ```/etc/modules``` the following line:
-    ```
-    fbtft_device name=mi0283qt-9a gpios=reset:23,led:24 speed=16000000 rotate=270
-    ```
 
     ##### MI0283QT-Adapter v2 on RPi-ShieldBridge v1 (8-Bit SPI)
     *Infos about the connection: [here](https://github.com/watterott/RPi-ShieldBridge/blob/master/docu/MI0283QT-Adapter.md#mi0283qt-adapter-v2).*
     ```
     $ sudo modprobe fbtft_device name=mi0283qt-v2 gpios=reset:23 speed=16000000 rotate=270
     ```
-    To make it permanent (on Debian) add to the file ```/etc/modules``` the following line:
-    ```
-    fbtft_device name=mi0283qt-v2 gpios=reset:23 speed=4000000 rotate=270
-    ```
 
     ##### ADS7846 Touchcontroller
     ```
     $ sudo modprobe ads7846_device model=7846 cs=1 gpio_pendown=25 speed=2000000 keep_vref_on=1 x_plate_ohms=60 pressure_max=255 x_min=200 x_max=3900 y_min=200 y_max=3900
-    ```
-    To make it permanent (on Debian) add to the file ```/etc/modules``` the following line:
-    ```
-    ads7846_device model=7846 cs=1 gpio_pendown=25 speed=2000000 keep_vref_on=1 x_plate_ohms=60 pressure_max=255 x_min=200 x_max=3900 y_min=200 y_max=3900
     ```
     To make the touchcontroller accessible as char device ```/dev/input/touchscreen``` create a new file  ```/etc/udev/rules.d/95-ads7846.rules``` and add the following line:
     ```

@@ -13,6 +13,7 @@ The [Retro Image](https://github.com/watterott/RPi-Display#sd-card-image-for-ras
 * Select ```Setup / Configuration``` and then ```Auto-start EmulationStation```
 * Go back to the main menu and select ```Perform Reboot```
 * After boot *EmulationStation* will be started directly
+* Further infos about the EmulationStation configurations [here](https://github.com/RetroPie/RetroPie-Setup/wiki/First-Installation)
 
 
 ## EmulationStation

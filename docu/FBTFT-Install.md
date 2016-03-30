@@ -16,9 +16,7 @@ Rebooting now...
 ```
 
 *If there are problems with ```wget```, then use ```curl``` to download the script:
-```curl -L --output rpi-display.sh https://github.com/watterott/RPi-Display/raw/master/rpi-display.sh```*
-
-*If there are SSL errors, then update the certificates with: ```sudo apt-get install ca-certificates --fix-missing```*
+```curl -k -L -o rpi-display.sh https://github.com/watterott/RPi-Display/raw/master/rpi-display.sh```*
 
 To start the desktop run one of the commands. (Note: The first start needs **sudo**, because of the touchpanel calibration.)
 ```

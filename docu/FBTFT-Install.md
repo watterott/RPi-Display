@@ -14,8 +14,11 @@ Install tslib (touchscreen library)? y/n N
 Reboot the system now? y/n Y
 Rebooting now...
 ```
+
 *If there are problems with ```wget```, then use ```curl``` to download the script:
 ```curl -L --output rpi-display.sh https://github.com/watterott/RPi-Display/raw/master/rpi-display.sh```*
+
+*If there are SSL errors, then update the certificates with: ```sudo apt-get install ca-certificates --fix-missing```*
 
 To start the desktop run one of the commands. (Note: The first start needs **sudo**, because of the touchpanel calibration.)
 ```
@@ -23,7 +26,9 @@ $ sudo startx -- -layout TFT
 $ sudo startx -- -layout HDMI
 $ sudo startx -- -layout HDMITFT
 ```
+
 *If ```-layout``` is not set, then the TFT display will be used as default.*
+
 
 ## Manual Installation
 

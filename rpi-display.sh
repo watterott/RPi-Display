@@ -243,7 +243,7 @@ function activate_console()
     apt-get install -y fbset
   fi
 
-  # set parameters
+  # set parameters (fonts: MINI4x6, VGA8x8)
   if [ -f "/boot/cmdline.txt" ]; then
     if ! grep -q "fbcon=map:10" "/boot/cmdline.txt"; then
       sed -i 's/rootwait/rootwait fbcon=map:10 fbcon=font:VGA8x8 consoleblank=0/g' "/boot/cmdline.txt"

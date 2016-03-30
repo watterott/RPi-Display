@@ -43,7 +43,7 @@ function update_system()
 
   # install rpi-update
   if [ ! -f "/usr/bin/rpi-update" ] && [ ! -f "/bin/rpi-update" ]; then
-    curl -L --output /usr/bin/rpi-update https://raw.githubusercontent.com/Hexxeh/rpi-update/master/rpi-update
+    curl -k -L -o /usr/bin/rpi-update https://raw.githubusercontent.com/Hexxeh/rpi-update/master/rpi-update
     chmod +x /usr/bin/rpi-update
   fi
 
@@ -287,7 +287,7 @@ function install_fbcp()
   cd ../..
   rm -r rpi-fbcp
 
-  curl -L --output /etc/init.d/fbcp https://github.com/watterott/RPi-Display/raw/master/docu/fbcp
+  curl -k -L -o /etc/init.d/fbcp https://github.com/watterott/RPi-Display/raw/master/docu/fbcp
   chmod +x /etc/init.d/fbcp
   echo "To enable automatic startup of fbcp run:"
   echo "sudo update-rc.d fbcp defaults"
@@ -310,7 +310,7 @@ function install_xinputcalibrator()
   echo
 
   cd /tmp
-  curl -L --output xinput-calibrator_0.7.5-1_armhf.deb http://tronnes.org/downloads/xinput-calibrator_0.7.5-1_armhf.deb
+  curl -k -L -o xinput-calibrator_0.7.5-1_armhf.deb http://tronnes.org/downloads/xinput-calibrator_0.7.5-1_armhf.deb
   dpkg -i -B xinput-calibrator_0.7.5-1_armhf.deb
   rm xinput-calibrator_0.7.5-1_armhf.deb
 
@@ -358,7 +358,7 @@ function install_tslib()
 
   apt-get install -y tslib libts-bin
   # install ts_test with quit button
-  #curl -L --output /usr/bin/ts_test http://tronnes.org/downloads/ts_test
+  #curl -k -L -o /usr/bin/ts_test http://tronnes.org/downloads/ts_test
   #chmod +x /usr/bin/ts_test
 }
 

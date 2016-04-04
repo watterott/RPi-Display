@@ -98,16 +98,24 @@ Please note when the display shows the same content over several hours then the 
 
 
 ## How to emulate a right mouse button under X-Window-System?
-Open *evdev.conf*
-```
-nano /etc/X11/xorg.conf.d/evdev.conf
-```
-and add the following lines to the *ADS7846 Touchscreen* section:
-```
+* **Debian Wheezy**
+
+    Open *evdev.conf*
+    ```
+    nano /etc/X11/xorg.conf.d/evdev.conf
+    ```
+    and add the following lines to the *ADS7846 Touchscreen* section:
+    ```
     Option "EmulateThirdButton" "1"
-    Option "EmulateThirdButtonTimeout" "1500"
+    Option "EmulateThirdButtonButton" "3"
+    Option "EmulateThirdButtonTimeout" "1000"
     Option "EmulateThirdButtonMoveThreshold" "30"
-```
+    ```
+
+* **Debian Jessie**
+
+    The *EmulateThirdButton* option has be removed from Jessie and as workaround [twofing](http://plippo.de/p/twofing) can be used:
+    [Installation Guide](https://www.raspberrypi.org/forums/viewtopic.php?t=138575), [Source Code](https://github.com/Plippo/twofing)
 
 
 ## I only see the top left part of a program window/dialog?

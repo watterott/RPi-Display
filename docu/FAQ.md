@@ -13,6 +13,20 @@ A small guide can be found [here](https://github.com/watterott/RPi-Display/blob/
 Run ```con2fbmap 1 0``` and to switch back to the display ```con2fbmap 1 1```.
 
 
+## How to change the console font?
+Install *kbd* and change the font with *console-setup*.
+```
+sudo apt-get install kbd
+sudo dpkg-reconfigure console-setup
+```
+```
+Encoding to use on the console: <UTF-8>
+Character set to support: <Guess optimal character set>
+Font for the console: Terminus (default is VGA)
+Font size: 6x12 (framebuffer only)
+```
+
+
 ## How to switch the Desktop (X-Window-System) to HDMI?
 * Desktop on HDMI: ```startx -- -layout HDMI```
 * Desktop on TFT:  ```startx -- -layout TFT```
@@ -154,6 +168,17 @@ Pre-built images for the Raspberry Pi can be found [here](https://www.offensive-
 You can use the [RetroPie SD card images](http://blog.petrockblock.com/retropie/retropie-downloads/) or you can install RetroPie on an existing system.
 If you use the SD card image with RetroPie, then you can skip the last two installation steps.
 
+* Add the following lines to ```/boot/config.txt``` to force HDMI to 320x240:
+    ```
+    $ sudo nano /boot/config.txt
+    ```
+    ```
+    hdmi_force_hotplug=1
+    hdmi_group=2
+    hdmi_mode=87
+    hdmi_cvt=320 240 60 1 0 0 0
+    ```
+
 * Run the [installation script](https://github.com/watterott/RPi-Display/blob/master/docu/FBTFT-Install.md#automatic-installation-for-rpi-display-with-8-bit-spi) and install FBTFT and fbcp:
     ```
     $ wget -N https://github.com/watterott/RPi-Display/raw/master/rpi-display.sh
@@ -167,17 +192,6 @@ If you use the SD card image with RetroPie, then you can skip the last two insta
     Install tslib (touchscreen library)? y/n N
     Reboot the system now? y/n Y
     Rebooting now...
-    ```
-
-* Add the following lines to ```/boot/config.txt``` to force HDMI to 320x240:
-    ```
-    $ sudo nano /boot/config.txt
-    ```
-    ```
-    hdmi_force_hotplug=1
-    hdmi_group=2
-    hdmi_mode=87
-    hdmi_cvt=320 240 60 1 0 0 0
     ```
 
 * Install [RetroPie](http://blog.petrockblock.com/retropie/) and then reboot the system:

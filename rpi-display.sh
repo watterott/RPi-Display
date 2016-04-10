@@ -244,7 +244,9 @@ function activate_console()
     apt-get install -y fbset
   fi
 
-  # set parameters (fonts: MINI4x6, VGA8x8)
+  # set parameters
+  #  fonts: MINI4x6, ProFont6x11, VGA8x8 - note: newer FBTFT has no built-in fonts
+  #  https://github.com/watterott/RPi-Display/blob/master/docu/FAQ.md#how-to-change-the-console-font
   if [ -f "/boot/cmdline.txt" ]; then
     if ! grep -q "fbcon=map:10" "/boot/cmdline.txt"; then
       sed -i 's/rootwait/rootwait fbcon=map:10 fbcon=font:VGA8x8 consoleblank=0/g' "/boot/cmdline.txt"

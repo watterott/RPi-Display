@@ -16,8 +16,8 @@ Run ```con2fbmap 1 0``` and to switch back to the display ```con2fbmap 1 1```.
 ## How to change the console font?
 Install *kbd* and change the font with *console-setup*.
 ```
-sudo apt-get install kbd
-sudo dpkg-reconfigure console-setup
+$ sudo apt-get install kbd
+$ sudo dpkg-reconfigure console-setup
 ```
 ```
 Encoding to use on the console: <UTF-8>
@@ -116,7 +116,7 @@ Please note when the display shows the same content over several hours then the 
 
     Open *evdev.conf*
     ```
-    nano /etc/X11/xorg.conf.d/evdev.conf
+    $ nano /etc/X11/xorg.conf.d/evdev.conf
     ```
     and add the following lines to the *ADS7846 Touchscreen* section:
     ```

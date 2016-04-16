@@ -51,6 +51,7 @@ To start the desktop run ```sudo startx```. Then do the calibration (1. upper le
 * WebRadio + UPnP Streaming-Client: http://www.partikelstrom.de/?page_id=1110
 * Max2Play (Squeezebox): http://www.instructables.com/id/Audio-Solution-with-Control-and-Visualization-on-a/
 * GameBoy Pi A+: http://www.forum-raspberrypi.de/Thread-gameboy-pi-a
+* TV-Info-Player: http://www.forum-raspberrypi.de/Thread-projekt-enigma2-picon-tv-info-player
 * Rasputin-1 (Mini-TV + DVBT-TV): http://ilco.broichhagen.bplaced.de/ilco3/images/Rasputin1-DVBT-Videorecorder.pdf
 * Assetto Corsa Display: http://www.raspberrypi.org/forums/viewtopic.php?f=75&t=81950
 * RPi Timelapse with Display: https://www.youtube.com/watch?v=MVIMRJFlEVk

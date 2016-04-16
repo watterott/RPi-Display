@@ -14,9 +14,8 @@ Run ```con2fbmap 1 0``` and to switch back to the display ```con2fbmap 1 1```.
 
 
 ## How to change the console font?
-Install *kbd* and change the font with *console-setup*.
+The font can be changed with *console-setup* or edit the file ```/etc/default/console-setup```.
 ```
-$ sudo apt-get install kbd
 $ sudo dpkg-reconfigure console-setup
 ```
 ```
@@ -152,7 +151,7 @@ A simple guide how to install all necessary bits to use the display with Pygame 
 
 
 ## Does the display work with **Windows 10 IoT**?
-We have not tested it yet, but there are already projects available for the ILI9341 display controller and ADS7846/TSC2046 touch controller from [Peter Oakes ](https://www.hackster.io/peteroakes/raspberry-pi-2-480-320-colour-lcd-displays-on-a-windows-10-70c661) and [Graham Chow](https://www.hackster.io/graham_chow/windows-10-ili9341-tft-lcd-spi-display-a27b1c).
+We have not tested it yet, but there are already projects available for the ILI9341 display controller and ADS7846/TSC2046 touch controller from  [Graham Chow](https://www.hackster.io/graham_chow/windows-10-ili9341-tft-lcd-spi-display-a27b1c) and [Peter Oakes ](https://www.hackster.io/peteroakes/raspberry-pi-2-480-320-colour-lcd-displays-on-a-windows-10-70c661).
 
 
 ## Does the display work with **Raspbmc/OSMC**?

@@ -256,6 +256,10 @@ If you use the SD card image with RetroPie, then you can skip the last two insta
     ```
 
 
+## Hints about Displays
+Further infos (e.g. ghost images) about displays can be found [here](https://github.com/watterott/KnowledgeBase/wiki/Displays#hints-about-displays).
+
+
 ## How is the display and touch controller connected to the RPi?
     Display  Raspberry Pi   Info
     ----------------------------

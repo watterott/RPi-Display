@@ -299,6 +299,8 @@ function install_fbcp()
 
   # ask for automatic startup
   if ask "Enable automatic startup of fbcp on boot?"; then
+    echo "Note: The console output on the TFT display will be disabled."
+    deactivate_console
     update-rc.d fbcp defaults
   fi
 }

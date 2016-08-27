@@ -108,6 +108,7 @@ For further infos have a look here:
 * [X-Window-System blanking](https://github.com/notro/fbtft-spindle/wiki/FBTFT-image#blanking-1)
 
 Please note when the display shows the same content over several hours then the image can burn into the screen.
+Further infos can be found [here](https://github.com/watterott/KnowledgeBase/wiki/Displays#hints-about-displays).
 
 
 ## How to emulate a right mouse button under X-Window-System?

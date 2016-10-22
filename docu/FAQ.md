@@ -104,7 +104,7 @@ The display backlight can be turned on/off and can also be dimmed (using PWM).
 ## How to set or disable the blanking/screensaver time?
 For further infos have a look here:
 
-* [Console blanking](https://github.com/notro/fbtft-spindle/wiki/FBTFT-image#blanking)
+* [Console blanking](https://github.com/notro/fbtft-spindle/wiki/FBTFT-image#blanking) ([backlight issue on first blanking](https://github.com/raspberrypi/linux/issues/1179))
 * [X-Window-System blanking](https://github.com/notro/fbtft-spindle/wiki/FBTFT-image#blanking-1)
 
 Please note when the display shows the same content over several hours then the image can burn into the screen.

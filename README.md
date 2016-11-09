@@ -43,16 +43,16 @@ To start the desktop run ```sudo startx```. Then do the calibration (1. upper le
 
 
 ## Projects
-* RPi-GUI: https://github.com/boerge42/rpi_gui
-* PiMenu (simple menu system): https://github.com/splitbrain/pimenu/
-* OctoPi - OctoPrint RPi distribution (3D Printers): https://github.com/guysoft/OctoPi
-* OctoPrint Webfront: https://www.youtube.com/watch?v=ZYjPcC37fNI
-* WebRadio: https://github.com/5Volt-Junkie/RPi-Tron-Radio
-* WebRadio + UPnP Streaming-Client: http://www.partikelstrom.de/?page_id=1110
-* Max2Play (Squeezebox): http://www.instructables.com/id/Audio-Solution-with-Control-and-Visualization-on-a/
-* GameBoy Pi A+: http://www.forum-raspberrypi.de/Thread-gameboy-pi-a
-* TV-Info-Player: http://www.forum-raspberrypi.de/Thread-projekt-enigma2-picon-tv-info-player
-* Rasputin-1 (Mini-TV + DVBT-TV): http://ilco.broichhagen.bplaced.de/ilco3/images/Rasputin1-DVBT-Videorecorder.pdf
-* Assetto Corsa Display: http://www.raspberrypi.org/forums/viewtopic.php?f=75&t=81950
-* RPi Timelapse with Display: https://www.youtube.com/watch?v=MVIMRJFlEVk
-* Raspberry IR-Camera: https://www.thingiverse.com/thing:1355522
+* [RPi-GUI](https://github.com/boerge42/rpi_gui)
+* [PiMenu (simple menu system)](https://github.com/splitbrain/pimenu/)
+* [OctoPi / OctoPrint (3D Printers)](https://github.com/guysoft/OctoPi)
+* [OctoPrint Webfront](https://www.youtube.com/watch?v=ZYjPcC37fNI)
+* [WebRadio](https://github.com/5Volt-Junkie/RPi-Tron-Radio)
+* [WebRadio + UPnP Streaming-Client](http://www.partikelstrom.de/?page_id=1110)
+* [Max2Play (Squeezebox)](http://www.instructables.com/id/Audio-Solution-with-Control-and-Visualization-on-a/)
+* [GameBoy Pi A+](http://www.forum-raspberrypi.de/Thread-gameboy-pi-a)
+* [TV-Info-Player](http://www.forum-raspberrypi.de/Thread-projekt-enigma2-picon-tv-info-player)
+* [Rasputin-1 (Mini-TV + DVBT-TV)](http://ilco.broichhagen.bplaced.de/ilco3/images/Rasputin1-DVBT-Videorecorder.pdf)
+* [Assetto Corsa Display](http://www.raspberrypi.org/forums/viewtopic.php?f=75&t=81950)
+* [RPi Timelapse with Display](https://www.youtube.com/watch?v=MVIMRJFlEVk)
+* [Raspberry IR-Camera](https://www.thingiverse.com/thing:1355522)

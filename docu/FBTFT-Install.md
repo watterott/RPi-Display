@@ -92,9 +92,19 @@ The default on the latest Raspbian is a Device Tree enabled Kernel.
     $ sudo reboot
     ```
 
+    ##### ADS7846 Touchcontroller
+    Parameters for the ADS7846 overlay (in ```/boot/config.txt```) **when the RPi-Display overlay is not used**.
+    ```
+    dtoverlay=ads7846,cs=1,penirq=25,speed=2000000, swapxy=0, pmax=255, xohms=60, xmin=200, xmax=3900, ymin=200, ymax=3900
+    ```
+    To make the touchcontroller accessible as char device ```/dev/input/touchscreen``` create a new file  ```/etc/udev/rules.d/95-ads7846.rules``` and add the following line:
+    ```
+    SUBSYSTEM=="input", KERNEL=="event[0-9]*", ATTRS{name}=="ADS7846 Touchscreen", SYMLINK+="input/touchscreen"
+    ```
+
 * #### FBTFT Kernel Modules
 
-    To use the fbtft_device module instead of a DT overlay on a Device Tree enabled Kernel, add the following line to ```/boot/config.txt```:
+    To use the fbtft_device module instead of an overlay on a Device Tree enabled Kernel, add the following line to ```/boot/config.txt```:
     ```
     dtparam=spi=on
     ```

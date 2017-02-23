@@ -257,6 +257,18 @@ If you use the SD card image with RetroPie, then you can skip the last two insta
     ```
 
 
+## Can I use the RPi-Display together with a HiFiBerry?
+Yes, it is possible to use a RPi-Display B+ and HiFiBerry together.
+But the backlight control signal of the display has to be changed from *GPIO18* to *GPIO12* (BL jumper), because *GPIO18* is used by the HiFiBerry.
+Note, the automatic HAT detection will not work, if both ID EEPROMs are connected to the Raspberry Pi.
+
+Further infos:
+[RPi-Display schematics](https://github.com/watterott/RPi-Display/tree/master/hardware), 
+[HiFiBerry pins](https://support.hifiberry.com/hc/en-us/articles/205376201-GPIO-usage-of-HiFiBerry-boards), 
+[overlay compiling (rpi-display-overlay.dts)](https://github.com/notro/fbtft/wiki/FBTFT-RPI-overlays), 
+[Device Trees and overlays](https://www.raspberrypi.org/documentation/configuration/device-tree.md)
+
+
 ## Hints about Displays
 Further infos (e.g. ghost images, screen burn-in) about displays can be found [here](https://github.com/watterott/KnowledgeBase/wiki/Displays#hints-about-displays).
 

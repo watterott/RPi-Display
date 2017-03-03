@@ -29,6 +29,7 @@ Font size: 6x12 (framebuffer only)
 ## How to switch the Desktop (X-Window-System) to HDMI?
 * Desktop on HDMI: ```startx -- -layout HDMI```
 * Desktop on TFT:  ```startx -- -layout TFT```
+* Desktop on HDMI with expansion on TFT: ```startx -- -layout HDMITFT```
 
 If you have not used the automatic installation script then
 open ```99-fbturbo.conf``` and change *fbX* (fb0=HDMI, fb1=Display):

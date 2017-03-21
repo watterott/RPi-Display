@@ -125,7 +125,7 @@ The default on the latest Raspbian is a Device Tree enabled Kernel.
     $ sudo modprobe fbtft_device name=mi0283qt-9a gpios=reset:23,led:18 speed=32000000 rotate=270
     ```
 
-    #####MI0283QT-Adapter v1.5 (8-Bit SPI)
+    ##### MI0283QT-Adapter v1.5 (8-Bit SPI)
     *Infos about the connection: [here](https://github.com/watterott/RPi-Display/blob/master/docu/FAQ.md#how-is-the-display-and-touch-controller-connected-to-the-rpi). The display has to be set to 8-Bit SPI.*
     ```
     $ sudo modprobe fbtft_device name=rpi-display speed=16000000 rotate=270
@@ -168,7 +168,7 @@ The default on the latest Raspbian is a Device Tree enabled Kernel.
     fbtft_device.name=mi0283qt-9a fbtft_device.speed=32000000 fbtft_device.gpios=reset:23,led:18 fbtft_device.rotate=270
     ```
 
-    #####MI0283QT-Adapter v1.5 (8-Bit SPI)
+    ##### MI0283QT-Adapter v1.5 (8-Bit SPI)
     *Infos about the connection: [here](https://github.com/watterott/RPi-Display/blob/master/docu/FAQ.md#how-is-the-display-and-touch-controller-connected-to-the-rpi). The display has to be set to 8-Bit SPI.*
 
     Add the following Kernel arguments to ```/boot/cmdline.txt```:

@@ -339,10 +339,10 @@ fi
 CALDATA=`DISPLAY=:0 $BINARY --output-type xorg.conf.d --device 'ADS7846 Touchscreen' | tee $LOGFILE | grep -i 'MinX\|MaxX\|MinY\|MaxY'`
 if [ ! -z "$CALDATA" ] ; then
     sed -i "/MinX/d;/MaxX/d;/MinY/d;/MaxY/d;/EndSection/d" "$CALFILE"
-    cat >> "$CALFILE" <<EOF
+    cat >> "$CALFILE" <<EOD
 $CALDATA
 EndSection
-EOF
+EOD
     echo "Calibration data stored in $CALFILE (log in $LOGFILE)"
 fi
 EOF

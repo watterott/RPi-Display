@@ -125,26 +125,30 @@ function update_xorg()
     invertx="0"
     inverty="0"
     swapaxes="0"
+    tmatrix="1 0 0 0 1 0 0 0 1"
   fi
   if [ "${rotate}" == "90" ]; then
     invertx="1"
     inverty="0"
     swapaxes="1"
+    tmatrix="0 -1 1 1 0 0 0 0 1"
   fi
   if [ "${rotate}" == "180" ]; then
     invertx="1"
     inverty="1"
     swapaxes="0"
+    tmatrix="-1 0 1 0 -1 1 0 0 1"
   fi
   if [ "${rotate}" == "270" ]; then
     invertx="0"
     inverty="1"
     swapaxes="1"
+    tmatrix="0 1 0 -1 0 1 0 0 1"
   fi
 
   cat > /etc/X11/xorg.conf.d/99-ads7846-cal.conf <<EOF
 Section "InputClass"
-    Identifier "Touchscreen"
+    Identifier "calibration"
     MatchProduct "ADS7846 Touchscreen"
     Option "EmulateThirdButton" "1"
     Option "EmulateThirdButtonButton" "3"
@@ -153,6 +157,7 @@ Section "InputClass"
     Option "InvertX" "$invertx"
     Option "InvertY" "$inverty"
     Option "SwapAxes" "$swapaxes"
+    Option "TransformationMatrix" "$tmatrix"
     Option "Calibration" ""
 EndSection
 EOF

@@ -26,7 +26,8 @@ Ready to run SD-Card image (Raspbian/Debian with FBTFT) for 2.8" RPi-Display and
 Copy the image after extraction (ZIP archive) to a SD-Card with [dd](http://en.wikipedia.org/wiki/Dd_%28Unix%29) under Linux or [Win32-Disk-Imager](http://sourceforge.net/projects/win32diskimager/) under Windows.
 To start the desktop run ```sudo startx```. Then do the calibration (1. upper left, 2. upper right, 3. lower left, 4. lower right).
 
-* **Downloads**: [2016-09-23 Jessie](http://www.watterott.net/fbtft/2016-09-23-raspbian-fbtft-rpi-display.zip),
+* **Downloads**: [2017-03-02 Jessie Lite](http://www.watterott.net/fbtft/2017-03-02-raspbian-lite-fbtft-rpi-display.zip),
+                 [2016-09-23 Jessie](http://www.watterott.net/fbtft/2016-09-23-raspbian-fbtft-rpi-display.zip),
                  [2016-09-23 Jessie Lite](http://www.watterott.net/fbtft/2016-09-23-raspbian-lite-fbtft-rpi-display.zip),
                  [2016-03-18 Jessie](http://www.watterott.net/fbtft/2016-03-18-raspbian-fbtft-rpi-display.zip),
                  [2016-03-18 Jessie Lite](http://www.watterott.net/fbtft/2016-03-18-raspbian-lite-fbtft-rpi-display.zip),

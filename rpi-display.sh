@@ -158,7 +158,6 @@ Section "InputClass"
     Option "InvertY" "$inverty"
     Option "SwapAxes" "$swapaxes"
     Option "TransformationMatrix" "$tmatrix"
-    Option "Calibration" ""
 EndSection
 EOF
 
@@ -331,15 +330,19 @@ BINARY="xinput_calibrator"
 CALFILE="/etc/X11/xorg.conf.d/99-ads7846-cal.conf"
 LOGFILE="/var/log/xinput_calibrator.pointercal.log"
 
-CALDATA=`grep -o 'Option[[:space:]]*"Calibration".*' $CALFILE`
-if [ 30 -lt "${#CALDATA}" ] ; then
+CALDATA=`grep -o 'Option[[:space:]]*"MinX".*' $CALFILE`
+if [ ! -z "$CALDATA" ] ; then
     echo "Using calibration data stored in $CALFILE"
     exit 0
 fi
 
-CALDATA=`DISPLAY=:0 $BINARY --output-type xorg.conf.d --device 'ADS7846 Touchscreen' | tee $LOGFILE | grep -o 'Option[[:space:]]*"Calibration".*' | sed -E 's/[[:space:]]+/ /g'`
+CALDATA=`DISPLAY=:0 $BINARY --output-type xorg.conf.d --device 'ADS7846 Touchscreen' | tee $LOGFILE | grep -i 'MinX\|MaxX\|MinY\|MaxY'`
 if [ ! -z "$CALDATA" ] ; then
-    sed -i -E "s/Option[[:space:]]+\"Calibration\".*/$CALDATA/g" "$CALFILE"
+    sed -i "/MinX/d;/MaxX/d;/MinY/d;/MaxY/d;/EndSection/d" "$CALFILE"
+    cat >> "$CALFILE" <<EOF
+$CALDATA
+EndSection
+EOF
     echo "Calibration data stored in $CALFILE (log in $LOGFILE)"
 fi
 EOF

@@ -133,6 +133,14 @@ Further infos can be found [here](https://github.com/watterott/KnowledgeBase/wik
     [Installation Guide](https://www.raspberrypi.org/forums/viewtopic.php?t=138575), [Source Code](https://github.com/Plippo/twofing)
 
 
+## Where can I found an on-screen keyboard?
+You can install *Florence Virtual Keyboard* or *Matchbox Virtual Keyboard* with the following commands:
+```
+sudo apt-get install florence
+sudo apt-get install matchbox-keyboard
+```
+
+
 ## I only see the top left part of a program window/dialog?
 Most programs are not designed for a small screen (<640x480) and so you see only a part of the window.
 It is possible to scale the screen with *fbcp*, but the best practice is to create an user interface specially for the display.

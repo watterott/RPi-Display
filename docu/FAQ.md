@@ -283,20 +283,21 @@ Further infos (e.g. ghost images, screen burn-in) about displays can be found [h
 
 
 ## How is the display and touch controller connected to the RPi?
-    Display  Raspberry Pi   Info
-    ----------------------------
-    GND      GND            Ground
-    5V       5V             5V Power Supply
-    LCD-LED  GPIO18         Display Backlight, can be set to GPIO12 with Jumper BL
-    LCD-RST  GPIO23         Display Reset
-    LCD-DC   GPIO24         Display Command/Data Select (DC/RS), Jumper IO24-RS
-    LCD-CS   GPIO8  (CE0)   Display Chip Select
-    ADS-CS   GPIO7  (CE1)   Touchcontroller Chip Select
-    ADS-IRQ  GPIO25         Touchcontroller Interrupt Output
-    MISO     GPIO9  (MISO)  SPI Master-In Slave-Out
-    MOSI     GPIO10 (MOSI)  SPI Master-Out Slave-In
-    SCK      GPIO11 (SCK)   SPI Clock
-
+```
+Display  Raspberry Pi   Info
+----------------------------
+GND      GND            Ground
+5V       5V             5V Power Supply
+LCD-LED  GPIO18         Display Backlight, can be set to GPIO12 with Jumper BL
+LCD-RST  GPIO23         Display Reset
+LCD-DC   GPIO24         Display Command/Data Select (DC/RS), Jumper IO24-RS
+LCD-CS   GPIO8  (CE0)   Display Chip Select
+ADS-CS   GPIO7  (CE1)   Touchcontroller Chip Select
+ADS-IRQ  GPIO25         Touchcontroller Interrupt Output
+MISO     GPIO9  (MISO)  SPI Master-In Slave-Out
+MOSI     GPIO10 (MOSI)  SPI Master-Out Slave-In
+SCK      GPIO11 (SCK)   SPI Clock
+```
 Our [MI0283QT-Adapter v1.5](https://github.com/watterott/MI0283QT-Adapter) can be connected in the same way, when it is set to 8-Bit SPI: Jumper IM0=0, Jumper IM1=1, Jumper BUSY-RS=RS/DC on pin 12.
 
 

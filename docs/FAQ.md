@@ -303,7 +303,7 @@ Our [MI0283QT-Adapter v1.5](https://github.com/watterott/MI0283QT-Adapter) can b
 
 ## Where can I find the schematics of the RPi-Display?
 The schematics and layout files can be found [here](https://github.com/watterott/RPi-Display/tree/master/hardware).
-The .brd and .sch files are in the [CadSoft Eagle](http://www.cadsoft.de/download-eagle/) format.
+The .brd and .sch files are in the CadSoft/Autodesk Eagle format.
 
 
 ## What is the optional switch on the RPi-Display for Raspberry Pi Model A and B?

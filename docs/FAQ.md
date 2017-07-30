@@ -6,7 +6,7 @@ Note: The standard keyboard layout is English and so ```Y``` and ```Z``` are swa
 
 
 ## How to install FBTFT on an existing Linux system?
-A small guide can be found [here](https://github.com/watterott/RPi-Display/blob/master/docu/FBTFT-Install.md#fbtft-framebuffer-installation).
+A small guide can be found [here](https://github.com/watterott/RPi-Display/blob/master/docs/FBTFT-Install.md#fbtft-framebuffer-installation).
 
 
 ## How to switch the console to HDMI?
@@ -69,7 +69,7 @@ Further infos can be found [here](https://github.com/notro/fbtft-spindle/wiki/FB
 
 * Enable automatic startup of fbcp:
     ```
-    $ sudo wget -O /etc/init.d/fbcp https://github.com/watterott/RPi-Display/raw/master/docu/fbcp
+    $ sudo wget -O /etc/init.d/fbcp https://github.com/watterott/RPi-Display/raw/master/docs/fbcp
     $ sudo chmod +x /etc/init.d/fbcp
     $ sudo update-rc.d fbcp defaults
     ```
@@ -93,7 +93,7 @@ The display backlight can be turned on/off and can also be dimmed (using PWM).
 * backlight off: ```$ echo 1 | sudo tee /sys/class/backlight/*/bl_power```
 * backlight on:  ```$ echo 0 | sudo tee /sys/class/backlight/*/bl_power```
 
-* [dimming with Software-PWM](https://github.com/watterott/RPi-Display/blob/master/docu/lcdlevel.cpp) (further infos [here](https://projects.drogon.net/raspberry-pi/wiringpi/software-pwm-library/))
+* [dimming with Software-PWM](https://github.com/watterott/RPi-Display/blob/master/docs/lcdlevel.cpp) (further infos [here](https://projects.drogon.net/raspberry-pi/wiringpi/software-pwm-library/))
 
 * dimming with Hardware-PWM (will mess up audio):
     ```
@@ -148,9 +148,9 @@ This can be done for example with [Pygame](http://www.pygame.org) or [Tkinter](h
 
 
 ## The display stays black/white (no output)?
-If the display is black and the backlight is also off then [FBTFT](https://github.com/watterott/RPi-Display/blob/master/docu/FBTFT-Install.md) is not installed correctly.
-If the backlight goes on and the display stays black or white then maybe the wrong [SPI mode](https://github.com/watterott/RPi-Display/blob/master/docu/FAQ.md#spi-mode) is selected or check if the [FFC connector](https://github.com/watterott/RPi-Display/raw/master/docu/ffc_connector.jpg) is correctly closed.
-When using a [flex cable for the connection](https://github.com/watterott/RPi-Display/raw/master/docu/flex_edition.jpg) (RPi-Display Flex Edition) then the jumpers MISO, MOSI and SCK have to be closed.
+If the display is black and the backlight is also off then [FBTFT](https://github.com/watterott/RPi-Display/blob/master/docs/FBTFT-Install.md) is not installed correctly.
+If the backlight goes on and the display stays black or white then maybe the wrong [SPI mode](https://github.com/watterott/RPi-Display/blob/master/docs/FAQ.md#spi-mode) is selected or check if the [FFC connector](https://github.com/watterott/RPi-Display/raw/master/docs/ffc_connector.jpg) is correctly closed.
+When using a [flex cable for the connection](https://github.com/watterott/RPi-Display/raw/master/docs/flex_edition.jpg) (RPi-Display Flex Edition) then the jumpers MISO, MOSI and SCK have to be closed.
 On other problems please check your SD-Card and [power supply](http://www.raspberrypi.org/help/faqs/#powerReqs).
 
 
@@ -165,7 +165,7 @@ We have not tested it yet, but there are already projects available for the ILI9
 
 
 ## Does the display work with **Raspbmc/OSMC**?
-Yes, the FBTFT framebuffer can be installed on [Raspbmc/OSMC](https://osmc.tv/) and the HDMI output can be mirrored to the display using [fbcp](https://github.com/watterott/RPi-Display/blob/master/docu/FAQ.md#how-to-mirrorcopy-the-hdmi-output-to-the-display).
+Yes, the FBTFT framebuffer can be installed on [Raspbmc/OSMC](https://osmc.tv/) and the HDMI output can be mirrored to the display using [fbcp](https://github.com/watterott/RPi-Display/blob/master/docs/FAQ.md#how-to-mirrorcopy-the-hdmi-output-to-the-display).
 
 
 ## Does the display work with **Kali Linux**?
@@ -188,7 +188,7 @@ If you use the SD card image with RetroPie, then you can skip the last two insta
     hdmi_cvt=320 240 60 1 0 0 0
     ```
 
-* Run the [installation script](https://github.com/watterott/RPi-Display/blob/master/docu/FBTFT-Install.md#automatic-installation-for-rpi-display-with-8-bit-spi) and install FBTFT and fbcp:
+* Run the [installation script](https://github.com/watterott/RPi-Display/blob/master/docs/FBTFT-Install.md#automatic-installation-for-rpi-display-with-8-bit-spi) and install FBTFT and fbcp:
     ```
     $ wget -N https://github.com/watterott/RPi-Display/raw/master/rpi-display.sh
     $ sudo /bin/bash rpi-display.sh 270
@@ -220,7 +220,7 @@ If you use the SD card image with RetroPie, then you can skip the last two insta
 
 
 ## How to install and run Quake 3 on the display?
-* Run the [installation script](https://github.com/watterott/RPi-Display/blob/master/docu/FBTFT-Install.md#automatic-installation-for-rpi-display-with-8-bit-spi) and install FBTFT and fbcp:
+* Run the [installation script](https://github.com/watterott/RPi-Display/blob/master/docs/FBTFT-Install.md#automatic-installation-for-rpi-display-with-8-bit-spi) and install FBTFT and fbcp:
     ```
     $ wget -N https://github.com/watterott/RPi-Display/raw/master/rpi-display.sh
     $ sudo /bin/bash rpi-display.sh 270
@@ -354,7 +354,7 @@ There are pads for an optional tactile switch or **VT93N1** LDR sensor (Light-De
 ## How to connect the GPIO-Adapter for RPi-Display B+?
 The FFC connectors have top contacts and so the FFC cable contacts have to be aligned to the top.
 
-If you want to connect the display via the FFC cable then have a look [here](https://github.com/watterott/RPi-Display/raw/master/docu/flex_edition.jpg) and the jumpers MISO, MOSI and SCK have to be also closed.
+If you want to connect the display via the FFC cable then have a look [here](https://github.com/watterott/RPi-Display/raw/master/docs/flex_edition.jpg) and the jumpers MISO, MOSI and SCK have to be also closed.
 
 
 ## How to flash/update the ID EEPROM?
@@ -371,7 +371,7 @@ Before the update the **WP** jumper next to the EEPROM has to be closed.
 
 * Generate EEPROM data:
     ```
-    $ wget https://github.com/watterott/RPi-Display/raw/master/docu/rpi-display.txt
+    $ wget https://github.com/watterott/RPi-Display/raw/master/docs/rpi-display.txt
     $ ./eepmake rpi-display.txt rpi-display.eep /boot/overlays/rpi-display-overlay.dtb
     ```
 
@@ -396,4 +396,4 @@ Note: FBTFT has currently no DMA support for 9-Bit SPI.
   * Jumper IM1 set to 0
   * Jumper IO24-RS opened
 
-![SPI-Mode](https://raw.github.com/watterott/RPi-Display/master/docu/spi-mode.jpg)
+![SPI-Mode](https://raw.github.com/watterott/RPi-Display/master/docs/spi-mode.jpg)

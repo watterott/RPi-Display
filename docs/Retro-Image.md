@@ -1,5 +1,5 @@
 # Retro Image
-The [Retro Image](https://github.com/watterott/RPi-Display#sd-card-image-for-raspberry-pi) contains the [RetroPie](https://github.com/RetroPie/RetroPie-Setup) setup files and is [configured for RetroPie/EmulationStation](https://github.com/watterott/RPi-Display/blob/master/docu/FAQ.md#how-to-install-and-run-retropie-on-the-display).
+The [Retro Image](https://github.com/watterott/RPi-Display#sd-card-image-for-raspberry-pi) contains the [RetroPie](https://github.com/RetroPie/RetroPie-Setup) setup files and is [configured for RetroPie/EmulationStation](https://github.com/watterott/RPi-Display/blob/master/docs/FAQ.md#how-to-install-and-run-retropie-on-the-display).
 
 
 ## Installation

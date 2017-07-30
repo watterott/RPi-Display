@@ -126,19 +126,19 @@ The default on the latest Raspbian is a Device Tree enabled Kernel.
     ```
 
     ##### MI0283QT-Adapter v1.5 (8-Bit SPI)
-    *Infos about the connection: [here](https://github.com/watterott/RPi-Display/blob/master/docu/FAQ.md#how-is-the-display-and-touch-controller-connected-to-the-rpi). The display has to be set to 8-Bit SPI.*
+    *Infos about the connection: [here](https://github.com/watterott/RPi-Display/blob/master/docs/FAQ.md#how-is-the-display-and-touch-controller-connected-to-the-rpi). The display has to be set to 8-Bit SPI.*
     ```
     $ sudo modprobe fbtft_device name=rpi-display speed=16000000 rotate=270
     ```
 
     ##### MI0283QT-Adapter v1 on RPi-ShieldBridge v1 (9-Bit SPI)
-    *Infos about the connection: [here](https://github.com/watterott/RPi-ShieldBridge/blob/master/docu/MI0283QT-Adapter.md#mi0283qt-adapter-v1).*
+    *Infos about the connection: [here](https://github.com/watterott/RPi-ShieldBridge/blob/master/docs/MI0283QT-Adapter.md#mi0283qt-adapter-v1).*
     ```
     $ sudo modprobe fbtft_device name=mi0283qt-9a gpios=reset:23,led:24 speed=32000000 rotate=270
     ```
 
     ##### MI0283QT-Adapter v2 on RPi-ShieldBridge v1 (8-Bit SPI)
-    *Infos about the connection: [here](https://github.com/watterott/RPi-ShieldBridge/blob/master/docu/MI0283QT-Adapter.md#mi0283qt-adapter-v2).*
+    *Infos about the connection: [here](https://github.com/watterott/RPi-ShieldBridge/blob/master/docs/MI0283QT-Adapter.md#mi0283qt-adapter-v2).*
     ```
     $ sudo modprobe fbtft_device name=mi0283qt-v2 gpios=reset:23 speed=16000000 rotate=270
     ```
@@ -169,7 +169,7 @@ The default on the latest Raspbian is a Device Tree enabled Kernel.
     ```
 
     ##### MI0283QT-Adapter v1.5 (8-Bit SPI)
-    *Infos about the connection: [here](https://github.com/watterott/RPi-Display/blob/master/docu/FAQ.md#how-is-the-display-and-touch-controller-connected-to-the-rpi). The display has to be set to 8-Bit SPI.*
+    *Infos about the connection: [here](https://github.com/watterott/RPi-Display/blob/master/docs/FAQ.md#how-is-the-display-and-touch-controller-connected-to-the-rpi). The display has to be set to 8-Bit SPI.*
 
     Add the following Kernel arguments to ```/boot/cmdline.txt```:
     ```
@@ -177,7 +177,7 @@ The default on the latest Raspbian is a Device Tree enabled Kernel.
     ```
 
     ##### MI0283QT-Adapter v1 on RPi-ShieldBridge v1 (9-Bit SPI)
-    *Infos about the connection: [here](https://github.com/watterott/RPi-ShieldBridge/blob/master/docu/MI0283QT-Adapter.md#mi0283qt-adapter-v2).*
+    *Infos about the connection: [here](https://github.com/watterott/RPi-ShieldBridge/blob/master/docs/MI0283QT-Adapter.md#mi0283qt-adapter-v2).*
 
     Add the following Kernel arguments to ```/boot/cmdline.txt```:
     ```
@@ -185,7 +185,7 @@ The default on the latest Raspbian is a Device Tree enabled Kernel.
     ```
 
     ##### MI0283QT-Adapter v2 on RPi-ShieldBridge v1 (8-Bit SPI)
-    *Infos about the connection: [here](https://github.com/watterott/RPi-ShieldBridge/blob/master/docu/MI0283QT-Adapter.md#mi0283qt-adapter-v2).*
+    *Infos about the connection: [here](https://github.com/watterott/RPi-ShieldBridge/blob/master/docs/MI0283QT-Adapter.md#mi0283qt-adapter-v2).*
 
     Add the following Kernel arguments to ```/boot/cmdline.txt```:
     ```
@@ -269,7 +269,7 @@ For better accuracy a touchpanel calibration can be done with:
     ```
     $ sudo DISPLAY=:0 xinput_calibrator --device "ADS7846 Touchscreen" --output-type xinput
     ```
-    For axes swapping and inversion see [Enable for X-Window-System](https://github.com/watterott/RPi-Display/blob/master/docu/FBTFT-Install.md#4-enable-for-x-window-system).
+    For axes swapping and inversion see [Enable for X-Window-System](https://github.com/watterott/RPi-Display/blob/master/docs/FBTFT-Install.md#4-enable-for-x-window-system).
 
 * ### ts_calibrate
 

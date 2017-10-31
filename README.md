@@ -25,16 +25,17 @@ Ready to run SD-Card image (Raspbian/Debian with FBTFT) for 2.8" RPi-Display and
 Copy the image after extraction (ZIP archive) to a SD-Card with [dd](http://en.wikipedia.org/wiki/Dd_%28Unix%29) under Linux or [Win32-Disk-Imager](http://sourceforge.net/projects/win32diskimager/) under Windows.
 To start the desktop run ```sudo startx```.
 
-* **Downloads**: [2017-03-02 Jessie](http://www.watterott.net/fbtft/2017-03-02-raspbian-fbtft-rpi-display.zip),
-                 [2017-03-02 Jessie Lite](http://www.watterott.net/fbtft/2017-03-02-raspbian-lite-fbtft-rpi-display.zip),
-                 [2016-09-23 Jessie](http://www.watterott.net/fbtft/2016-09-23-raspbian-fbtft-rpi-display.zip),
-                 [2016-09-23 Jessie Lite](http://www.watterott.net/fbtft/2016-09-23-raspbian-lite-fbtft-rpi-display.zip),
-                 [2016-03-18 Jessie](http://www.watterott.net/fbtft/2016-03-18-raspbian-fbtft-rpi-display.zip),
-                 [2016-03-18 Jessie Lite](http://www.watterott.net/fbtft/2016-03-18-raspbian-lite-fbtft-rpi-display.zip),
-                 [2016-03-18 Jessie Retro](http://www.watterott.net/fbtft/2016-03-18-raspbian-fbtft-rpi-display-retro.zip),
-                 [2015-05-05 Wheezy](http://www.watterott.net/fbtft/2015-05-05-raspbian-fbtft-rpi-display.zip),
-                 [2015-05-05 Wheezy Retro](http://www.watterott.net/fbtft/2015-05-05-raspbian-fbtft-rpi-display-retro.zip),
-                 [2014-06-20 Wheezy (9-Bit SPI)](http://www.watterott.net/fbtft/2014-06-20-raspbian-fbtft-rpi-display-rev1.zip)
+* **Downloads**
+  * Jessie:  [2017-06-21 Jessie](http://www.watterott.net/fbtft/2017-06-21-raspbian-rpi-display.zip),
+             [2017-06-21 Jessie Lite](http://www.watterott.net/fbtft/2017-06-21-raspbian-lite-rpi-display.zip),
+             [2017-03-02 Jessie](http://www.watterott.net/fbtft/2017-03-02-raspbian-rpi-display.zip),
+             [2017-03-02 Jessie Lite](http://www.watterott.net/fbtft/2017-03-02-raspbian-lite-rpi-display.zip),
+             [2016-03-18 Jessie](http://www.watterott.net/fbtft/2016-03-18-raspbian-rpi-display.zip),
+             [2016-03-18 Jessie Lite](http://www.watterott.net/fbtft/2016-03-18-raspbian-lite-rpi-display.zip),
+             [2016-03-18 Jessie Retro](http://www.watterott.net/fbtft/2016-03-18-raspbian-rpi-display-retro.zip)
+  * Wheezy:  [2015-05-05 Wheezy](http://www.watterott.net/fbtft/2015-05-05-raspbian-rpi-display.zip),
+             [2015-05-05 Wheezy Retro](http://www.watterott.net/fbtft/2015-05-05-raspbian-rpi-display-retro.zip),
+             [2014-06-20 Wheezy (9-Bit SPI)](http://www.watterott.net/fbtft/2014-06-20-raspbian-rpi-display-rev1.zip)
 * Login: ```pi``` and Password: ```raspberry``` *(English Keyboard Layout: Y and Z are swapped on German Keyboards)*
 * SSH on port 22 activated
 * Note: The file system has to be expanded, run ```sudo sudo raspi-config```, select *Expand Filesystem* and then exit the tool with *Finish* and perform a reboot.

@@ -26,17 +26,18 @@ Copy the image after extraction (ZIP archive) to a SD-Card with [dd](http://en.w
 To start the desktop run ```sudo startx```.
 
 * **Downloads**
-  * Stretch: [2017-09-07 Stretch Lite](http://www.watterott.net/fbtft/2017-09-07-raspbian-lite-rpi-display.zip)
-  * Jessie:  [2017-06-21 Jessie](http://www.watterott.net/fbtft/2017-06-21-raspbian-rpi-display.zip),
-             [2017-06-21 Jessie Lite](http://www.watterott.net/fbtft/2017-06-21-raspbian-lite-rpi-display.zip),
-             [2017-03-02 Jessie](http://www.watterott.net/fbtft/2017-03-02-raspbian-rpi-display.zip),
-             [2017-03-02 Jessie Lite](http://www.watterott.net/fbtft/2017-03-02-raspbian-lite-rpi-display.zip),
-             [2016-03-18 Jessie](http://www.watterott.net/fbtft/2016-03-18-raspbian-rpi-display.zip),
-             [2016-03-18 Jessie Lite](http://www.watterott.net/fbtft/2016-03-18-raspbian-lite-rpi-display.zip),
-             [2016-03-18 Jessie Retro](http://www.watterott.net/fbtft/2016-03-18-raspbian-rpi-display-retro.zip)
-  * Wheezy:  [2015-05-05 Wheezy](http://www.watterott.net/fbtft/2015-05-05-raspbian-rpi-display.zip),
-             [2015-05-05 Wheezy Retro](http://www.watterott.net/fbtft/2015-05-05-raspbian-rpi-display-retro.zip),
-             [2014-06-20 Wheezy (9-Bit SPI)](http://www.watterott.net/fbtft/2014-06-20-raspbian-rpi-display-rev1.zip)
+  * Stretch: [2017-09-07 Stretch](https://www.watterott.net/fbtft/2017-09-07-raspbian-rpi-display.zip),
+             [2017-09-07 Stretch Lite](https://www.watterott.net/fbtft/2017-09-07-raspbian-lite-rpi-display.zip)
+  * Jessie:  [2017-06-21 Jessie](https://www.watterott.net/fbtft/2017-06-21-raspbian-rpi-display.zip),
+             [2017-06-21 Jessie Lite](https://www.watterott.net/fbtft/2017-06-21-raspbian-lite-rpi-display.zip),
+             [2017-03-02 Jessie](https://www.watterott.net/fbtft/2017-03-02-raspbian-rpi-display.zip),
+             [2017-03-02 Jessie Lite](https://www.watterott.net/fbtft/2017-03-02-raspbian-lite-rpi-display.zip),
+             [2016-03-18 Jessie](https://www.watterott.net/fbtft/2016-03-18-raspbian-rpi-display.zip),
+             [2016-03-18 Jessie Lite](https://www.watterott.net/fbtft/2016-03-18-raspbian-lite-rpi-display.zip),
+             [2016-03-18 Jessie Retro](https://www.watterott.net/fbtft/2016-03-18-raspbian-rpi-display-retro.zip)
+  * Wheezy:  [2015-05-05 Wheezy](https://www.watterott.net/fbtft/2015-05-05-raspbian-rpi-display.zip),
+             [2015-05-05 Wheezy Retro](https://www.watterott.net/fbtft/2015-05-05-raspbian-rpi-display-retro.zip),
+             [2014-06-20 Wheezy (9-Bit SPI)](https://www.watterott.net/fbtft/2014-06-20-raspbian-rpi-display-rev1.zip)
 * Login: ```pi``` and Password: ```raspberry``` *(English Keyboard Layout: Y and Z are swapped on German Keyboards)*
 * SSH on port 22 activated
 * Note: The file system has to be expanded, run ```sudo sudo raspi-config```, select *Expand Filesystem* and then exit the tool with *Finish* and perform a reboot.

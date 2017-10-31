@@ -20,11 +20,11 @@ $ sudo startx
 *If there are problems with ```wget```, then use ```curl``` to download the script:
 ```curl -k -L -o rpi-display.sh https://github.com/watterott/RPi-Display/raw/master/rpi-display.sh```*
 
-To start the desktop run one of the commands. (Note: The first start with TFT output needs **sudo**, because of the touchpanel calibration.)
+To start the desktop run one of the commands.
 ```
-$ startx -- -layout TFT
-$ startx -- -layout HDMI
-$ startx -- -layout HDMITFT
+$ sudo startx -- -layout TFT
+$ sudo startx -- -layout HDMI
+$ sudo startx -- -layout HDMITFT
 ```
 
 *If ```-layout``` is not set, then the TFT display will be used as default.*

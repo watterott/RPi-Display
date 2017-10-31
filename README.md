@@ -26,6 +26,7 @@ Copy the image after extraction (ZIP archive) to a SD-Card with [dd](http://en.w
 To start the desktop run ```sudo startx```.
 
 * **Downloads**
+  * Stretch: [2017-09-07 Stretch Lite](http://www.watterott.net/fbtft/2017-09-07-raspbian-lite-rpi-display.zip)
   * Jessie:  [2017-06-21 Jessie](http://www.watterott.net/fbtft/2017-06-21-raspbian-rpi-display.zip),
              [2017-06-21 Jessie Lite](http://www.watterott.net/fbtft/2017-06-21-raspbian-lite-rpi-display.zip),
              [2017-03-02 Jessie](http://www.watterott.net/fbtft/2017-03-02-raspbian-rpi-display.zip),

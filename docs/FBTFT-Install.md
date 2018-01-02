@@ -85,7 +85,7 @@ The default on the latest Raspbian is a Device Tree enabled Kernel.
     ```
     dtoverlay=rpi-display,speed=32000000,rotate=270
     ```
-    *The default parameters are ```speed=32000000, fps=30, rotate=270```.*
+    *The default parameters are ```speed=32000000, backlight=12, fps=30, rotate=270```.*
 
     Reboot the system:
     ```

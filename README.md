@@ -40,7 +40,7 @@ To start the desktop run ```sudo startx```.
              [2014-06-20 Wheezy (9-Bit SPI)](https://www.watterott.net/fbtft/2014-06-20-raspbian-rpi-display-rev1.zip)
 * Login: ```pi``` and Password: ```raspberry``` *(English Keyboard Layout: Y and Z are swapped on German Keyboards)*
 * SSH on port 22 activated
-* Note: The file system has to be expanded, run ```sudo sudo raspi-config```, select *Expand Filesystem* and then exit the tool with *Finish* and perform a reboot.
+* Note: The file system has to be expanded, run ```sudo raspi-config --expand-rootfs``` and perform a reboot.
 * [Installation Guide for **Retro Image**](https://github.com/watterott/RPi-Display/blob/master/docs/Retro-Image.md#retro-image)
 * Further infos: [FBTFT Image](https://github.com/notro/fbtft-spindle/wiki/FBTFT-image), [FBTFT on Raspian](https://github.com/notro/fbtft/wiki/FBTFT-on-Raspian) ([Video showing the boot up](http://www.youtube.com/watch?v=a2CStAaMbmA))
 * [How to prepare a SD-Card](http://elinux.org/RPi_Easy_SD_Card_Setup)

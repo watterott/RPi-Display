@@ -4,4 +4,4 @@
 ![RPi-Display B+](https://github.com/watterott/RPi-Display/raw/master/hardware/RPi-Display_Bplus_v11.jpg)
 ![RPi-Display](https://github.com/watterott/RPi-Display/raw/master/hardware/RPi-Display_v10.jpg)
 
-* **[Documentation on learn.watterott.com](http://learn.watterott.com/raspberry-pi/rpi-display/)**
+* **[Documentation on learn.watterott.com](http://learn.watterott.com/rpi-display/)**

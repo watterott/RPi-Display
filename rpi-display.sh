@@ -294,7 +294,7 @@ function install_fbcp()
   cd ../..
   rm -r rpi-fbcp
 
-  curl -k -L -o /etc/init.d/fbcp https://github.com/watterott/RPi-Display/raw/master/docu/fbcp
+  curl -k -L -o /etc/init.d/fbcp https://github.com/watterott/RPi-Display/raw/master/software/fbcp
   chmod +x /etc/init.d/fbcp
   echo "To enable automatic startup of fbcp run:"
   echo "sudo update-rc.d fbcp defaults"

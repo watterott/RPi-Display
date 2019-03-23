@@ -4,4 +4,5 @@
 ![RPi-Display B+](https://github.com/watterott/RPi-Display/raw/master/hardware/RPi-Display_Bplus_v11.jpg)
 ![RPi-Display](https://github.com/watterott/RPi-Display/raw/master/hardware/RPi-Display_v10.jpg)
 
-* **[Documentation on learn.watterott.com](http://learn.watterott.com/rpi-display/)**
+* Open-Source and released under the [Creative Commons Attribution Share-Alike License](https://creativecommons.org/licenses/by-sa/4.0/).
+* **[Documentation on learn.watterott.com](https://learn.watterott.com)**

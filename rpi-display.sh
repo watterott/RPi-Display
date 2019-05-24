@@ -258,8 +258,12 @@ function activate_console()
   else
     echo "Run 'sudo nano /etc/rc.local' and add the line 'con2fbmap 1 1' before 'exit 0'."
   fi
-
-  sed -i 's/BLANK_TIME=.*/BLANK_TIME=0/g' "/etc/kbd/config"
+  
+  if [ -f "/etc/kbd/config" ]; then
+    sed -i 's/BLANK_TIME=.*/BLANK_TIME=0/g' "/etc/kbd/config"
+  else
+    echo "Run 'sudo nano /boot/cmdline.txt' and add the parameter 'consoleblank=0'."
+  fi
 }
 
 
@@ -271,7 +275,11 @@ function deactivate_console()
   else
     echo "Run 'sudo nano /etc/rc.local' and remove the line 'con2fbmap 1 1'."
   fi
-  sed -i 's/BLANK_TIME=0/BLANK_TIME=10/g' "/etc/kbd/config"
+  if [ -f "/etc/kbd/config" ]; then
+    sed -i 's/BLANK_TIME=0/BLANK_TIME=10/g' "/etc/kbd/config"
+  else
+    echo "Run 'sudo nano /boot/cmdline.txt' and remove the parameter 'consoleblank=0'."
+  fi
   echo
   echo "Set screen blanking time to 10 minutes."
   echo

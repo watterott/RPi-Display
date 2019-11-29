@@ -377,7 +377,19 @@ function install_tslib()
   echo "TSLIB_FBDEVICE=/dev/fb1 TSLIB_TSDEVICE=/dev/input/touchscreen sudo ts_calibrate"
   echo
 
-  apt-get install -y tslib libts-bin
+  # install libts0 (for Buster) or tslib
+  apt-get install -y libts0 || apt-get install -y tslib
+  apt-get install -y libts-bin evtest
+
+  # tslib package does not exist on Buster, so compile from source
+  #apt-get install -y cmake git
+  #git clone https://github.com/libts/tslib
+  #cd tslib
+  #mkdir build && cd build
+  #cmake ../
+  #cmake --build .
+  #cmake -P cmake_install.cmake
+
   # install ts_test with quit button
   #curl -k -L -o /usr/bin/ts_test http://tronnes.org/downloads/ts_test
   #chmod +x /usr/bin/ts_test

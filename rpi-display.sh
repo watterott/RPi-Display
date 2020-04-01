@@ -327,7 +327,7 @@ function install_xinputcalibrator()
   echo
 
   cd /tmp
-  curl -k -L -o xinput-calibrator_0.7.5-1_armhf.deb http://tronnes.org/downloads/xinput-calibrator_0.7.5-1_armhf.deb
+  curl -k -L -o xinput-calibrator_0.7.5-1_armhf.deb https://files.watterott.com/fbtft/xinput-calibrator_0.7.5-1_armhf.deb
   dpkg -i -B xinput-calibrator_0.7.5-1_armhf.deb
   rm xinput-calibrator_0.7.5-1_armhf.deb
 

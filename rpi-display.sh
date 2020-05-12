@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# installation script for RPi-Display - https://github.com/watterott/RPi-Display
+
 # run: sudo /bin/bash rpi-display.sh [0, 90, 180, 270]
 
 
@@ -325,11 +327,13 @@ function install_xinputcalibrator()
   echo
   echo "Run 'sudo startx' to calibrate the touchscreen for X."
   echo
+  
+  apt-get install -y xinput-calibrator
 
-  cd /tmp
-  curl -k -L -o xinput-calibrator_0.7.5-1_armhf.deb https://files.watterott.com/fbtft/xinput-calibrator_0.7.5-1_armhf.deb
-  dpkg -i -B xinput-calibrator_0.7.5-1_armhf.deb
-  rm xinput-calibrator_0.7.5-1_armhf.deb
+  #cd /tmp
+  #curl -k -L -o xinput-calibrator_0.7.5-1_armhf.deb https://files.watterott.com/fbtft/xinput-calibrator_0.7.5-1_armhf.deb
+  #dpkg -i -B xinput-calibrator_0.7.5-1_armhf.deb
+  #rm xinput-calibrator_0.7.5-1_armhf.deb
 
   cat > /etc/X11/Xsession.d/xinput_calibrator_pointercal <<'EOF'
 #!/bin/sh

@@ -1,0 +1,4 @@
+Example source code free to use.
+
+Further information:
+https://learn.watterott.com/license/
